@@ -1,0 +1,25 @@
+name: 'Setup V'
+description: 'Setup a V environment by downloading and unpacking or building the V compiler to the PATH.'
+author: prantlf
+
+inputs:
+  version:
+    description: 'version specification (latest, weekly, master, version number or a commit hash)'
+    default: weekly
+  use-cache:
+    description: 'set to `false` to ignore the cache and always download and install or build'
+    default: 'true'
+
+outputs:
+  version:
+    description: 'actually installed version of V'
+  bin-path:
+    description: 'the directory with the V compiler'
+  v-bin-path:
+    de-ccription: 'the path to the V compiler executable'
+  usedCache:
+    description: 'a boolean value to indicate if the cache was hit'
+
+runs:
+  using: node16
+  main: 'dist/index.js'

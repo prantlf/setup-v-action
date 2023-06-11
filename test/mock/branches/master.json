@@ -1,0 +1,100 @@
+{
+  "name": "master",
+  "commit": {
+    "sha": "83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+    "node_id": "C_kwDOCh0R8doAKDgzZTMwYTgxMDRhM2VmMWRjOTY2ZDZlZWZmYjU4MGVmNWI5MGM2ZmM",
+    "commit": {
+      "author": {
+        "name": "Felipe Pena",
+        "email": "felipensp@gmail.com",
+        "date": "2023-06-11T00:59:28Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2023-06-11T00:59:28Z"
+      },
+      "message": "checker, cgen: fix comptime method and field name checking (#18402)",
+      "tree": {
+        "sha": "d0da0e1824bde25b5cc2884e640fff4e6b4c0807",
+        "url": "https://api.github.com/repos/vlang/v/git/trees/d0da0e1824bde25b5cc2884e640fff4e6b4c0807"
+      },
+      "url": "https://api.github.com/repos/vlang/v/git/commits/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJkhRxwCRBK7hj4Ov3rIwAA1hwIAAUwUuWAB2vtCWDklVFKW1Zx\nInfhg4hCQfzweNsBsnRUpoBhfDW998YeupmhXStIotuD+OHhxcJ92oNmRzrvuI/g\nbvEOSRKKN4zvqOzaun9ISXxIo357OCwtybS66N+dk41L5/NeUDLlkaNB5/KzFzOo\nCCuv9PFshhyX1a96PQ+ZE8VsCL/YLWTBi2uNp8u+z3eAM8IpGajjrUORra/LZ7LJ\n/xURAS+YWdOjEAviHME786+lhKdf0AkigSf0agMpCfl5puXckKZs0LDrGKJVXVpI\n8eVE/rMDEY8ismxNKnZ8IYxiBKCdgXg1TnWqN89a+5jQDn3pvrsXs3vXYAqiXto=\n=mriM\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d0da0e1824bde25b5cc2884e640fff4e6b4c0807\nparent af8df871d13e10e763e8a0406ac944234bf8e430\nauthor Felipe Pena <felipensp@gmail.com> 1686445168 -0300\ncommitter GitHub <noreply@github.com> 1686445168 +0300\n\nchecker, cgen: fix comptime method and field name checking (#18402)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/vlang/v/commits/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+    "html_url": "https://github.com/vlang/v/commit/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+    "comments_url": "https://api.github.com/repos/vlang/v/commits/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/comments",
+    "author": {
+      "login": "felipensp",
+      "id": 773947,
+      "node_id": "MDQ6VXNlcjc3Mzk0Nw==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/773947?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/felipensp",
+      "html_url": "https://github.com/felipensp",
+      "followers_url": "https://api.github.com/users/felipensp/followers",
+      "following_url": "https://api.github.com/users/felipensp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/felipensp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/felipensp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/felipensp/subscriptions",
+      "organizations_url": "https://api.github.com/users/felipensp/orgs",
+      "repos_url": "https://api.github.com/users/felipensp/repos",
+      "events_url": "https://api.github.com/users/felipensp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/felipensp/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "af8df871d13e10e763e8a0406ac944234bf8e430",
+        "url": "https://api.github.com/repos/vlang/v/commits/af8df871d13e10e763e8a0406ac944234bf8e430",
+        "html_url": "https://github.com/vlang/v/commit/af8df871d13e10e763e8a0406ac944234bf8e430"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/vlang/v/branches/master",
+    "html": "https://github.com/vlang/v/tree/master"
+  },
+  "protected": true,
+  "protection": {
+    "enabled": true,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [
+
+      ],
+      "checks": [
+
+      ]
+    }
+  },
+  "protection_url": "https://api.github.com/repos/vlang/v/branches/master/protection"
+}

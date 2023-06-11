@@ -1,0 +1,1002 @@
+[
+  {
+    "name": "weekly.2023.23",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.23",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.23",
+    "commit": {
+      "sha": "692624b47c769c39782e8278244ea19edfd211fe",
+      "url": "https://api.github.com/repos/vlang/v/commits/692624b47c769c39782e8278244ea19edfd211fe"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4yMw=="
+  },
+  {
+    "name": "weekly.2023.22",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.22",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.22",
+    "commit": {
+      "sha": "a647a71c525530d474c4c4368bd7347e51ebbab9",
+      "url": "https://api.github.com/repos/vlang/v/commits/a647a71c525530d474c4c4368bd7347e51ebbab9"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4yMg=="
+  },
+  {
+    "name": "weekly.2023.21",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.21",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.21",
+    "commit": {
+      "sha": "e2f18fc9cc4c642c8200d9d015563cfdbe7213f3",
+      "url": "https://api.github.com/repos/vlang/v/commits/e2f18fc9cc4c642c8200d9d015563cfdbe7213f3"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4yMQ=="
+  },
+  {
+    "name": "weekly.2023.19",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.19",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.19",
+    "commit": {
+      "sha": "e2e6c9660c25ff7b62618c038870577f2027cdc0",
+      "url": "https://api.github.com/repos/vlang/v/commits/e2e6c9660c25ff7b62618c038870577f2027cdc0"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xOQ=="
+  },
+  {
+    "name": "weekly.2023.17",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.17",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.17",
+    "commit": {
+      "sha": "bbfa25a17b86ac8e20c667c9165548216ceb524e",
+      "url": "https://api.github.com/repos/vlang/v/commits/bbfa25a17b86ac8e20c667c9165548216ceb524e"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xNw=="
+  },
+  {
+    "name": "weekly.2023.15",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.15",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.15",
+    "commit": {
+      "sha": "91874f32447f5acc982fe4af9756949c97994657",
+      "url": "https://api.github.com/repos/vlang/v/commits/91874f32447f5acc982fe4af9756949c97994657"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xNQ=="
+  },
+  {
+    "name": "weekly.2023.14",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.14",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.14",
+    "commit": {
+      "sha": "88de0decf6f377b74581ddfc384376b3fe19ea8b",
+      "url": "https://api.github.com/repos/vlang/v/commits/88de0decf6f377b74581ddfc384376b3fe19ea8b"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xNA=="
+  },
+  {
+    "name": "weekly.2023.13",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.13",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.13",
+    "commit": {
+      "sha": "6b4fb0fc3efc5ea339300bd95554e471b3d4ce6c",
+      "url": "https://api.github.com/repos/vlang/v/commits/6b4fb0fc3efc5ea339300bd95554e471b3d4ce6c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xMw=="
+  },
+  {
+    "name": "weekly.2023.12",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.12",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.12",
+    "commit": {
+      "sha": "f1e9a8ff3712c5d6eae1ae0d89edde5c35ad9c2a",
+      "url": "https://api.github.com/repos/vlang/v/commits/f1e9a8ff3712c5d6eae1ae0d89edde5c35ad9c2a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xMg=="
+  },
+  {
+    "name": "weekly.2023.11",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.11",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.11",
+    "commit": {
+      "sha": "cb7e25e47e5d19cbdd40dfcd8f5a102ef08a79ab",
+      "url": "https://api.github.com/repos/vlang/v/commits/cb7e25e47e5d19cbdd40dfcd8f5a102ef08a79ab"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xMQ=="
+  },
+  {
+    "name": "weekly.2023.10",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.10",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.10",
+    "commit": {
+      "sha": "d7a418fbb515ead1181fed05eb4b7d6654effd47",
+      "url": "https://api.github.com/repos/vlang/v/commits/d7a418fbb515ead1181fed05eb4b7d6654effd47"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4xMA=="
+  },
+  {
+    "name": "weekly.2023.09",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.09",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.09",
+    "commit": {
+      "sha": "15cb18cbd2139e31bb41169c80ee06a6302baaf2",
+      "url": "https://api.github.com/repos/vlang/v/commits/15cb18cbd2139e31bb41169c80ee06a6302baaf2"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wOQ=="
+  },
+  {
+    "name": "weekly.2023.08",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.08",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.08",
+    "commit": {
+      "sha": "e9a3817aed9b5d28db7fb13daef44c4648cf0c5c",
+      "url": "https://api.github.com/repos/vlang/v/commits/e9a3817aed9b5d28db7fb13daef44c4648cf0c5c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wOA=="
+  },
+  {
+    "name": "weekly.2023.07",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.07",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.07",
+    "commit": {
+      "sha": "b13f7118ab6ae9afd78c92c312510eab20201973",
+      "url": "https://api.github.com/repos/vlang/v/commits/b13f7118ab6ae9afd78c92c312510eab20201973"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wNw=="
+  },
+  {
+    "name": "weekly.2023.06",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.06",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.06",
+    "commit": {
+      "sha": "9794a239b1aad767f7cbd6ea3dab39dde2a77dc4",
+      "url": "https://api.github.com/repos/vlang/v/commits/9794a239b1aad767f7cbd6ea3dab39dde2a77dc4"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wNg=="
+  },
+  {
+    "name": "weekly.2023.05",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.05",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.05",
+    "commit": {
+      "sha": "8cdc554c63aa000de08c6dec8cca37823b68129b",
+      "url": "https://api.github.com/repos/vlang/v/commits/8cdc554c63aa000de08c6dec8cca37823b68129b"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wNQ=="
+  },
+  {
+    "name": "weekly.2023.04",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.04",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.04",
+    "commit": {
+      "sha": "5aad0db0f765b0905facde6876e088d0e579e311",
+      "url": "https://api.github.com/repos/vlang/v/commits/5aad0db0f765b0905facde6876e088d0e579e311"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wNA=="
+  },
+  {
+    "name": "weekly.2023.03",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.03",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.03",
+    "commit": {
+      "sha": "6bf6a40e0c9b6837050d026fe38e3e8a7da0eb5e",
+      "url": "https://api.github.com/repos/vlang/v/commits/6bf6a40e0c9b6837050d026fe38e3e8a7da0eb5e"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wMw=="
+  },
+  {
+    "name": "weekly.2023.02",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.02",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.02",
+    "commit": {
+      "sha": "09f48455c5729a8cebf43ea314437065f0d0213a",
+      "url": "https://api.github.com/repos/vlang/v/commits/09f48455c5729a8cebf43ea314437065f0d0213a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wMg=="
+  },
+  {
+    "name": "weekly.2023.01",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2023.01",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2023.01",
+    "commit": {
+      "sha": "f71572a50f4ed48de2a31b78b784b864c3c70312",
+      "url": "https://api.github.com/repos/vlang/v/commits/f71572a50f4ed48de2a31b78b784b864c3c70312"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMy4wMQ=="
+  },
+  {
+    "name": "weekly.2022.52",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.52",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.52",
+    "commit": {
+      "sha": "6b3f8f519dda8f1ac20ecd6a79da01b0b5c11872",
+      "url": "https://api.github.com/repos/vlang/v/commits/6b3f8f519dda8f1ac20ecd6a79da01b0b5c11872"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi41Mg=="
+  },
+  {
+    "name": "weekly.2022.51",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.51",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.51",
+    "commit": {
+      "sha": "6a179a29267853c65e0661e11041d03f17feb303",
+      "url": "https://api.github.com/repos/vlang/v/commits/6a179a29267853c65e0661e11041d03f17feb303"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi41MQ=="
+  },
+  {
+    "name": "weekly.2022.50",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.50",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.50",
+    "commit": {
+      "sha": "992621bd9119c5d89858ca60c78eeb631cfc4b33",
+      "url": "https://api.github.com/repos/vlang/v/commits/992621bd9119c5d89858ca60c78eeb631cfc4b33"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi41MA=="
+  },
+  {
+    "name": "weekly.2022.49",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.49",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.49",
+    "commit": {
+      "sha": "d62fc777c9a3e0525aca15b21ebf6e78c0ffa913",
+      "url": "https://api.github.com/repos/vlang/v/commits/d62fc777c9a3e0525aca15b21ebf6e78c0ffa913"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40OQ=="
+  },
+  {
+    "name": "weekly.2022.48",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.48",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.48",
+    "commit": {
+      "sha": "58e150df1258d69dc07340aed7ba26d7bb9b5c27",
+      "url": "https://api.github.com/repos/vlang/v/commits/58e150df1258d69dc07340aed7ba26d7bb9b5c27"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40OA=="
+  },
+  {
+    "name": "weekly.2022.47",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.47",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.47",
+    "commit": {
+      "sha": "a987f84b1553dc77d70d27a31155c3bef34ecb8f",
+      "url": "https://api.github.com/repos/vlang/v/commits/a987f84b1553dc77d70d27a31155c3bef34ecb8f"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40Nw=="
+  },
+  {
+    "name": "weekly.2022.46",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.46",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.46",
+    "commit": {
+      "sha": "56239b4a236e7f04a119f76dedaac45e0b9472b2",
+      "url": "https://api.github.com/repos/vlang/v/commits/56239b4a236e7f04a119f76dedaac45e0b9472b2"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40Ng=="
+  },
+  {
+    "name": "weekly.2022.45",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.45",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.45",
+    "commit": {
+      "sha": "5f33585edfef2df13187264ce9737cf62a9fc53b",
+      "url": "https://api.github.com/repos/vlang/v/commits/5f33585edfef2df13187264ce9737cf62a9fc53b"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40NQ=="
+  },
+  {
+    "name": "weekly.2022.44",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.44",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.44",
+    "commit": {
+      "sha": "1b721250e09d72b2f8505752b7099f35f1e2a1cf",
+      "url": "https://api.github.com/repos/vlang/v/commits/1b721250e09d72b2f8505752b7099f35f1e2a1cf"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40NA=="
+  },
+  {
+    "name": "weekly.2022.43",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.43",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.43",
+    "commit": {
+      "sha": "779cc3382529bc03b0a84ec470a0eca4cfe7ece7",
+      "url": "https://api.github.com/repos/vlang/v/commits/779cc3382529bc03b0a84ec470a0eca4cfe7ece7"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40Mw=="
+  },
+  {
+    "name": "weekly.2022.42",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.42",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.42",
+    "commit": {
+      "sha": "e3379bca9799fdf9619fb5105bcc420cae459aef",
+      "url": "https://api.github.com/repos/vlang/v/commits/e3379bca9799fdf9619fb5105bcc420cae459aef"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40Mg=="
+  },
+  {
+    "name": "weekly.2022.41",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.41",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.41",
+    "commit": {
+      "sha": "6e46933c554743c4d2d90b23561b611e9b5fd8f2",
+      "url": "https://api.github.com/repos/vlang/v/commits/6e46933c554743c4d2d90b23561b611e9b5fd8f2"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40MQ=="
+  },
+  {
+    "name": "weekly.2022.40",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.40",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.40",
+    "commit": {
+      "sha": "267e26ba1d739a45abd0ded39ac3074aed17893c",
+      "url": "https://api.github.com/repos/vlang/v/commits/267e26ba1d739a45abd0ded39ac3074aed17893c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi40MA=="
+  },
+  {
+    "name": "weekly.2022.39",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.39",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.39",
+    "commit": {
+      "sha": "385acb448ac8db9ae28bf90a111448048fce2c77",
+      "url": "https://api.github.com/repos/vlang/v/commits/385acb448ac8db9ae28bf90a111448048fce2c77"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zOQ=="
+  },
+  {
+    "name": "weekly.2022.38",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.38",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.38",
+    "commit": {
+      "sha": "993802f6a60c5df48e5fc5a35db21cb2df20d240",
+      "url": "https://api.github.com/repos/vlang/v/commits/993802f6a60c5df48e5fc5a35db21cb2df20d240"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zOA=="
+  },
+  {
+    "name": "weekly.2022.37",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.37",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.37",
+    "commit": {
+      "sha": "ac6167565eb109b350698da8123c8ac462f6e59a",
+      "url": "https://api.github.com/repos/vlang/v/commits/ac6167565eb109b350698da8123c8ac462f6e59a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zNw=="
+  },
+  {
+    "name": "weekly.2022.36",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.36",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.36",
+    "commit": {
+      "sha": "1c63ce479cdb307d69f0eede3f4ce38c65585c79",
+      "url": "https://api.github.com/repos/vlang/v/commits/1c63ce479cdb307d69f0eede3f4ce38c65585c79"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zNg=="
+  },
+  {
+    "name": "weekly.2022.35",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.35",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.35",
+    "commit": {
+      "sha": "56135dbdbcc07b7a0b8f4c2d2bbb685853a1a782",
+      "url": "https://api.github.com/repos/vlang/v/commits/56135dbdbcc07b7a0b8f4c2d2bbb685853a1a782"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zNQ=="
+  },
+  {
+    "name": "weekly.2022.34",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.34",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.34",
+    "commit": {
+      "sha": "a689641c1b9bbfea6eb917e8b322d01a5ef6244b",
+      "url": "https://api.github.com/repos/vlang/v/commits/a689641c1b9bbfea6eb917e8b322d01a5ef6244b"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zNA=="
+  },
+  {
+    "name": "weekly.2022.33",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.33",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.33",
+    "commit": {
+      "sha": "3bc01d696da697742d88cbb6caf902911f7f221e",
+      "url": "https://api.github.com/repos/vlang/v/commits/3bc01d696da697742d88cbb6caf902911f7f221e"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zMw=="
+  },
+  {
+    "name": "weekly.2022.32",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.32",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.32",
+    "commit": {
+      "sha": "6a728e1674ab927ded26294f0065a3db7899713f",
+      "url": "https://api.github.com/repos/vlang/v/commits/6a728e1674ab927ded26294f0065a3db7899713f"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zMg=="
+  },
+  {
+    "name": "weekly.2022.31",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.31",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.31",
+    "commit": {
+      "sha": "a35356758cd4b2d5dea046eedd0a01ce92ab4c16",
+      "url": "https://api.github.com/repos/vlang/v/commits/a35356758cd4b2d5dea046eedd0a01ce92ab4c16"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zMQ=="
+  },
+  {
+    "name": "weekly.2022.30",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.30",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.30",
+    "commit": {
+      "sha": "82db1e47460ad54461c0e9f2dccab897cb7d2f19",
+      "url": "https://api.github.com/repos/vlang/v/commits/82db1e47460ad54461c0e9f2dccab897cb7d2f19"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4zMA=="
+  },
+  {
+    "name": "weekly.2022.29",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.29",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.29",
+    "commit": {
+      "sha": "12d57e8e7b3bb90fad779b0d6e4071df9c887e4d",
+      "url": "https://api.github.com/repos/vlang/v/commits/12d57e8e7b3bb90fad779b0d6e4071df9c887e4d"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yOQ=="
+  },
+  {
+    "name": "weekly.2022.28",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.28",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.28",
+    "commit": {
+      "sha": "28fd17654e5468bc20007cc88b00b1b12eee3538",
+      "url": "https://api.github.com/repos/vlang/v/commits/28fd17654e5468bc20007cc88b00b1b12eee3538"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yOA=="
+  },
+  {
+    "name": "weekly.2022.26",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.26",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.26",
+    "commit": {
+      "sha": "b47d35a0bb1184c1242184e93b3ee3d2b448ed30",
+      "url": "https://api.github.com/repos/vlang/v/commits/b47d35a0bb1184c1242184e93b3ee3d2b448ed30"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yNg=="
+  },
+  {
+    "name": "weekly.2022.24",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.24",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.24",
+    "commit": {
+      "sha": "8fa1e30dd2ab47a6b7dce1c987a58cca331f7ee1",
+      "url": "https://api.github.com/repos/vlang/v/commits/8fa1e30dd2ab47a6b7dce1c987a58cca331f7ee1"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yNA=="
+  },
+  {
+    "name": "weekly.2022.22",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.22",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.22",
+    "commit": {
+      "sha": "928dafeb6da788100aee60e1ea29a3370bcbe6d2",
+      "url": "https://api.github.com/repos/vlang/v/commits/928dafeb6da788100aee60e1ea29a3370bcbe6d2"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yMg=="
+  },
+  {
+    "name": "weekly.2022.21",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.21",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.21",
+    "commit": {
+      "sha": "a3c0a9b7915343bdf69719164df518ed2686a3b5",
+      "url": "https://api.github.com/repos/vlang/v/commits/a3c0a9b7915343bdf69719164df518ed2686a3b5"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yMQ=="
+  },
+  {
+    "name": "weekly.2022.20",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.20",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.20",
+    "commit": {
+      "sha": "02c8a6057caeaf06f561292c0d523bd5b09916af",
+      "url": "https://api.github.com/repos/vlang/v/commits/02c8a6057caeaf06f561292c0d523bd5b09916af"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4yMA=="
+  },
+  {
+    "name": "weekly.2022.19",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.19",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.19",
+    "commit": {
+      "sha": "d24dce8eb33d60395e8dd8326bbfd0e81a0bcf7b",
+      "url": "https://api.github.com/repos/vlang/v/commits/d24dce8eb33d60395e8dd8326bbfd0e81a0bcf7b"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xOQ=="
+  },
+  {
+    "name": "weekly.2022.18",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.18",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.18",
+    "commit": {
+      "sha": "63eacede950fd7a236d4ae2dcace4667f55ded88",
+      "url": "https://api.github.com/repos/vlang/v/commits/63eacede950fd7a236d4ae2dcace4667f55ded88"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xOA=="
+  },
+  {
+    "name": "weekly.2022.16",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.16",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.16",
+    "commit": {
+      "sha": "379b638b57c03e9d41cbb3d8d8e88cf3dee31172",
+      "url": "https://api.github.com/repos/vlang/v/commits/379b638b57c03e9d41cbb3d8d8e88cf3dee31172"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xNg=="
+  },
+  {
+    "name": "weekly.2022.15",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.15",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.15",
+    "commit": {
+      "sha": "67189580583b0001151fce367cc70cf5af1353b4",
+      "url": "https://api.github.com/repos/vlang/v/commits/67189580583b0001151fce367cc70cf5af1353b4"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xNQ=="
+  },
+  {
+    "name": "weekly.2022.13",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.13",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.13",
+    "commit": {
+      "sha": "509367b293b86dc5e6be9dcaa28af5850e12b742",
+      "url": "https://api.github.com/repos/vlang/v/commits/509367b293b86dc5e6be9dcaa28af5850e12b742"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xMw=="
+  },
+  {
+    "name": "weekly.2022.12",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.12",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.12",
+    "commit": {
+      "sha": "5815ab8d00d30ce067910ea3c7abfd59891868c4",
+      "url": "https://api.github.com/repos/vlang/v/commits/5815ab8d00d30ce067910ea3c7abfd59891868c4"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xMg=="
+  },
+  {
+    "name": "weekly.2022.11",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.11",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.11",
+    "commit": {
+      "sha": "34dd4f34ab76f4533d4068a13473d8df40abf582",
+      "url": "https://api.github.com/repos/vlang/v/commits/34dd4f34ab76f4533d4068a13473d8df40abf582"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xMQ=="
+  },
+  {
+    "name": "weekly.2022.10",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.10",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.10",
+    "commit": {
+      "sha": "137fade014cbd8698107f4a6f941c0e20624743c",
+      "url": "https://api.github.com/repos/vlang/v/commits/137fade014cbd8698107f4a6f941c0e20624743c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4xMA=="
+  },
+  {
+    "name": "weekly.2022.09",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.09",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.09",
+    "commit": {
+      "sha": "9a2df0df0e0bdfa74c4f3036583c6a6ae939eb24",
+      "url": "https://api.github.com/repos/vlang/v/commits/9a2df0df0e0bdfa74c4f3036583c6a6ae939eb24"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wOQ=="
+  },
+  {
+    "name": "weekly.2022.07",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.07",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.07",
+    "commit": {
+      "sha": "efdbe9d92cebd5efdce8f77c6310ab4ffc7a1f55",
+      "url": "https://api.github.com/repos/vlang/v/commits/efdbe9d92cebd5efdce8f77c6310ab4ffc7a1f55"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wNw=="
+  },
+  {
+    "name": "weekly.2022.06",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.06",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.06",
+    "commit": {
+      "sha": "4ef7d26133a997cfaebff3f1c6e59b3ff310654f",
+      "url": "https://api.github.com/repos/vlang/v/commits/4ef7d26133a997cfaebff3f1c6e59b3ff310654f"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wNg=="
+  },
+  {
+    "name": "weekly.2022.05",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.05",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.05",
+    "commit": {
+      "sha": "b34860e39bd9c84e978a5d07cc459bf8e1061395",
+      "url": "https://api.github.com/repos/vlang/v/commits/b34860e39bd9c84e978a5d07cc459bf8e1061395"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wNQ=="
+  },
+  {
+    "name": "weekly.2022.04",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.04",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.04",
+    "commit": {
+      "sha": "216a505c2ab47bfdaf679713cf01ad525d77fa47",
+      "url": "https://api.github.com/repos/vlang/v/commits/216a505c2ab47bfdaf679713cf01ad525d77fa47"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wNA=="
+  },
+  {
+    "name": "weekly.2022.03",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.03",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.03",
+    "commit": {
+      "sha": "d8263171ff21809b6d5514dab481928ee2f3af22",
+      "url": "https://api.github.com/repos/vlang/v/commits/d8263171ff21809b6d5514dab481928ee2f3af22"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wMw=="
+  },
+  {
+    "name": "weekly.2022.02",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.02",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.02",
+    "commit": {
+      "sha": "c07ce3ff154c9a245a37f7999e8fd5ace73fa21e",
+      "url": "https://api.github.com/repos/vlang/v/commits/c07ce3ff154c9a245a37f7999e8fd5ace73fa21e"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wMg=="
+  },
+  {
+    "name": "weekly.2022.01",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2022.01",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2022.01",
+    "commit": {
+      "sha": "bb6aabd430f46744c1cd118a9865d7318f68e87a",
+      "url": "https://api.github.com/repos/vlang/v/commits/bb6aabd430f46744c1cd118a9865d7318f68e87a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMi4wMQ=="
+  },
+  {
+    "name": "weekly.2021.52.1",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.52.1",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.52.1",
+    "commit": {
+      "sha": "c1711b8f0524f92af18ed14c4d0618355c6ca0fd",
+      "url": "https://api.github.com/repos/vlang/v/commits/c1711b8f0524f92af18ed14c4d0618355c6ca0fd"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41Mi4x"
+  },
+  {
+    "name": "weekly.2021.52",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.52",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.52",
+    "commit": {
+      "sha": "35418b841300cb014a4bdca078d92f67d27f837c",
+      "url": "https://api.github.com/repos/vlang/v/commits/35418b841300cb014a4bdca078d92f67d27f837c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41Mg=="
+  },
+  {
+    "name": "weekly.2021.51",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.51",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.51",
+    "commit": {
+      "sha": "ed2d1286dae46c9f7fd48ff4777991d1f7083751",
+      "url": "https://api.github.com/repos/vlang/v/commits/ed2d1286dae46c9f7fd48ff4777991d1f7083751"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41MQ=="
+  },
+  {
+    "name": "weekly.2021.50.3",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.50.3",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.50.3",
+    "commit": {
+      "sha": "5365984ef5471c9f07e2513083eb8d12ecb1a4c3",
+      "url": "https://api.github.com/repos/vlang/v/commits/5365984ef5471c9f07e2513083eb8d12ecb1a4c3"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41MC4z"
+  },
+  {
+    "name": "weekly.2021.50.2",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.50.2",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.50.2",
+    "commit": {
+      "sha": "2f99022f0fcd05efc16e632b5eca03a843b3e167",
+      "url": "https://api.github.com/repos/vlang/v/commits/2f99022f0fcd05efc16e632b5eca03a843b3e167"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41MC4y"
+  },
+  {
+    "name": "weekly.2021.50.1",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.50.1",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.50.1",
+    "commit": {
+      "sha": "eed882950c529bd810b7124b47a9888388e86ba9",
+      "url": "https://api.github.com/repos/vlang/v/commits/eed882950c529bd810b7124b47a9888388e86ba9"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41MC4x"
+  },
+  {
+    "name": "weekly.2021.50",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.50",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.50",
+    "commit": {
+      "sha": "d5c0bdf95478c47c89cd19350b59249a94bcd709",
+      "url": "https://api.github.com/repos/vlang/v/commits/d5c0bdf95478c47c89cd19350b59249a94bcd709"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS41MA=="
+  },
+  {
+    "name": "weekly.2021.48",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.48",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.48",
+    "commit": {
+      "sha": "66a67de8c092f7715c7feabf51460b5246c4995a",
+      "url": "https://api.github.com/repos/vlang/v/commits/66a67de8c092f7715c7feabf51460b5246c4995a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40OA=="
+  },
+  {
+    "name": "weekly.2021.47",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.47",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.47",
+    "commit": {
+      "sha": "12ffe042120e35e63b0db0bff6a04c9913a86f87",
+      "url": "https://api.github.com/repos/vlang/v/commits/12ffe042120e35e63b0db0bff6a04c9913a86f87"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40Nw=="
+  },
+  {
+    "name": "weekly.2021.46",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.46",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.46",
+    "commit": {
+      "sha": "1d003228cbf5aae95a725be0bdb499ac46b3d91a",
+      "url": "https://api.github.com/repos/vlang/v/commits/1d003228cbf5aae95a725be0bdb499ac46b3d91a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40Ng=="
+  },
+  {
+    "name": "weekly.2021.45",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.45",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.45",
+    "commit": {
+      "sha": "08667c5645288220dbfe08604ab131673720f29f",
+      "url": "https://api.github.com/repos/vlang/v/commits/08667c5645288220dbfe08604ab131673720f29f"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40NQ=="
+  },
+  {
+    "name": "weekly.2021.44",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.44",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.44",
+    "commit": {
+      "sha": "639cbfa0d1de515582174180d71e4a813e301499",
+      "url": "https://api.github.com/repos/vlang/v/commits/639cbfa0d1de515582174180d71e4a813e301499"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40NA=="
+  },
+  {
+    "name": "weekly.2021.43",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.43",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.43",
+    "commit": {
+      "sha": "18da724a9f6f9f744774f9da8e43b96ef1843bdf",
+      "url": "https://api.github.com/repos/vlang/v/commits/18da724a9f6f9f744774f9da8e43b96ef1843bdf"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40Mw=="
+  },
+  {
+    "name": "weekly.2021.42.1",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.42.1",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.42.1",
+    "commit": {
+      "sha": "57c79770b3082febbb8ac3c5a9579cbc19939ab1",
+      "url": "https://api.github.com/repos/vlang/v/commits/57c79770b3082febbb8ac3c5a9579cbc19939ab1"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40Mi4x"
+  },
+  {
+    "name": "weekly.2021.42",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.42",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.42",
+    "commit": {
+      "sha": "5dd386461765245daeafc02521fc4b81f1937610",
+      "url": "https://api.github.com/repos/vlang/v/commits/5dd386461765245daeafc02521fc4b81f1937610"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40Mg=="
+  },
+  {
+    "name": "weekly.2021.41",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.41",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.41",
+    "commit": {
+      "sha": "6c6bb085479338931ee2f1772504e05708674dc5",
+      "url": "https://api.github.com/repos/vlang/v/commits/6c6bb085479338931ee2f1772504e05708674dc5"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS40MQ=="
+  },
+  {
+    "name": "weekly.2021.39.1",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.39.1",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.39.1",
+    "commit": {
+      "sha": "24c1d552d78365418699ba1b4d4651a5deb0c773",
+      "url": "https://api.github.com/repos/vlang/v/commits/24c1d552d78365418699ba1b4d4651a5deb0c773"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zOS4x"
+  },
+  {
+    "name": "weekly.2021.39",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.39",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.39",
+    "commit": {
+      "sha": "105e76f3215a6561fa19ccc8f4f7026631aa3b64",
+      "url": "https://api.github.com/repos/vlang/v/commits/105e76f3215a6561fa19ccc8f4f7026631aa3b64"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zOQ=="
+  },
+  {
+    "name": "weekly.2021.38",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.38",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.38",
+    "commit": {
+      "sha": "49886b8c406d1679225650e890fb9fadacd65243",
+      "url": "https://api.github.com/repos/vlang/v/commits/49886b8c406d1679225650e890fb9fadacd65243"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zOA=="
+  },
+  {
+    "name": "weekly.2021.37",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.37",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.37",
+    "commit": {
+      "sha": "41fc4c55c6b8693afbaa9babb5cf71fce97535f4",
+      "url": "https://api.github.com/repos/vlang/v/commits/41fc4c55c6b8693afbaa9babb5cf71fce97535f4"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zNw=="
+  },
+  {
+    "name": "weekly.2021.36",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.36",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.36",
+    "commit": {
+      "sha": "0b6d585b0710d384206fa5bbc38e883904eb79f8",
+      "url": "https://api.github.com/repos/vlang/v/commits/0b6d585b0710d384206fa5bbc38e883904eb79f8"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zNg=="
+  },
+  {
+    "name": "weekly.2021.33.2",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.33.2",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.33.2",
+    "commit": {
+      "sha": "d7490abe1950691bcff91f34ff440eb799a51b9c",
+      "url": "https://api.github.com/repos/vlang/v/commits/d7490abe1950691bcff91f34ff440eb799a51b9c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zMy4y"
+  },
+  {
+    "name": "weekly.2021.33.1",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.33.1",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.33.1",
+    "commit": {
+      "sha": "9aa84082fd4b8a6990e01852dda201632201568f",
+      "url": "https://api.github.com/repos/vlang/v/commits/9aa84082fd4b8a6990e01852dda201632201568f"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zMy4x"
+  },
+  {
+    "name": "weekly.2021.33",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.33",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.33",
+    "commit": {
+      "sha": "f8d6fe7a8b1861ff3320ad501dac7afb3d1ba89c",
+      "url": "https://api.github.com/repos/vlang/v/commits/f8d6fe7a8b1861ff3320ad501dac7afb3d1ba89c"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zMw=="
+  },
+  {
+    "name": "weekly.2021.32",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.32",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.32",
+    "commit": {
+      "sha": "11794039e210c3bd2a205befdefc3a6859e7473a",
+      "url": "https://api.github.com/repos/vlang/v/commits/11794039e210c3bd2a205befdefc3a6859e7473a"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zMg=="
+  },
+  {
+    "name": "weekly.2021.31",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.31",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.31",
+    "commit": {
+      "sha": "69f31d8d5c4accf766e41b46cd7a2758a377add7",
+      "url": "https://api.github.com/repos/vlang/v/commits/69f31d8d5c4accf766e41b46cd7a2758a377add7"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zMQ=="
+  },
+  {
+    "name": "weekly.2021.30",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.30",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.30",
+    "commit": {
+      "sha": "cb7be87d4e38b41620e8952d19ec9cde51303acb",
+      "url": "https://api.github.com/repos/vlang/v/commits/cb7be87d4e38b41620e8952d19ec9cde51303acb"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4zMA=="
+  },
+  {
+    "name": "weekly.2021.29",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.29",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.29",
+    "commit": {
+      "sha": "1db354c360495038983c5cb603c8115b6ab8f753",
+      "url": "https://api.github.com/repos/vlang/v/commits/1db354c360495038983c5cb603c8115b6ab8f753"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yOQ=="
+  },
+  {
+    "name": "weekly.2021.28",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.28",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.28",
+    "commit": {
+      "sha": "b5f1cf80a60f6d48c5cc64304f9a9de7a11b70be",
+      "url": "https://api.github.com/repos/vlang/v/commits/b5f1cf80a60f6d48c5cc64304f9a9de7a11b70be"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yOA=="
+  },
+  {
+    "name": "weekly.2021.27",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.27",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.27",
+    "commit": {
+      "sha": "9e61321d4cb03d260260043f88ddae459048f1b2",
+      "url": "https://api.github.com/repos/vlang/v/commits/9e61321d4cb03d260260043f88ddae459048f1b2"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yNw=="
+  },
+  {
+    "name": "weekly.2021.26",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.26",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.26",
+    "commit": {
+      "sha": "0ac0ab6b4b6ae0984b2fcd59bfba361a0c3c21db",
+      "url": "https://api.github.com/repos/vlang/v/commits/0ac0ab6b4b6ae0984b2fcd59bfba361a0c3c21db"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yNg=="
+  },
+  {
+    "name": "weekly.2021.25",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.25",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.25",
+    "commit": {
+      "sha": "5d0e9417dbd693aae954852c6dba4370a801cdbf",
+      "url": "https://api.github.com/repos/vlang/v/commits/5d0e9417dbd693aae954852c6dba4370a801cdbf"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yNQ=="
+  },
+  {
+    "name": "weekly.2021.24",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.24",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.24",
+    "commit": {
+      "sha": "2f9e03b3602389b2621d7a09f20d3a77b84fca15",
+      "url": "https://api.github.com/repos/vlang/v/commits/2f9e03b3602389b2621d7a09f20d3a77b84fca15"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yNA=="
+  },
+  {
+    "name": "weekly.2021.23",
+    "zipball_url": "https://api.github.com/repos/vlang/v/zipball/refs/tags/weekly.2021.23",
+    "tarball_url": "https://api.github.com/repos/vlang/v/tarball/refs/tags/weekly.2021.23",
+    "commit": {
+      "sha": "0615f2e2368f5e1412237601d002c4dba535e59b",
+      "url": "https://api.github.com/repos/vlang/v/commits/0615f2e2368f5e1412237601d002c4dba535e59b"
+    },
+    "node_id": "MDM6UmVmMTY5Njc3Mjk3OnJlZnMvdGFncy93ZWVrbHkuMjAyMS4yMw=="
+  }
+]

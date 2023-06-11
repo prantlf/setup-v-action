@@ -1,0 +1,122 @@
+{
+  "sha": "83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+  "node_id": "C_kwDOCh0R8doAKDgzZTMwYTgxMDRhM2VmMWRjOTY2ZDZlZWZmYjU4MGVmNWI5MGM2ZmM",
+  "commit": {
+    "author": {
+      "name": "Felipe Pena",
+      "email": "felipensp@gmail.com",
+      "date": "2023-06-11T00:59:28Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2023-06-11T00:59:28Z"
+    },
+    "message": "checker, cgen: fix comptime method and field name checking (#18402)",
+    "tree": {
+      "sha": "d0da0e1824bde25b5cc2884e640fff4e6b4c0807",
+      "url": "https://api.github.com/repos/vlang/v/git/trees/d0da0e1824bde25b5cc2884e640fff4e6b4c0807"
+    },
+    "url": "https://api.github.com/repos/vlang/v/git/commits/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJkhRxwCRBK7hj4Ov3rIwAA1hwIAAUwUuWAB2vtCWDklVFKW1Zx\nInfhg4hCQfzweNsBsnRUpoBhfDW998YeupmhXStIotuD+OHhxcJ92oNmRzrvuI/g\nbvEOSRKKN4zvqOzaun9ISXxIo357OCwtybS66N+dk41L5/NeUDLlkaNB5/KzFzOo\nCCuv9PFshhyX1a96PQ+ZE8VsCL/YLWTBi2uNp8u+z3eAM8IpGajjrUORra/LZ7LJ\n/xURAS+YWdOjEAviHME786+lhKdf0AkigSf0agMpCfl5puXckKZs0LDrGKJVXVpI\n8eVE/rMDEY8ismxNKnZ8IYxiBKCdgXg1TnWqN89a+5jQDn3pvrsXs3vXYAqiXto=\n=mriM\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree d0da0e1824bde25b5cc2884e640fff4e6b4c0807\nparent af8df871d13e10e763e8a0406ac944234bf8e430\nauthor Felipe Pena <felipensp@gmail.com> 1686445168 -0300\ncommitter GitHub <noreply@github.com> 1686445168 +0300\n\nchecker, cgen: fix comptime method and field name checking (#18402)\n\n"
+    }
+  },
+  "url": "https://api.github.com/repos/vlang/v/commits/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+  "html_url": "https://github.com/vlang/v/commit/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+  "comments_url": "https://api.github.com/repos/vlang/v/commits/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/comments",
+  "author": {
+    "login": "felipensp",
+    "id": 773947,
+    "node_id": "MDQ6VXNlcjc3Mzk0Nw==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/773947?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/felipensp",
+    "html_url": "https://github.com/felipensp",
+    "followers_url": "https://api.github.com/users/felipensp/followers",
+    "following_url": "https://api.github.com/users/felipensp/following{/other_user}",
+    "gists_url": "https://api.github.com/users/felipensp/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/felipensp/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/felipensp/subscriptions",
+    "organizations_url": "https://api.github.com/users/felipensp/orgs",
+    "repos_url": "https://api.github.com/users/felipensp/repos",
+    "events_url": "https://api.github.com/users/felipensp/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/felipensp/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "af8df871d13e10e763e8a0406ac944234bf8e430",
+      "url": "https://api.github.com/repos/vlang/v/commits/af8df871d13e10e763e8a0406ac944234bf8e430",
+      "html_url": "https://github.com/vlang/v/commit/af8df871d13e10e763e8a0406ac944234bf8e430"
+    }
+  ],
+  "stats": {
+    "total": 66,
+    "additions": 60,
+    "deletions": 6
+  },
+  "files": [
+    {
+      "sha": "ed3054622207dace2e66270915718ca09c53672a",
+      "filename": "vlib/v/checker/if.v",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 0,
+      "changes": 24,
+      "blob_url": "https://github.com/vlang/v/blob/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/vlib%2Fv%2Fchecker%2Fif.v",
+      "raw_url": "https://github.com/vlang/v/raw/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/vlib%2Fv%2Fchecker%2Fif.v",
+      "contents_url": "https://api.github.com/repos/vlang/v/contents/vlib%2Fv%2Fchecker%2Fif.v?ref=83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+      "patch": "@@ -220,6 +220,30 @@ fn (mut c Checker) if_expr(mut node ast.IfExpr) ast.Type {\n \t\t\t\t\t\t\t\t}\n \t\t\t\t\t\t\t}\n \t\t\t\t\t\t}\n+\t\t\t\t\t} else if branch.cond.op in [.eq, .ne] && left is ast.SelectorExpr\n+\t\t\t\t\t\t&& right is ast.StringLiteral {\n+\t\t\t\t\t\tif left.expr.str() == c.comptime_for_field_var {\n+\t\t\t\t\t\t\tif left.field_name == 'name' {\n+\t\t\t\t\t\t\t\tis_comptime_type_is_expr = true\n+\t\t\t\t\t\t\t\tmatch branch.cond.op {\n+\t\t\t\t\t\t\t\t\t.eq {\n+\t\t\t\t\t\t\t\t\t\tskip_state = if c.comptime_for_field_value.name == right.val.str() {\n+\t\t\t\t\t\t\t\t\t\t\tComptimeBranchSkipState.eval\n+\t\t\t\t\t\t\t\t\t\t} else {\n+\t\t\t\t\t\t\t\t\t\t\tComptimeBranchSkipState.skip\n+\t\t\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t\t\t.ne {\n+\t\t\t\t\t\t\t\t\t\tskip_state = if c.comptime_for_field_value.name == right.val.str() {\n+\t\t\t\t\t\t\t\t\t\t\tComptimeBranchSkipState.skip\n+\t\t\t\t\t\t\t\t\t\t} else {\n+\t\t\t\t\t\t\t\t\t\t\tComptimeBranchSkipState.eval\n+\t\t\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t\t\telse {}\n+\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t}\n \t\t\t\t\t}\n \t\t\t\t}\n \t\t\t}"
+    },
+    {
+      "sha": "7a81bec0d45bf814d77d2fbdf315a00a03eb884c",
+      "filename": "vlib/v/gen/c/comptime.v",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 6,
+      "changes": 20,
+      "blob_url": "https://github.com/vlang/v/blob/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/vlib%2Fv%2Fgen%2Fc%2Fcomptime.v",
+      "raw_url": "https://github.com/vlang/v/raw/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/vlib%2Fv%2Fgen%2Fc%2Fcomptime.v",
+      "contents_url": "https://api.github.com/repos/vlang/v/contents/vlib%2Fv%2Fgen%2Fc%2Fcomptime.v?ref=83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+      "patch": "@@ -555,22 +555,30 @@ fn (mut g Gen) comptime_if_cond(cond ast.Expr, pkg_exist bool) (bool, bool) {\n \t\t\t\t\t\t\tif selector.expr is ast.Ident && selector.field_name == 'name' {\n \t\t\t\t\t\t\t\tif g.comptime_for_method_var.len > 0\n \t\t\t\t\t\t\t\t\t&& (selector.expr as ast.Ident).name == g.comptime_for_method_var {\n-\t\t\t\t\t\t\t\t\tis_equal := g.comptime_for_method == cond.right.val\n-\t\t\t\t\t\t\t\t\tif is_equal {\n+\t\t\t\t\t\t\t\t\tis_true := if cond.op == .eq {\n+\t\t\t\t\t\t\t\t\t\tg.comptime_for_method == cond.right.val\n+\t\t\t\t\t\t\t\t\t} else {\n+\t\t\t\t\t\t\t\t\t\tg.comptime_for_method != cond.right.val\n+\t\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t\t\tif is_true {\n \t\t\t\t\t\t\t\t\t\tg.write('1')\n \t\t\t\t\t\t\t\t\t} else {\n \t\t\t\t\t\t\t\t\t\tg.write('0')\n \t\t\t\t\t\t\t\t\t}\n-\t\t\t\t\t\t\t\t\treturn is_equal, true\n+\t\t\t\t\t\t\t\t\treturn is_true, true\n \t\t\t\t\t\t\t\t} else if g.comptime_for_field_var.len > 0\n \t\t\t\t\t\t\t\t\t&& (selector.expr as ast.Ident).name == g.comptime_for_field_var {\n-\t\t\t\t\t\t\t\t\tis_equal := g.comptime_for_field_value.name == cond.right.val\n-\t\t\t\t\t\t\t\t\tif is_equal {\n+\t\t\t\t\t\t\t\t\tis_true := if cond.op == .eq {\n+\t\t\t\t\t\t\t\t\t\tg.comptime_for_field_value.name == cond.right.val\n+\t\t\t\t\t\t\t\t\t} else {\n+\t\t\t\t\t\t\t\t\t\tg.comptime_for_field_value.name != cond.right.val\n+\t\t\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t\t\t\tif is_true {\n \t\t\t\t\t\t\t\t\t\tg.write('1')\n \t\t\t\t\t\t\t\t\t} else {\n \t\t\t\t\t\t\t\t\t\tg.write('0')\n \t\t\t\t\t\t\t\t\t}\n-\t\t\t\t\t\t\t\t\treturn is_equal, true\n+\t\t\t\t\t\t\t\t\treturn is_true, true\n \t\t\t\t\t\t\t\t}\n \t\t\t\t\t\t\t}\n \t\t\t\t\t\t} else if cond.right is ast.IntegerLiteral {"
+    },
+    {
+      "sha": "cf22142ab42d95ba49adc558189610b225d743c4",
+      "filename": "vlib/v/tests/comptime_field_name_check_test.v",
+      "status": "added",
+      "additions": 22,
+      "deletions": 0,
+      "changes": 22,
+      "blob_url": "https://github.com/vlang/v/blob/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/vlib%2Fv%2Ftests%2Fcomptime_field_name_check_test.v",
+      "raw_url": "https://github.com/vlang/v/raw/83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc/vlib%2Fv%2Ftests%2Fcomptime_field_name_check_test.v",
+      "contents_url": "https://api.github.com/repos/vlang/v/contents/vlib%2Fv%2Ftests%2Fcomptime_field_name_check_test.v?ref=83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc",
+      "patch": "@@ -0,0 +1,22 @@\n+struct Struct {\n+\ta     int\n+\ttxt   string\n+\tarray []string\n+}\n+\n+fn get_string[T](s T) string {\n+\t$for field in T.fields {\n+\t\t$if field.name == 'txt' {\n+\t\t\tprintln(field.name)\n+\t\t\treturn s.$(field.name)\n+\t\t}\n+\t}\n+\treturn ''\n+}\n+\n+fn test_main() {\n+\ts := Struct{\n+\t\ttxt: 'hello'\n+\t}\n+\tassert get_string(s) == 'hello'\n+}"
+    }
+  ]
+}
