@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/prantlf/setup-v-action/compare/v1.2.1...v1.2.2) (2023-06-12)
+
+
+### Bug Fixes
+
+* Ensure files needed by the compiler ([34d5b11](https://github.com/prantlf/setup-v-action/commit/34d5b114b899ccc19068ed903b842d38fd668648))
+
 ## [1.2.1](https://github.com/prantlf/setup-v-action/compare/v1.2.0...v1.2.1) (2023-06-12)
 
 
