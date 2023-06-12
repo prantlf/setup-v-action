@@ -6487,10 +6487,11 @@ async function getRelease(type, check, number) {
   const releases = await request('releases');
   core.debug(`${releases.length} releases found`);
   for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
-    core.debug(`checking ${name}`);
+    core.debug(`check tag ${name}`);
     if (number ? name === number : check.test(name)) {
-      let url = `unknown ${os}`;
+      let url;
       for (const { name, browser_download_url } of assets) {
+        core.debug(`check asset ${name}`);
         if (name === archive) {
           url = browser_download_url;
           break
@@ -6508,17 +6509,17 @@ async function getCommit(sha) {
   return { name: 'commit', sha, date }
 }
 
+const semantic = /^\d+\.\d+\.\d+$/;
 const versionGetters = {
   master: () => getMaster(),
   weekly: () => getRelease('weekly', /^weekly\.\d+\.\d+$/),
-  latest: () => getRelease('release', /^\d+\.\d+\.\d+$/)
+  latest: () => getRelease('release', semantic)
 };
 
 function resolveVersion(version) {
   const getVersion = versionGetters[version];
   if (getVersion) return getVersion()
-  if (/^\d+\.\d+\.\d+$/.test(version))
-    return getRelease('release', /^\d+\.\d+\.\d+$/, version)
+  if (semantic.test(version)) return getRelease('release', semantic, version)
   return getCommit(version)
 }
 
@@ -6542,9 +6543,13 @@ async function install(sha, url, useCache)  {
   if (platform() === 'win32') exe += '.exe';
   const exePath = join(exeDir, exe);
   core.debug(`v will be "${exePath}"`);
-  if (!useCache || !(await exists(exePath))) {
+  if (useCache && await exists(exePath)) {
+    core.info(`"${exePath}" found on the disk`);
+  } else {
     let cacheDir = useCache && tc.find('v', verStamp);
-    if (!cacheDir) {
+    if (cacheDir) {
+      core.info(`"${cacheDir}" found in the cache`);
+    } else {
       const pkgDir = join(workspace, `unpack-${verStamp}`);
       let archive;
       try {
@@ -6553,15 +6558,20 @@ async function install(sha, url, useCache)  {
         archive = await tc.downloadTool(url);
         await tc.extractZip(archive, pkgDir);
         await io.mkdirP(exeDir);
-        await io.mv(join(pkgDir, `v/${exe}`), exePath, { force: true });
-        if (useCache) cacheDir = await tc.cacheDir(exeDir, 'v', verStamp);
+        const origPath = join(pkgDir, `v/${exe}`);
+        core.info(`create "${exePath}"`);
+        await io.mv(origPath, exePath, { force: true });
+        if (useCache) {
+          cacheDir = await tc.cacheDir(exeDir, 'v', verStamp);
+          core.info(`cached "${cacheDir}"`);
+        }
       } finally {
         await io.rmRF(pkgDir);
         if (archive) await io.rmRF(archive);
       }
     }
     if (!(await exists(exePath))) {
-      core.debug(`linking "${cacheDir}" to v path`);
+      core.info(`link "${exeDir}"`);
       if (await exists(exeDir)) await io.rmRF(exeDir);
       await symlink(cacheDir, exeDir, 'junction');
     }
@@ -6581,17 +6591,19 @@ async function install(sha, url, useCache)  {
 async function run() {
   const version = core.getInput('version') || 'weekly';
   const useCache = core.getInput('use-cache') !== false;
-  core.info(`Setting up V ${version} ${useCache ? 'with' : 'without'} cache`);
+  core.info(`setup V ${version} ${useCache ? 'with' : 'without'} cache`);
   const source = await resolveVersion(version);
   if (!source) throw new Error(`${version} not found`)
   const { name, sha, date, url } = source;
-  core.info(`${name} is ${sha} from ${date}, ${url}`);
+  core.info(`${name} is ${sha} from ${date}`);
   let exeDir;
   if (url) {
+    core.info(`archive at ${url}`);
     exeDir = await install(sha, url, useCache);
   } else {
-    throw new Error('building from sources not implemented yet')
+    throw new Error('build from sources not implemented yet')
   }
+  core.info(`add "${exeDir}" to PATH`);
   core.addPath(exeDir);
 }
 
