@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/prantlf/setup-v-action/compare/v1.2.2...v1.2.3) (2023-06-12)
+
+
+### Bug Fixes
+
+* Do not rewrite compiler files ([6573527](https://github.com/prantlf/setup-v-action/commit/65735270d795986b6d86d9224946e144b77b1175))
+
 ## [1.2.2](https://github.com/prantlf/setup-v-action/compare/v1.2.1...v1.2.2) (2023-06-12)
 
 
