@@ -6,6 +6,7 @@
   },
   "search.exclude": {
     "**/node_modules": true,
+    "dist": true,
     "test/cache": true,
     "test/mock": true,
     "test/tmp": true,

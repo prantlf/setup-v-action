@@ -104,6 +104,7 @@ This is a work in progress.
 * Build instead of downloading and installing from a specific release.
 * Install module dependencies.
 * Avoid the explicitly needed GITHUB_TOKEN.
+* Re-enable outputs. They fail in uuid -> crypto now.
 
 ## License
 

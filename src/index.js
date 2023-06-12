@@ -13,7 +13,9 @@ const shortenHash = hash => hash.substring(0, 7)
 
 const { env } = process
 const mock = !!env.MOCK
-const outputs = !env.NO_OUTPUTS
+// TODO: Re-enable this. It fails in the pipeline:
+// Error: crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported
+const outputs = false // !env.NO_OUTPUTS
 let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: token } = env
 workspace = workspace ? resolve(workspace) : process.cwd()
 
