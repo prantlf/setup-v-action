@@ -6601,6 +6601,6 @@ async function run() {
   core.addPath(exeDir);
 }
 
-run().catch(({ message }) => core.setFailed(message));
+run().catch(err => core.setFailed(err));
 
 module.exports = src;
