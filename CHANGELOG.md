@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/prantlf/setup-v-action/compare/v1.1.0...v1.1.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* Disable outputs temporarily ([4482ea7](https://github.com/prantlf/setup-v-action/commit/4482ea743b5e5d87fcecb72ed115913493b9e96a))
+
 # [1.1.0](https://github.com/prantlf/setup-v-action/compare/v1.0.1...v1.1.0) (2023-06-12)
 
 
