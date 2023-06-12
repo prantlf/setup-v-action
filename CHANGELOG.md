@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/prantlf/setup-v-action/compare/v1.2.3...v1.3.0) (2023-06-12)
+
+
+### Features
+
+* Build V from sources ([8bb9ac3](https://github.com/prantlf/setup-v-action/commit/8bb9ac34a14ec7a61b3318b9549fd47ba2984a66))
+
 ## [1.2.3](https://github.com/prantlf/setup-v-action/compare/v1.2.2...v1.2.3) (2023-06-12)
 
 
