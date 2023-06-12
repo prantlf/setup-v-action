@@ -134,8 +134,8 @@ async function install(sha, url, useCache)  {
         core.info(`populate "${exeDir}"`)
         await io.mv(join(pkgDir, `v/${exe}`), exePath)
         await io.mv(join(pkgDir, `v/cmd`), join(exeDir, 'cmd'))
-        await io.mv(join(pkgDir, `v/thirdparty`), join(exeDir, 'cmd'))
-        await io.mv(join(pkgDir, `v/vlib`), join(exeDir, 'cmd'))
+        await io.mv(join(pkgDir, `v/thirdparty`), join(exeDir, 'thirdparty'))
+        await io.mv(join(pkgDir, `v/vlib`), join(exeDir, 'vlib'))
         if (useCache) {
           cacheDir = await tc.cacheDir(exeDir, 'v', verStamp)
           core.info(`cached "${cacheDir}"`)
