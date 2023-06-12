@@ -6560,9 +6560,11 @@ async function install(sha, url, useCache)  {
         archive = await tc.downloadTool(url);
         await tc.extractZip(archive, pkgDir);
         await io.mkdirP(exeDir);
-        const origPath = join(pkgDir, `v/${exe}`);
-        core.info(`create "${exePath}"`);
-        await io.mv(origPath, exePath, { force: true });
+        core.info(`populate "${exeDir}"`);
+        await io.mv(join(pkgDir, `v/${exe}`), exePath);
+        await io.mv(join(pkgDir, `v/cmd`), join(exeDir, 'cmd'));
+        await io.mv(join(pkgDir, `v/thirdparty`), join(exeDir, 'cmd'));
+        await io.mv(join(pkgDir, `v/vlib`), join(exeDir, 'cmd'));
         if (useCache) {
           cacheDir = await tc.cacheDir(exeDir, 'v', verStamp);
           core.info(`cached "${cacheDir}"`);
