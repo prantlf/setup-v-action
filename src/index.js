@@ -1,31 +1,37 @@
-require('node-self')
-require('unfetch/polyfill')
-
 const { platform } = require('os')
 const { join, resolve } = require('path')
 const core = require('@actions/core')
 // const coreCmd = require('@actions/core/lib/command')
 const exec = require("@actions/exec")
 const io = require('@actions/io')
+const httpm = require('@actions/http-client')
 const tc = require('@actions/tool-cache')
 const { access, readFile, symlink } = require('fs').promises
 
 const exists = file => access(file).then(() => true, () => false)
 const shortenHash = hash => hash.substring(0, 7)
 
-const mock = !!process.env.MOCK
-let { GITHUB_WORKSPACE: workspace } = process.env
+const { env } = process
+const mock = !!env.MOCK
+const outputs = !env.NO_OUTPUTS
+let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: token } = env
 workspace = workspace ? resolve(workspace) : process.cwd()
 
 async function request(path) {
   if (mock) return JSON.parse(await readFile(join(__dirname, `../test/mock/${path}.json`)))
-  const res = await fetch(`https://api.github.com/repos/vlang/v/${path}`)
-  if (!res.ok) {
-    const err = new Error(res.statusText)
+  const http = new httpm.HttpClient()
+  const res = await http.get(`https://api.github.com/repos/vlang/v/${path}`, {
+		Accept: 'application/json',
+		Authorization: `Bearer ${token}`,
+    'User-Agent': 'prantlf/setup-v-action',
+    'X-GitHub-Api-Version': '2022-11-28'
+	})
+  if (res.message.statusCode !== 200) {
+    const err = new Error(`${res.message.statusCode} ${res.message.statusMessage}`)
     err.response = res
     throw err
   }
-  return res.json()
+  return JSON.parse(await res.readBody())
 }
 
 async function getMaster() {
@@ -99,10 +105,10 @@ async function install(sha, url, useCache)  {
   sha = shortenHash(sha)
   const verStamp = `0.0.0-${sha}`
   const exeDir = join(workspace, verStamp)
-  core.debug(`v path will be "${exeDir}"`)
   let exe = 'v'
   if (platform() === 'win32') exe += '.exe'
   const exePath = join(exeDir, exe)
+  core.debug(`v will be "${exePath}"`)
   let usedCache = true
   if (!useCache || !(await exists(exePath))) {
     let cacheDir = useCache && tc.find('v', verStamp)
@@ -130,10 +136,12 @@ async function install(sha, url, useCache)  {
     }
   }
   const version = await getVersion(exePath)
-  core.setOutput('version', version)
-  core.setOutput('bin-path', exeDir)
-  core.setOutput('v-bin-path', exePath)
-  core.setOutput('used-cache', usedCache)
+  if (outputs) {
+    core.setOutput('version', version)
+    core.setOutput('bin-path', exeDir)
+    core.setOutput('v-bin-path', exePath)
+    core.setOutput('used-cache', usedCache)
+  }
   return exeDir
 }
 

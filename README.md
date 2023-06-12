@@ -2,7 +2,6 @@
 
 [![Latest version](https://img.shields.io/npm/v/setup-v-action) ![Dependency status](https://img.shields.io/librariesio/release/npm/setup-v-action)
 ](https://www.npmjs.com/package/setup-v-action)
-[![Code coverage](https://codecov.io/gh/prantlf/setup-v-action/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/setup-v-action)
 
 GitHub action for setting up a V environment by downloading and unpacking or building the V compiler to the PATH. The minimum supported version of Node.js is 16.
 

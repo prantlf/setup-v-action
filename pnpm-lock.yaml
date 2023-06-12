@@ -11,6 +11,9 @@ devDependencies:
   '@actions/exec':
     specifier: ^1.1.1
     version: 1.1.1
+  '@actions/http-client':
+    specifier: ^2.1.0
+    version: 2.1.0
   '@actions/io':
     specifier: ^1.1.3
     version: 1.1.3
@@ -38,15 +41,9 @@ devDependencies:
   denolint:
     specifier: ^2.0.10
     version: 2.0.10
-  node-self:
-    specifier: ^1.0.2
-    version: 1.0.2
   rollup:
     specifier: ^3.25.0
     version: 3.25.0
-  unfetch:
-    specifier: ^5.0.0
-    version: 5.0.0
 
 packages:
 
@@ -1710,10 +1707,6 @@ packages:
       whatwg-url: 5.0.0
     dev: true
 
-  /node-self@1.0.2:
-    resolution: {integrity: sha512-7oanohlazOw8RygP1OPmzAvJTLucwXKoioP4FMrzqnE6xUMM58i8aF18HDU0Hx5oxdsRLbmklieyjdNmvj1jHA==}
-    dev: true
-
   /normalize-package-data@2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
@@ -2525,10 +2518,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /unfetch@5.0.0:
-    resolution: {integrity: sha512-3xM2c89siXg0nHvlmYsQ2zkLASvVMBisZm5lF3gFDqfF2xonNStDJyMpvaOBe0a1Edxmqrf2E0HBdmy9QyZaeg==}
-    dev: true
 
   /unique-string@3.0.0:
     resolution: {integrity: sha512-VGXBUVwxKMBUznyffQweQABPRRW1vHZAbadFZud4pLFAqRGvv/96vafgjWFqzourzr8YonlQiPgH0YCJfawoGQ==}
