@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/prantlf/setup-v-action/compare/v1.1.1...v1.1.2) (2023-06-12)
+
+
+### Bug Fixes
+
+* Update build output ([a2e9a99](https://github.com/prantlf/setup-v-action/commit/a2e9a9967c53593a68647993c15617f42a596935))
+
 ## [1.1.1](https://github.com/prantlf/setup-v-action/compare/v1.1.0...v1.1.1) (2023-06-12)
 
 
