@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/prantlf/setup-v-action/compare/v1.0.1...v1.1.0) (2023-06-12)
+
+
+### Bug Fixes
+
+* Fix a typo in action manifest ([31a2398](https://github.com/prantlf/setup-v-action/commit/31a2398dcf8eec13717ada1ee50e44d1ce30281d))
+
+
+### Features
+
+* Set an icon and colour ([5b17b6e](https://github.com/prantlf/setup-v-action/commit/5b17b6ed7233a9955750e38242208718294e15ee))
+
 ## [1.0.1](https://github.com/prantlf/setup-v-action/compare/v1.0.0...v1.0.1) (2023-06-12)
 
 
