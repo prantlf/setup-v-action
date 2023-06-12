@@ -6447,7 +6447,6 @@ const shortenHash = hash => hash.substring(0, 7);
 
 const { env } = process;
 const mock = !!env.MOCK;
-const outputs = !env.NO_OUTPUTS;
 let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: token } = env;
 workspace = workspace ? resolve(workspace) : process.cwd();
 
@@ -6543,11 +6542,9 @@ async function install(sha, url, useCache)  {
   if (platform() === 'win32') exe += '.exe';
   const exePath = join(exeDir, exe);
   core.debug(`v will be "${exePath}"`);
-  let usedCache = true;
   if (!useCache || !(await exists(exePath))) {
     let cacheDir = useCache && tc.find('v', verStamp);
     if (!cacheDir) {
-      usedCache = false;
       const pkgDir = join(workspace, `unpack-${verStamp}`);
       let archive;
       try {
@@ -6569,13 +6566,7 @@ async function install(sha, url, useCache)  {
       await symlink(cacheDir, exeDir, 'junction');
     }
   }
-  const version = await getVersion(exePath);
-  if (outputs) {
-    core.setOutput('version', version);
-    core.setOutput('bin-path', exeDir);
-    core.setOutput('v-bin-path', exePath);
-    core.setOutput('used-cache', usedCache);
-  }
+  await getVersion(exePath);
   return exeDir
 }
 
