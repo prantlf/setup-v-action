@@ -2,6 +2,10 @@ name: 'Setup V Build'
 description: 'Setup a V environment by downloading and unpacking or building the V compiler to the PATH.'
 author: prantlf
 
+branding:
+  icon: check-square
+  color: blue
+
 inputs:
   version:
     description: 'version specification (latest, weekly, master, version number or a commit hash)'
