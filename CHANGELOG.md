@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/prantlf/setup-v-action/compare/v1.1.2...v1.2.0) (2023-06-12)
+
+
+### Features
+
+* Add more logging ([2b1b717](https://github.com/prantlf/setup-v-action/commit/2b1b7178c8f3766d4009f6ac87f2bbc145a180c0))
+
 ## [1.1.2](https://github.com/prantlf/setup-v-action/compare/v1.1.1...v1.1.2) (2023-06-12)
 
 
