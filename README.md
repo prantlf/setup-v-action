@@ -11,6 +11,8 @@ Install V from the most recent weekly release with the help of a cache:
 
 ```yml
 - uses: prantlf/setup-v-action@v1
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Install V from the most recent commit to the `master` branch with the help of a cache:
@@ -19,6 +21,8 @@ Install V from the most recent commit to the `master` branch with the help of a 
 - uses: prantlf/setup-v-action@v1
   with:
     version: master
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Test against multiple versions of V using a matrix strategy:
@@ -35,6 +39,8 @@ jobs:
     - uses: prantlf/setup-v-action@v1
       with:
         version: ${{ matrix.v-version }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: v test .
 ```
 
@@ -97,6 +103,7 @@ This is a work in progress.
 * Build from `master` and any commit.
 * Build instead of downloading and installing from a specific release.
 * Install module dependencies.
+* Avoid the explicitly needed GITHUB_TOKEN.
 
 ## License
 
