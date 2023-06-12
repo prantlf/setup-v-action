@@ -22,7 +22,9 @@ workspace = workspace ? resolve(workspace) : process.cwd()
 async function request(path) {
   if (mock) return JSON.parse(await readFile(join(__dirname, `../test/mock/${path}.json`)))
   const http = new httpm.HttpClient()
-  const res = await http.get(`https://api.github.com/repos/vlang/v/${path}`, {
+  const url = `https://api.github.com/repos/vlang/v/${path}`
+  core.info(`get ${url}`)
+  const res = await http.get(url, {
 		Accept: 'application/json',
 		Authorization: `Bearer ${token}`,
     'User-Agent': 'prantlf/setup-v-action',
@@ -106,8 +108,7 @@ async function getVersion(exePath) {
 
 async function install(sha, url, useCache)  {
   sha = shortenHash(sha)
-  const verStamp = `0.0.0-${sha}`
-  const exeDir = join(workspace, verStamp)
+  const exeDir = join(workspace, `../v-${sha}`)
   let exe = 'v'
   if (platform() === 'win32') exe += '.exe'
   const exePath = join(exeDir, exe)
@@ -116,12 +117,13 @@ async function install(sha, url, useCache)  {
   if (useCache && await exists(exePath)) {
     core.info(`"${exePath}" found on the disk`)
   } else {
+    const verStamp = `0.0.0-${sha}`
     let cacheDir = useCache && tc.find('v', verStamp)
     if (cacheDir) {
       core.info(`"${cacheDir}" found in the cache`)
     } else {
       usedCache = false
-      const pkgDir = join(workspace, `unpack-${verStamp}`)
+      const pkgDir = join(workspace, `../v-${sha}-all`)
       let archive
       try {
         if (await exists(pkgDir)) await io.rmRF(pkgDir)
