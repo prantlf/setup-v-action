@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/prantlf/setup-v-action/compare/v1.2.0...v1.2.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* Move the directory with the V compiler out of the repo ([fdeafc0](https://github.com/prantlf/setup-v-action/commit/fdeafc016240f951e8d9b346e7c88ece41806a4f))
+
 # [1.2.0](https://github.com/prantlf/setup-v-action/compare/v1.1.2...v1.2.0) (2023-06-12)
 
 
