@@ -5,6 +5,10 @@
 
 GitHub action for setting up a V environment by downloading and unpacking or building the V compiler to the PATH. The minimum supported version of Node.js is 16.
 
+* Convenient version specification - `master`, `weekly`, `latest`, `X.Y.Z`, `<git hash>`.
+* Downloading an unpacking binaries (if available) preferred to building from sources.
+* Caching already unpacked or built versions.
+
 ## Usage
 
 Install V from the most recent weekly release with the help of a cache:
