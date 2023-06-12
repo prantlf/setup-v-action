@@ -20,7 +20,7 @@ outputs:
   bin-path:
     description: 'the directory with the V compiler'
   v-bin-path:
-    de-ccription: 'the path to the V compiler executable'
+    description: 'the path to the V compiler executable'
   usedCache:
     description: 'a boolean value to indicate if the cache was hit'
 
