@@ -1,7 +1,6 @@
 const { platform } = require('os')
 const { join, resolve } = require('path')
 const core = require('@actions/core')
-// const coreCmd = require('@actions/core/lib/command')
 const exec = require("@actions/exec")
 const io = require('@actions/io')
 const httpm = require('@actions/http-client')
@@ -9,15 +8,26 @@ const tc = require('@actions/tool-cache')
 const { access, readFile, symlink } = require('fs').promises
 
 const exists = file => access(file).then(() => true, () => false)
-const shortenHash = hash => hash.substring(0, 7)
 
 const { env } = process
 const mock = !!env.MOCK
-// TODO: Re-enable this. It fails in the pipeline:
-// Error: crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported
-const outputs = false // !env.NO_OUTPUTS
 let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: token } = env
 workspace = workspace ? resolve(workspace) : process.cwd()
+
+async function _retry(action) {
+  for (let attempt = 0;;) {
+    try {
+      return await action()
+    } catch (err) {
+      if (++attempt === 3) throw err
+      core.warning(err)
+    }
+
+    const seconds = Math.floor(Math.random() * (20 - 10 + 1)) + 10
+    core.info(`wait ${seconds} seconds before trying again`)
+    await new Promise(resolve => setTimeout(resolve, seconds * 1000))
+  }
+}
 
 async function request(path) {
   if (mock) return JSON.parse(await readFile(join(__dirname, `../test/mock/${path}.json`)))
@@ -106,86 +116,115 @@ async function getVersion(exePath) {
   return out.toString().trim()
 }
 
-async function install(sha, url, useCache)  {
-  sha = shortenHash(sha)
-  const exeDir = join(workspace, `../v-${sha}`)
+async function install(sha, url, useCache, forceBuild)  {
+  const ssha = sha.substring(0, 7)
+  const exeDir = join(workspace, `../v-${ssha}`)
   let exe = 'v'
   if (platform() === 'win32') exe += '.exe'
   const exePath = join(exeDir, exe)
   core.debug(`v will be "${exePath}"`)
+
   let usedCache = true
+  let wasBuilt = false
+
   if (useCache && await exists(exePath)) {
     core.info(`"${exePath}" found on the disk`)
   } else {
-    const verStamp = `0.0.0-${sha}`
-    let cacheDir = useCache && tc.find('v', verStamp)
+    const version = `0.0.0-${ssha}`
+    let cacheDir = useCache && tc.find('v', version)
+
     if (cacheDir) {
-      core.info(`"${cacheDir}" found in the cache`)
+      core.info(`"${cacheDir}" found in cache`)
     } else {
       usedCache = false
-      const pkgDir = join(workspace, `../v-${sha}-all`)
+      const pkgDir = join(workspace, `../v-${sha}`)
       let archive
+
       try {
         if (await exists(pkgDir)) await io.rmRF(pkgDir)
         if (await exists(exeDir)) await io.rmRF(exeDir)
+
+        let extractDir, contentDir
+        if (forceBuild) url = undefined
+        if (!url) {
+          wasBuilt = true
+          url = `https://github.com/vlang/v/archive/${sha}.zip`
+          extractDir = join(workspace, '..')
+          contentDir = pkgDir
+        } else {
+          extractDir = pkgDir
+          contentDir = `${pkgDir}/v`
+        }
+
+        core.info(`download "${url}"`)
         archive = await tc.downloadTool(url)
-        await tc.extractZip(archive, pkgDir)
+        await tc.extractZip(archive, extractDir)
+
+        if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir })
+
         await io.mkdirP(exeDir)
         core.info(`populate "${exeDir}"`)
-        await io.mv(join(pkgDir, `v/${exe}`), exePath)
-        await io.mv(join(pkgDir, `v/cmd`), join(exeDir, 'cmd'))
-        await io.mv(join(pkgDir, `v/thirdparty`), join(exeDir, 'thirdparty'))
-        await io.mv(join(pkgDir, `v/vlib`), join(exeDir, 'vlib'))
-        if (useCache) {
-          cacheDir = await tc.cacheDir(exeDir, 'v', verStamp)
-          core.info(`cached "${cacheDir}"`)
+        try {
+          await Promise.all([
+            [join(contentDir, exe), exePath],
+            [join(contentDir, 'cmd'), join(exeDir, 'cmd')],
+            [join(contentDir, 'thirdparty'), join(exeDir, 'thirdparty')],
+            [join(contentDir, 'vlib'), join(exeDir, 'vlib')]
+          ].map(([src, dst]) => io.mv(src, dst)))
+
+          if (useCache) {
+            cacheDir = await tc.cacheDir(exeDir, 'v', version)
+            core.info(`cached "${cacheDir}"`)
+          }
+        } catch (err) {
+          await io.rmRF(exeDir)
+          throw err
         }
       } finally {
-        await io.rmRF(pkgDir)
-        if (archive) await io.rmRF(archive)
+        await Promise.all([
+          io.rmRF(pkgDir),
+          archive && io.rmRF(archive)
+        ])
       }
     }
+
     if (!(await exists(exePath))) {
       core.info(`link "${exeDir}"`)
       if (await exists(exeDir)) await io.rmRF(exeDir)
       await symlink(cacheDir, exeDir, 'junction')
     }
   }
-  const version = await getVersion(exePath)
-  if (outputs) {
-    core.setOutput('version', version)
-    core.setOutput('bin-path', exeDir)
-    core.setOutput('v-bin-path', exePath)
-    core.setOutput('used-cache', usedCache)
-  }
-  return exeDir
-}
 
-// async function clone() {
-//   try {
-//     coreCmd.issueCommand('add-matcher', {}, join(__dirname, 'problem-matcher.json'))
-//   } finally {
-//     coreCmd.issueCommand('remove-matcher', {owner: 'checkout-git'}, '')
-//   }
-// }
+  return { exeDir, exePath, usedCache, wasBuilt }
+}
 
 async function run() {
   const version = core.getInput('version') || 'weekly'
   const useCache = core.getInput('use-cache') !== false
-  core.info(`setup V ${version} ${useCache ? 'with' : 'without'} cache`)
+  const forceBuild = core.getInput('force-build')
+  core.info(`setup V ${version} ${useCache ? 'with' : 'without'} cache${forceBuild ? ', forced build' : ''}`)
+
   const source = await resolveVersion(version)
   if (!source) throw new Error(`${version} not found`)
   const { name, sha, date, url } = source
   core.info(`${name} is ${sha} from ${date}`)
-  let exeDir
-  if (url) {
-    core.info(`archive at ${url}`)
-    exeDir = await install(sha, url, useCache)
-  } else {
-    throw new Error('build from sources not implemented yet')
-  }
+  if (url) core.info(`archive at ${url}`)
+
+  const { exeDir, exePath, usedCache, wasBuilt } = await install(sha, url, useCache, forceBuild)
+
   core.info(`add "${exeDir}" to PATH`)
   core.addPath(exeDir)
+
+  const actualVersion = await getVersion(exePath)
+  // TODO: Re-enable this. It fails in the pipeline:
+  // Error: crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported
+  if (!exeDir) {
+    core.setOutput('version', actualVersion)
+    core.setOutput('bin-path', exeDir)
+    core.setOutput('v-bin-path', exePath)
+    core.setOutput('used-cache', usedCache)
+    core.setOutput('was-built', wasBuilt)
+  }
 }
 
 run().catch(err => core.setFailed(err))

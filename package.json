@@ -57,7 +57,7 @@
     "@semantic-release/git": "^10.0.1",
     "builtins": "^5.0.1",
     "denolint": "^2.0.10",
-    "rollup": "^3.25.0"
+    "rollup": "^3.25.1"
   },
   "keywords": [
     "github-actions",

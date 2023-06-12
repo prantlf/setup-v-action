@@ -13,6 +13,9 @@ inputs:
   use-cache:
     description: 'set to `false` to ignore the cache and always download and install or build'
     default: 'true'
+  force-build:
+    description: 'set to `true` to build V from sources although the binary archive is available'
+    default: 'false'
 
 outputs:
   version:
@@ -21,8 +24,10 @@ outputs:
     description: 'the directory with the V compiler'
   v-bin-path:
     description: 'the path to the V compiler executable'
-  usedCache:
+  used-cache:
     description: 'a boolean value to indicate if the cache was hit'
+  was-built:
+    description: 'a boolean value to indicate if V was built from sources'
 
 runs:
   using: node16

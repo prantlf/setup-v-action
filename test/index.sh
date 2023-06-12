@@ -9,8 +9,7 @@ DIRNAME="$PWD/test"
 export GITHUB_WORKSPACE="$DIRNAME/wksp/repo"
 export RUNNER_TOOL_CACHE="$DIRNAME/cache"
 export RUNNER_TEMP="$DIRNAME/tmp"
-export NO_OUTPUTS=1
-# export MOCK=1
+export MOCK=1
 
 BINDIR="$DIRNAME/wksp/v-692624b"
 BINNAME="$BINDIR/v"

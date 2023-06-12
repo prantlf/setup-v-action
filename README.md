@@ -68,6 +68,13 @@ Default: `true`
 
 Set to `false` to ignore the cache and always download and install or build. The default is `true`.
 
+### force-build
+
+Type: `Boolean`<br>
+Default: `false`
+
+Set to `true` to build V from sources although the binary archive is available. The default is `false`.
+
 ## Outputs
 
 The following parameters can be accessed by the `github` context:
@@ -96,15 +103,18 @@ Type: `Boolean`<br>
 
 Indicate if the cache was hit (`true`) or not (`false`) during the installation.
 
+### was-built
+
+Type: `Boolean`<br>
+
+Indicate if V was built from sources (`true`) or downloaded as a binary (`false`).
+
 ## TODO
 
 This is a work in progress.
 
-* Build from `master` and any commit.
-* Build instead of downloading and installing from a specific release.
 * Install module dependencies.
 * Avoid the explicitly needed GITHUB_TOKEN.
-* Re-enable outputs. They fail in uuid -> crypto now.
 
 ## License
 

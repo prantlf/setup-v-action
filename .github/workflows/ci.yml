@@ -28,10 +28,17 @@ jobs:
         version: latest
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity]
-    - name: Unit Test
-      run: MOCK=1 npm test
-    - name: Action Test
+    - name: Test Mock
+      run: npm test
+    - name: Test Binary
       uses: ./
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test Sources
+      uses: ./
+      with:
+        use-cache: false
+        force-build: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish
