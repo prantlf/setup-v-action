@@ -1,4 +1,4 @@
-name: 'Setup V'
+name: 'Setup V Build'
 description: 'Setup a V environment by downloading and unpacking or building the V compiler to the PATH.'
 author: prantlf
 
