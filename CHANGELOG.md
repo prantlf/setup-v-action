@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/prantlf/setup-v-action/compare/v1.3.0...v1.4.0) (2023-06-13)
+
+
+### Features
+
+* Allow specifying the token using inputs ([1838820](https://github.com/prantlf/setup-v-action/commit/1838820b648e009914d59cedf4fff01b46c506cc))
+* Install module dependencies automatically ([54c865d](https://github.com/prantlf/setup-v-action/commit/54c865df9ffbba38e347c6ae28085ef96ae39a32))
+
 # [1.3.0](https://github.com/prantlf/setup-v-action/compare/v1.2.3...v1.3.0) (2023-06-12)
 
 
