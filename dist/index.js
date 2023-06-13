@@ -2931,7 +2931,7 @@ function cp(source, dest, options = {}) {
                 // a file cannot be copied to itself
                 throw new Error(`'${newDest}' and '${source}' are the same file`);
             }
-            yield copyFile(source, newDest, force);
+            yield copyFile$1(source, newDest, force);
         }
     });
 }
@@ -3125,7 +3125,7 @@ function cpDirRecursive(sourceDir, destDir, currentDepth, force) {
                 yield cpDirRecursive(srcFile, destFile, currentDepth, force);
             }
             else {
-                yield copyFile(srcFile, destFile, force);
+                yield copyFile$1(srcFile, destFile, force);
             }
         }
         // Change the mode for the newly created directory
@@ -3133,7 +3133,7 @@ function cpDirRecursive(sourceDir, destDir, currentDepth, force) {
     });
 }
 // Buffered file copy
-function copyFile(srcFile, destFile, force) {
+function copyFile$1(srcFile, destFile, force) {
     return __awaiter$4(this, void 0, void 0, function* () {
         if ((yield ioUtil$1.lstat(srcFile)).isSymbolicLink()) {
             // unlink/re-link it
@@ -6433,13 +6433,13 @@ function _unique(values) {
 }
 
 const { platform } = require$$0;
-const { join, resolve } = require$$1$1;
+const { basename, join, resolve } = require$$1$1;
 const core = requireCore();
 const exec = exec$2;
 const io = io$3;
 const httpm = lib;
 const tc = toolCache;
-const { access, readFile, symlink } = require$$0$1.promises;
+const { access, chmod, copyFile, readFile, symlink } = require$$0$1.promises;
 
 const exists = file => access(file).then(() => true, () => false);
 
@@ -6449,7 +6449,11 @@ let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: token } = env;
 workspace = workspace ? resolve(workspace) : process.cwd();
 
 async function request(path) {
-  if (mock) return JSON.parse(await readFile(join(__dirname, `../test/mock/${path}.json`)))
+  if (mock) {
+    const file = join(__dirname, `../test/mock/${path}.json`);
+    core.info(`load ${file}`);
+    return JSON.parse(await readFile(file))
+  }
   const http = new httpm.HttpClient();
   const url = `https://api.github.com/repos/vlang/v/${path}`;
   core.info(`get ${url}`);
@@ -6524,6 +6528,13 @@ function resolveVersion(version) {
 }
 
 async function getVersion(exePath) {
+  if (mock && platform() !== 'win32') {
+    const path = join(__dirname, '../package.json');
+    core.info(`inspect ${path}`);
+    const { version } = JSON.parse(await readFile(path));
+    return version
+  }
+
   let out;
   await exec.exec(exePath, ['-V'], {
     listeners: {
@@ -6576,8 +6587,24 @@ async function install(sha, url, useCache, forceBuild)  {
         }
 
         core.info(`download "${url}"`);
-        archive = await tc.downloadTool(url);
+        if (mock) {
+          const dir = join(__dirname, '../test/tmp');
+          const name = basename(url);
+          await io.mkdirP(dir);
+          const source = join(__dirname, `../test/mock/assets/${name}`);
+          core.info(`copy "${source}"`);
+          archive = join(dir, name);
+          await copyFile(source, archive);
+        } else {
+          archive = await tc.downloadTool(url);
+        }
+
         await tc.extractZip(archive, extractDir);
+        if (mock && platform() !== 'win32') {
+          const exeOrigin = `${extractDir}/v/v`;
+          core.info(`make "${exeOrigin}" executable`);
+          await chmod(exeOrigin, 0o755);
+        }
 
         if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir });
 
@@ -6617,11 +6644,28 @@ async function install(sha, url, useCache, forceBuild)  {
   return { exeDir, exePath, usedCache, wasBuilt }
 }
 
+async function dependencies(exePath)  {
+  let manifest;
+  try {
+    manifest = await readFile('v.mod', 'utf8');
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw err
+    core.info('no module manifest found');
+    return
+  }
+  if (/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
+    await exec.exec(exePath, ['install']);
+  } else {
+    core.info('no dependencies found');
+  }
+}
+
 async function run() {
   const version = core.getInput('version') || 'weekly';
   const useCache = core.getInput('use-cache') !== false;
   const forceBuild = core.getInput('force-build');
-  core.info(`setup V ${version} ${useCache ? 'with' : 'without'} cache${forceBuild ? ', forced build' : ''}`);
+  const installDeps = core.getInput('install-dependencies') !== false;
+  core.info(`setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`);
 
   const source = await resolveVersion(version);
   if (!source) throw new Error(`${version} not found`)
@@ -6644,6 +6688,8 @@ async function run() {
     core.setOutput('used-cache', usedCache);
     core.setOutput('was-built', wasBuilt);
   }
+
+  if (installDeps) await dependencies(exePath);
 }
 
 run().catch(err => core.setFailed(err));

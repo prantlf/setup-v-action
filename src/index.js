@@ -1,11 +1,11 @@
 const { platform } = require('os')
-const { join, resolve } = require('path')
+const { basename, join, resolve } = require('path')
 const core = require('@actions/core')
 const exec = require("@actions/exec")
 const io = require('@actions/io')
 const httpm = require('@actions/http-client')
 const tc = require('@actions/tool-cache')
-const { access, readFile, symlink } = require('fs').promises
+const { access, chmod, copyFile, readFile, symlink } = require('fs').promises
 
 const exists = file => access(file).then(() => true, () => false)
 
@@ -30,7 +30,11 @@ async function _retry(action) {
 }
 
 async function request(path) {
-  if (mock) return JSON.parse(await readFile(join(__dirname, `../test/mock/${path}.json`)))
+  if (mock) {
+    const file = join(__dirname, `../test/mock/${path}.json`)
+    core.info(`load ${file}`)
+    return JSON.parse(await readFile(file))
+  }
   const http = new httpm.HttpClient()
   const url = `https://api.github.com/repos/vlang/v/${path}`
   core.info(`get ${url}`)
@@ -105,6 +109,13 @@ function resolveVersion(version) {
 }
 
 async function getVersion(exePath) {
+  if (mock && platform() !== 'win32') {
+    const path = join(__dirname, '../package.json')
+    core.info(`inspect ${path}`)
+    const { version } = JSON.parse(await readFile(path))
+    return version
+  }
+
   let out
   await exec.exec(exePath, ['-V'], {
     listeners: {
@@ -157,8 +168,24 @@ async function install(sha, url, useCache, forceBuild)  {
         }
 
         core.info(`download "${url}"`)
-        archive = await tc.downloadTool(url)
+        if (mock) {
+          const dir = join(__dirname, '../test/tmp')
+          const name = basename(url)
+          await io.mkdirP(dir)
+          const source = join(__dirname, `../test/mock/assets/${name}`)
+          core.info(`copy "${source}"`)
+          archive = join(dir, name)
+          await copyFile(source, archive)
+        } else {
+          archive = await tc.downloadTool(url)
+        }
+
         await tc.extractZip(archive, extractDir)
+        if (mock && platform() !== 'win32') {
+          const exeOrigin = `${extractDir}/v/v`
+          core.info(`make "${exeOrigin}" executable`)
+          await chmod(exeOrigin, 0o755)
+        }
 
         if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir })
 
@@ -198,11 +225,28 @@ async function install(sha, url, useCache, forceBuild)  {
   return { exeDir, exePath, usedCache, wasBuilt }
 }
 
+async function dependencies(exePath)  {
+  let manifest
+  try {
+    manifest = await readFile('v.mod', 'utf8')
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw err
+    core.info('no module manifest found')
+    return
+  }
+  if (/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
+    await exec.exec(exePath, ['install'])
+  } else {
+    core.info('no dependencies found')
+  }
+}
+
 async function run() {
   const version = core.getInput('version') || 'weekly'
   const useCache = core.getInput('use-cache') !== false
   const forceBuild = core.getInput('force-build')
-  core.info(`setup V ${version} ${useCache ? 'with' : 'without'} cache${forceBuild ? ', forced build' : ''}`)
+  const installDeps = core.getInput('install-dependencies') !== false
+  core.info(`setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`)
 
   const source = await resolveVersion(version)
   if (!source) throw new Error(`${version} not found`)
@@ -225,6 +269,8 @@ async function run() {
     core.setOutput('used-cache', usedCache)
     core.setOutput('was-built', wasBuilt)
   }
+
+  if (installDeps) await dependencies(exePath)
 }
 
 run().catch(err => core.setFailed(err))

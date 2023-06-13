@@ -8,6 +8,7 @@ GitHub action for setting up a V environment by downloading and unpacking or bui
 * Convenient version specification - `master`, `weekly`, `latest`, `X.Y.Z`, `<git hash>`.
 * Downloading an unpacking binaries (if available) preferred to building from sources.
 * Caching already unpacked or built versions.
+* Automatic installation of module dependencies.
 
 ## Usage
 
@@ -78,6 +79,13 @@ Type: `Boolean`<br>
 Default: `false`
 
 Set to `true` to build V from sources although the binary archive is available. The default is `false`.
+
+### install-dependencies
+
+Type: `Boolean`<br>
+Default: `true`
+
+Set to `false` to skip installation of dependencies from `v.mod`.
 
 ## Outputs
 

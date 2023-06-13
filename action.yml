@@ -16,6 +16,9 @@ inputs:
   force-build:
     description: 'set to `true` to build V from sources although the binary archive is available'
     default: 'false'
+  install-dependencies:
+    description: 'set to `false` to not install dependencies from `v.mod`'
+    default: 'true'
 
 outputs:
   version:
