@@ -32,15 +32,11 @@ jobs:
       run: npm test
     - name: Test Binary
       uses: ./
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Test Sources
       uses: ./
       with:
         use-cache: false
         force-build: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish
       uses: cycjimmy/semantic-release-action@v3
       with:

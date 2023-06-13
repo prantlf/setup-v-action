@@ -6,6 +6,7 @@ set -e
 # DIRNAME=$(dirname "$SRCNAME")
 DIRNAME="$PWD/test"
 
+export GITHUB_TOKEN=token
 export GITHUB_WORKSPACE="$DIRNAME/wksp/repo"
 export RUNNER_TOOL_CACHE="$DIRNAME/cache"
 export RUNNER_TEMP="$DIRNAME/tmp"

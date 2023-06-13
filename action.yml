@@ -19,6 +19,10 @@ inputs:
   install-dependencies:
     description: 'set to `false` to not install dependencies from `v.mod`'
     default: 'true'
+  token:
+    description: 'Authorization token to inspect releases and commits in the `vlang/v` repository. Either a GitHub personal access token or the GitHub workflow token.'
+    default: ${{ github.token }}
+    required: true
 
 outputs:
   version:

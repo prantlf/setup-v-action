@@ -87,6 +87,13 @@ Default: `true`
 
 Set to `false` to skip installation of dependencies from `v.mod`.
 
+### token
+
+Type: `Boolean`<br>
+Default: `${{ github.token }}`
+
+Authorization token to inspect releases and commits in the `vlang/v` repository. Either a GitHub personal access token or the GitHub workflow token. If not provided, ythe environment variable `GITHUB_TOKEN` will be used as a fallback.
+
 ## Outputs
 
 The following parameters can be accessed by the `github` context:

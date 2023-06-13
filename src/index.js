@@ -11,8 +11,7 @@ const exists = file => access(file).then(() => true, () => false)
 
 const { env } = process
 const mock = !!env.MOCK
-let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: token } = env
-workspace = workspace ? resolve(workspace) : process.cwd()
+let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: envToken } = env
 
 async function _retry(action) {
   for (let attempt = 0;;) {
@@ -29,7 +28,7 @@ async function _retry(action) {
   }
 }
 
-async function request(path) {
+async function request(token, path) {
   if (mock) {
     const file = join(__dirname, `../test/mock/${path}.json`)
     core.info(`load ${file}`)
@@ -52,8 +51,8 @@ async function request(path) {
   return JSON.parse(await res.readBody())
 }
 
-async function getMaster() {
-  const { commit } = await request('branches/master')
+async function getMaster(token) {
+  const { commit } = await request(token, 'branches/master')
   const { sha, commit: details } = commit
   const { date } = details.author
   return { name: 'master', sha, date }
@@ -65,11 +64,11 @@ const platformSuffixes = {
   win32: 'windows'
 }
 
-async function getRelease(type, check, number) {
+async function getRelease(token, type, check, number) {
   const os = platform()
   const suffix = platformSuffixes[os]
   const archive = `v_${suffix}.zip`
-  const releases = await request('releases')
+  const releases = await request(token, 'releases')
   core.debug(`${releases.length} releases found`)
   for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
     core.debug(`check tag ${name}`)
@@ -88,24 +87,24 @@ async function getRelease(type, check, number) {
   core.debug(`no ${number ? number : type} found`)
 }
 
-async function getCommit(sha) {
-  const { commit } = await request(`commits/${sha}`)
+async function getCommit(sha, token) {
+  const { commit } = await request(token, `commits/${sha}`)
   const { date } = commit
   return { name: 'commit', sha, date }
 }
 
 const semantic = /^\d+\.\d+\.\d+$/
 const versionGetters = {
-  master: () => getMaster(),
-  weekly: () => getRelease('weekly', /^weekly\.\d+\.\d+$/),
-  latest: () => getRelease('release', semantic)
+  master: token => getMaster(token),
+  weekly: token => getRelease(token, 'weekly', /^weekly\.\d+\.\d+$/),
+  latest: token => getRelease(token, 'release', semantic)
 }
 
-function resolveVersion(version) {
+function resolveVersion(token, version) {
   const getVersion = versionGetters[version]
-  if (getVersion) return getVersion()
-  if (semantic.test(version)) return getRelease('release', semantic, version)
-  return getCommit(version)
+  if (getVersion) return getVersion(token)
+  if (semantic.test(version)) return getRelease(token, 'release', semantic, version)
+  return getCommit(token, version)
 }
 
 async function getVersion(exePath) {
@@ -248,7 +247,13 @@ async function run() {
   const installDeps = core.getInput('install-dependencies') !== false
   core.info(`setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`)
 
-  const source = await resolveVersion(version)
+  const token = core.getInput('token') || envToken
+  if (!token) throw new Error('missing token')
+
+  if (workspace) workspace = resolve(workspace)
+  else throw new Error('missing token')
+
+  const source = await resolveVersion(token, version)
   if (!source) throw new Error(`${version} not found`)
   const { name, sha, date, url } = source
   core.info(`${name} is ${sha} from ${date}`)
