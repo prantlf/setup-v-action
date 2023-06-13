@@ -13,6 +13,9 @@ const { env } = process
 const mock = !!env.MOCK
 let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: envToken } = env
 
+const trueValues = [true, 'true', 'yes', '1']
+const toBoolean = str => trueValues.includes(str.toLowerCase())
+
 async function _retry(action) {
   for (let attempt = 0;;) {
     try {
@@ -138,7 +141,7 @@ async function install(sha, url, useCache, forceBuild)  {
   let wasBuilt = false
 
   if (useCache && await exists(exePath)) {
-    core.info(`"${exePath}" found on the disk`)
+    core.info(`"${exePath}" found on disk`)
   } else {
     const version = `0.0.0-${ssha}`
     let cacheDir = useCache && tc.find('v', version)
@@ -156,14 +159,14 @@ async function install(sha, url, useCache, forceBuild)  {
 
         let extractDir, contentDir
         if (forceBuild) url = undefined
-        if (!url) {
+        if (url) {
+          extractDir = pkgDir
+          contentDir = `${pkgDir}/v`
+        } else {
           wasBuilt = true
           url = `https://github.com/vlang/v/archive/${sha}.zip`
           extractDir = join(workspace, '..')
           contentDir = pkgDir
-        } else {
-          extractDir = pkgDir
-          contentDir = `${pkgDir}/v`
         }
 
         core.info(`download "${url}"`)
@@ -242,16 +245,16 @@ async function dependencies(exePath)  {
 
 async function run() {
   const version = core.getInput('version') || 'weekly'
-  const useCache = core.getInput('use-cache') !== false
-  const forceBuild = core.getInput('force-build')
-  const installDeps = core.getInput('install-dependencies') !== false
+  const useCache = toBoolean(core.getInput('use-cache'))
+  const forceBuild = toBoolean(core.getInput('force-build'))
+  const installDeps = toBoolean(core.getInput('install-dependencies'))
   core.info(`setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`)
 
   const token = core.getInput('token') || envToken
   if (!token) throw new Error('missing token')
 
   if (workspace) workspace = resolve(workspace)
-  else throw new Error('missing token')
+  else throw new Error('missing workspace')
 
   const source = await resolveVersion(token, version)
   if (!source) throw new Error(`${version} not found`)

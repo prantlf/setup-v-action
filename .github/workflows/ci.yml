@@ -37,6 +37,7 @@ jobs:
       with:
         use-cache: false
         force-build: true
+        install-dependencies: false
     - name: Publish
       uses: cycjimmy/semantic-release-action@v3
       with:

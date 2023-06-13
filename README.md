@@ -132,8 +132,7 @@ Indicate if V was built from sources (`true`) or downloaded as a binary (`false`
 
 This is a work in progress.
 
-* Install module dependencies.
-* Avoid the explicitly needed GITHUB_TOKEN.
+* Enable setting the action outputs. It fails somewhere in `crypto.getRandomValues` currently.
 
 ## License
 
