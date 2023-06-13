@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/prantlf/setup-v-action/compare/v1.4.0...v1.4.1) (2023-06-13)
+
+
+### Bug Fixes
+
+* Fix default values of boolean flags ([f8ba659](https://github.com/prantlf/setup-v-action/commit/f8ba6592228d3590a738958e513b66fbf5057fab))
+
 # [1.4.0](https://github.com/prantlf/setup-v-action/compare/v1.3.0...v1.4.0) (2023-06-13)
 
 
