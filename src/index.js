@@ -13,9 +13,6 @@ const { env } = process
 const mock = !!env.MOCK
 let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: envToken } = env
 
-const trueValues = [true, 'true', 'yes', '1']
-const toBoolean = str => trueValues.includes(str.toLowerCase())
-
 async function _retry(action) {
   for (let attempt = 0;;) {
     try {
@@ -245,9 +242,9 @@ async function dependencies(exePath)  {
 
 async function run() {
   const version = core.getInput('version')
-  const useCache = toBoolean(core.getInput('use-cache'))
-  const forceBuild = toBoolean(core.getInput('force-build'))
-  const installDeps = toBoolean(core.getInput('install-dependencies'))
+  const useCache = core.getBooleanInput('use-cache')
+  const forceBuild = core.getBooleanInput('force-build')
+  const installDeps = core.getBooleanInput('install-dependencies')
   core.info(`setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`)
 
   const token = core.getInput('token') || envToken

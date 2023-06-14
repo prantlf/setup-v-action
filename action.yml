@@ -17,15 +17,15 @@ inputs:
     description: >-
       Set to `false` to ignore the cache and always perform the full installation,
       either by downloading and unpacking a binary, or by downloading sources and building.
-    default: true
+    default: 'true'
   force-build:
     description: >-
       Set to `true` to always build V from sources, even if the binary archive is available.
-    default: false
+    default: 'false'
   install-dependencies:
     description: >-
       Set to `false` to prevent module dependencies from `v.mod` from being installed automatically.
-    default: true
+    default: 'true'
   token:
     description: >-
       Authorization token to inspect releases and commits in the `vlang/v` repository.
@@ -50,5 +50,5 @@ outputs:
       A boolean value indicating if the V compiler was built from sources.
 
 runs:
-  using: node16
+  using: 'node16'
   main: 'dist/index.js'
