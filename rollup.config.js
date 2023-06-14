@@ -6,7 +6,7 @@ const builtins = require('builtins')
 
 module.exports = {
   input: 'src/index.js',
-  output: { file: main, format: 'cjs' },
+  output: { file: main, format: 'cjs', sourcemap: true },
   plugins: [json(), commonjs(), nodeResolve({ preferBuiltins: true })],
   external: builtins()
 }
