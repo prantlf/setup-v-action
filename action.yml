@@ -20,7 +20,7 @@ inputs:
     default: true
   force-build:
     description: >-
-      Set to `true` to always build V from sources, even if the binary archive were available.
+      Set to `true` to always build V from sources, even if the binary archive is available.
     default: false
   install-dependencies:
     description: >-
@@ -29,7 +29,7 @@ inputs:
   token:
     description: >-
       Authorization token to inspect releases and commits in the `vlang/v` repository.
-      Either a GitHub personal access token or the GitHub workflow token.
+      Either a GitHub personal access token or the GitHub workflow token. And if even that is not set, the GitHub workflow token from the action-execution context will be used as default.
     default: ${{ github.token }}
 
 outputs:
