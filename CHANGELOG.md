@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/prantlf/setup-v-action/compare/v1.4.2...v1.4.3) (2023-06-14)
+
+
+### Bug Fixes
+
+* Retry network requests if they fail ([71a508d](https://github.com/prantlf/setup-v-action/commit/71a508de215d5833eec5378f8e280f80e8b1f5ef))
+
 ## [1.4.2](https://github.com/prantlf/setup-v-action/compare/v1.4.1...v1.4.2) (2023-06-14)
 
 
