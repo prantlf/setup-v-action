@@ -1,6 +1,6 @@
 {
   "name": "setup-v-action",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "GitHub action for setting up a V build environment by downloading and unpacking the V compiler or building it from sources.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantl.tk)",
   "license": "MIT",

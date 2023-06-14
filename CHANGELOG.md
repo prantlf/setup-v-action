@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/prantlf/setup-v-action/compare/v1.4.4...v1.4.5) (2023-06-14)
+
+
+### Bug Fixes
+
+* Fix dependency check ([b6c2e18](https://github.com/prantlf/setup-v-action/commit/b6c2e18484159ee76322ecc0a3b858d0af643a2c))
+
 ## [1.4.4](https://github.com/prantlf/setup-v-action/compare/v1.4.3...v1.4.4) (2023-06-14)
 
 
