@@ -244,7 +244,7 @@ async function dependencies(exePath)  {
 }
 
 async function run() {
-  const version = core.getInput('version') || 'weekly'
+  const version = core.getInput('version')
   const useCache = toBoolean(core.getInput('use-cache'))
   const forceBuild = toBoolean(core.getInput('force-build'))
   const installDeps = toBoolean(core.getInput('install-dependencies'))
@@ -268,15 +268,11 @@ async function run() {
   core.addPath(exeDir)
 
   const actualVersion = await getVersion(exePath)
-  // TODO: Re-enable this. It fails in the pipeline:
-  // Error: crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported
-  if (!exeDir) {
-    core.setOutput('version', actualVersion)
-    core.setOutput('bin-path', exeDir)
-    core.setOutput('v-bin-path', exePath)
-    core.setOutput('used-cache', usedCache)
-    core.setOutput('was-built', wasBuilt)
-  }
+  core.setOutput('version', actualVersion)
+  core.setOutput('bin-path', exeDir)
+  core.setOutput('v-bin-path', exePath)
+  core.setOutput('used-cache', usedCache)
+  core.setOutput('was-built', wasBuilt)
 
   if (installDeps) await dependencies(exePath)
 }
