@@ -29,10 +29,10 @@ jobs:
         v-version: ["latest", "weekly", "master"]
 
     steps:
-    - uses: actions/checkout@v3
     - uses: prantlf/setup-v-action@v1
       with:
         version: ${{ matrix.v-version }}
+    - uses: actions/checkout@v3
     - run: v test .
 ```
 
