@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/prantlf/setup-v-action/compare/v1.4.3...v1.4.4) (2023-06-14)
+
+
+### Bug Fixes
+
+* Look for the manifest in the workspace ([4c9489e](https://github.com/prantlf/setup-v-action/commit/4c9489e54799b3f229c954a665463a4b4e46af90))
+
 ## [1.4.3](https://github.com/prantlf/setup-v-action/compare/v1.4.2...v1.4.3) (2023-06-14)
 
 
