@@ -6675,14 +6675,9 @@ const mock = !!env.MOCK;
 let { GITHUB_WORKSPACE: workspace, GITHUB_TOKEN: envToken } = env;
 
 async function request(token, path) {
-  if (mock) {
-    const file = join(__dirname, `../test/mock/${path}.json`);
-    core.info(`load ${file}`);
-    return JSON.parse(await readFile(file))
-  }
   const http = new httpm.HttpClient();
   const url = `https://api.github.com/repos/vlang/v/${path}`;
-  core.info(`get ${url}`);
+  core.info(`Get ${url}`);
   const res = await http.get(url, {
 		Accept: 'application/json',
 		Authorization: `Bearer ${token}`,
@@ -6697,8 +6692,32 @@ async function request(token, path) {
   return JSON.parse(await res.readBody())
 }
 
+async function retry(action) {
+  for (let attempt = 0;;) {
+    try {
+      return await action()
+    } catch (err) {
+      if (++attempt === 3) throw err
+      core.warning(err);
+    }
+
+    const seconds = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    core.info(`Wait ${seconds} seconds before trying again`);
+    await new Promise(resolve => setTimeout(resolve, seconds * 1000));
+  }
+}
+
+async function safeRequest(token, path) {
+  if (mock) {
+    const file = join(__dirname, `../test/mock/${path}.json`);
+    core.info(`Load ${file}`);
+    return JSON.parse(await readFile(file))
+  }
+  return retry(() => request(token, path))
+}
+
 async function getMaster(token) {
-  const { commit } = await request(token, 'branches/master');
+  const { commit } = await safeRequest(token, 'branches/master');
   const { sha, commit: details } = commit;
   const { date } = details.author;
   return { name: 'master', sha, date }
@@ -6714,14 +6733,14 @@ async function getRelease(token, type, check, number) {
   const os = platform();
   const suffix = platformSuffixes[os];
   const archive = `v_${suffix}.zip`;
-  const releases = await request(token, 'releases');
+  const releases = await safeRequest(token, 'releases');
   core.debug(`${releases.length} releases found`);
   for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
-    core.debug(`check tag ${name}`);
+    core.debug(`Check tag ${name}`);
     if (number ? name === number : check.test(name)) {
       let url;
       for (const { name, browser_download_url } of assets) {
-        core.debug(`check asset ${name}`);
+        core.debug(`Check asset ${name}`);
         if (name === archive) {
           url = browser_download_url;
           break
@@ -6730,11 +6749,11 @@ async function getRelease(token, type, check, number) {
       return { name, sha, date, url }
     }
   }
-  core.debug(`no ${number ? number : type} found`);
+  core.debug(`No ${number ? number : type} found`);
 }
 
 async function getCommit(sha, token) {
-  const { commit } = await request(token, `commits/${sha}`);
+  const { commit } = await safeRequest(token, `commits/${sha}`);
   const { date } = commit;
   return { name: 'commit', sha, date }
 }
@@ -6756,7 +6775,7 @@ function resolveVersion(token, version) {
 async function getVersion(exePath) {
   if (mock && platform() !== 'win32') {
     const path = join(__dirname, '../package.json');
-    core.info(`inspect ${path}`);
+    core.info(`Inspect ${path}`);
     const { version } = JSON.parse(await readFile(path));
     return version
   }
@@ -6778,7 +6797,7 @@ async function install(sha, url, useCache, forceBuild)  {
   let exe = 'v';
   if (platform() === 'win32') exe += '.exe';
   const exePath = join(exeDir, exe);
-  core.debug(`v will be "${exePath}"`);
+  core.debug(`V compilet at "${exePath}"`);
 
   let usedCache = true;
   let wasBuilt = false;
@@ -6812,30 +6831,30 @@ async function install(sha, url, useCache, forceBuild)  {
           contentDir = pkgDir;
         }
 
-        core.info(`download "${url}"`);
+        core.info(`Download "${url}"`);
         if (mock) {
           const dir = join(__dirname, '../test/tmp');
           const name = basename(url);
           await io.mkdirP(dir);
           const source = join(__dirname, `../test/mock/assets/${name}`);
-          core.info(`copy "${source}"`);
+          core.info(`Copy "${source}"`);
           archive = join(dir, name);
           await copyFile(source, archive);
         } else {
-          archive = await tc.downloadTool(url);
+          archive = await retry(() => tc.downloadTool(url));
         }
 
         await tc.extractZip(archive, extractDir);
         if (mock && platform() !== 'win32') {
           const exeOrigin = `${extractDir}/v/v`;
-          core.info(`make "${exeOrigin}" executable`);
+          core.info(`Make "${exeOrigin}" executable`);
           await chmod(exeOrigin, 0o755);
         }
 
         if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir });
 
         await io.mkdirP(exeDir);
-        core.info(`populate "${exeDir}"`);
+        core.info(`Populate "${exeDir}"`);
         try {
           await Promise.all([
             [join(contentDir, exe), exePath],
@@ -6846,7 +6865,7 @@ async function install(sha, url, useCache, forceBuild)  {
 
           if (useCache) {
             cacheDir = await tc.cacheDir(exeDir, 'v', version);
-            core.info(`cached "${cacheDir}"`);
+            core.info(`Cached "${cacheDir}"`);
           }
         } catch (err) {
           await io.rmRF(exeDir);
@@ -6861,7 +6880,7 @@ async function install(sha, url, useCache, forceBuild)  {
     }
 
     if (!(await exists(exePath))) {
-      core.info(`link "${exeDir}"`);
+      core.info(`Link "${exeDir}"`);
       if (await exists(exeDir)) await io.rmRF(exeDir);
       await symlink(cacheDir, exeDir, 'junction');
     }
@@ -6876,13 +6895,13 @@ async function dependencies(exePath)  {
     manifest = await readFile('v.mod', 'utf8');
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
-    core.info('no module manifest found');
+    core.info('No module manifest found');
     return
   }
   if (/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
     await exec.exec(exePath, ['install']);
   } else {
-    core.info('no dependencies found');
+    core.info('No dependencies found');
   }
 }
 
@@ -6891,7 +6910,7 @@ async function run() {
   const useCache = core.getBooleanInput('use-cache');
   const forceBuild = core.getBooleanInput('force-build');
   const installDeps = core.getBooleanInput('install-dependencies');
-  core.info(`setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`);
+  core.info(`Setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? '' : ', no dependencies'}`);
 
   const token = core.getInput('token') || envToken;
   if (!token) throw new Error('missing token')
@@ -6902,12 +6921,12 @@ async function run() {
   const source = await resolveVersion(token, version);
   if (!source) throw new Error(`${version} not found`)
   const { name, sha, date, url } = source;
-  core.info(`${name} is ${sha} from ${date}`);
-  if (url) core.info(`archive at ${url}`);
+  core.info(`Resolved ${name} as ${sha} from ${date}`);
+  if (url) core.info(`Archive is ${url}`);
 
   const { exeDir, exePath, usedCache, wasBuilt } = await install(sha, url, useCache, forceBuild);
 
-  core.info(`add "${exeDir}" to PATH`);
+  core.info(`Add "${exeDir}" to PATH`);
   core.addPath(exeDir);
 
   const actualVersion = await getVersion(exePath);

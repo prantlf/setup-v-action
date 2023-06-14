@@ -117,12 +117,6 @@ Type: `Boolean`<br>
 
 A boolean value indicating if the V compiler was built from sources.
 
-## TODO
-
-This is a work in progress.
-
-* Enable setting the action outputs. They are not being set for time being. It fails somewhere in `crypto.getRandomValues`.
-
 ## License
 
 Copyright (C) 2023 Ferdinand Prantl
