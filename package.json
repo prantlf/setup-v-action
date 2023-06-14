@@ -1,7 +1,7 @@
 {
   "name": "setup-v-action",
   "version": "1.4.1",
-  "description": "GitHub action for setting up a V environment by downloading and unpacking or building the V compiler to the PATH.",
+  "description": "GitHub action for setting up a V build environment by downloading and unpacking the V compiler or building it from sources.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantl.tk)",
   "license": "MIT",
   "licenses": [
@@ -32,8 +32,8 @@
   "scripts": {
     "prepare": "rollup -c",
     "lint": "denolint",
-    "check": "test/index.sh",
-    "test": "denolint && test/index.sh"
+    "check": "node test/index",
+    "test": "denolint && node test/index"
   },
   "release": {
     "plugins": [
