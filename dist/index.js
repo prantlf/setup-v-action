@@ -6892,7 +6892,9 @@ async function install(sha, url, useCache, forceBuild)  {
 async function dependencies(exePath)  {
   let manifest;
   try {
-    manifest = await readFile('v.mod', 'utf8');
+    const vmod = join(workspace, 'v.mod');
+    core.info(`Checking "${vmod}`);
+    manifest = await readFile(vmod, 'utf8');
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
     core.info('No module manifest found');
