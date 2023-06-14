@@ -255,7 +255,7 @@ async function dependencies(exePath)  {
     core.info('No module manifest found')
     return
   }
-  if (/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
+  if (/dependencies\s*:/.test(manifest) && !/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
     await exec.exec(exePath, ['install'])
   } else {
     core.info('No dependencies found')
