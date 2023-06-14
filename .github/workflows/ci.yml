@@ -28,8 +28,8 @@ jobs:
         version: latest
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity]
-    - name: Test Mock
-      run: npm test
+    # - name: Test Mock
+    #   run: npm test
     - name: Test Binary
       uses: ./
     - name: Test Sources

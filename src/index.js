@@ -1,3 +1,10 @@
+if (typeof global.crypto !== 'object') {
+  global.crypto = {}
+}
+if (typeof global.crypto.getRandomValues !== 'function') {
+  global.crypto.getRandomValues = getRandomValues
+}
+
 const { platform } = require('os')
 const { basename, join, resolve } = require('path')
 const core = require('@actions/core')
@@ -6,6 +13,15 @@ const io = require('@actions/io')
 const httpm = require('@actions/http-client')
 const tc = require('@actions/tool-cache')
 const { access, chmod, copyFile, readFile, symlink } = require('fs').promises
+const MersenneTwister = require('mersenne-twister')
+
+const twister = new MersenneTwister(Math.random() * Number.MAX_SAFE_INTEGER)
+function getRandomValues(dest) {
+  for (let i = dest.length; --i >= 0;) {
+    dest[i] = Math.floor(twister.random() * 256)
+  }
+  return dest
+}
 
 const exists = file => access(file).then(() => true, () => false)
 

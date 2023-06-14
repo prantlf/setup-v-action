@@ -41,6 +41,9 @@ devDependencies:
   denolint:
     specifier: ^2.0.10
     version: 2.0.10
+  mersenne-twister:
+    specifier: ^1.1.0
+    version: 1.1.0
   rollup:
     specifier: ^3.25.1
     version: 3.25.1
@@ -1621,6 +1624,10 @@ packages:
   /merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /mersenne-twister@1.1.0:
+    resolution: {integrity: sha512-mUYWsMKNrm4lfygPkL3OfGzOPTR2DBlTkBNHM//F6hGp8cLThY897crAlk3/Jo17LEOOjQUrNAx6DvgO77QJkA==}
     dev: true
 
   /micromatch@4.0.5:
