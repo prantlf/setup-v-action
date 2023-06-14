@@ -1,3 +1,11 @@
+## [1.4.2](https://github.com/prantlf/setup-v-action/compare/v1.4.1...v1.4.2) (2023-06-14)
+
+
+### Bug Fixes
+
+* Enable outputs ([ffc265b](https://github.com/prantlf/setup-v-action/commit/ffc265be7cf719c05f0dbd6865548178331d20d6))
+* Simplify reading boolean inputs ([13fea1b](https://github.com/prantlf/setup-v-action/commit/13fea1bd67a546a3f3aba357eb199ef46a9847be))
+
 ## [1.4.1](https://github.com/prantlf/setup-v-action/compare/v1.4.0...v1.4.1) (2023-06-13)
 
 
