@@ -8,7 +8,7 @@ if (typeof global.crypto.getRandomValues !== 'function') {
 const { platform } = require('os')
 const { basename, join, resolve } = require('path')
 const core = require('@actions/core')
-const exec = require("@actions/exec")
+const { exec } = require("@actions/exec")
 const io = require('@actions/io')
 const httpm = require('@actions/http-client')
 const tc = require('@actions/tool-cache')
@@ -136,7 +136,7 @@ async function getVersion(exePath) {
   }
 
   let out
-  await exec.exec(exePath, ['-V'], {
+  await exec(exePath, ['-V'], {
     listeners: {
       stdout: data => {
         out = out ? Buffer.concat([out, data]) : data
@@ -211,7 +211,10 @@ async function install(sha, url, useCache, forceBuild)  {
           await chmod(exeOrigin, 0o755)
         }
 
-        if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir })
+        if (wasBuilt) {
+          if (platform() !== 'win32') await exec('make', [], { cwd: pkgDir })
+          else await exec('make.bat', [], { cwd: contentDir, shell: true })
+        }
 
         if (platform() !== 'win32') {
           await io.mkdirP(exeDir)
@@ -271,7 +274,7 @@ async function dependencies(exePath)  {
     return
   }
   if (/dependencies\s*:/.test(manifest) && !/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
-    await exec.exec(exePath, ['install'])
+    await exec(exePath, ['install'])
   } else {
     core.info('No dependencies found')
   }
