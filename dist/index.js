@@ -6653,7 +6653,7 @@ if (typeof commonjsGlobal.crypto.getRandomValues !== 'function') {
 const { platform } = require$$0;
 const { basename, join, resolve } = require$$1$1;
 const core = requireCore();
-const exec = exec$2;
+const { exec } = exec$2;
 const io = io$3;
 const httpm = lib;
 const tc = toolCache;
@@ -6781,7 +6781,7 @@ async function getVersion(exePath) {
   }
 
   let out;
-  await exec.exec(exePath, ['-V'], {
+  await exec(exePath, ['-V'], {
     listeners: {
       stdout: data => {
         out = out ? Buffer.concat([out, data]) : data;
@@ -6816,8 +6816,13 @@ async function install(sha, url, useCache, forceBuild)  {
       let archive;
 
       try {
-        if (await exists(pkgDir)) await io.rmRF(pkgDir);
-        if (await exists(exeDir)) await io.rmRF(exeDir);
+        const [exist_pkg, exist_exe] = await Promise.all([
+          exists(pkgDir), exists(exeDir)
+        ]);
+        const rm_dirs = [];
+        if (exist_pkg) rm_dirs.push(io.rmRF(pkgDir));
+        if (exist_exe) rm_dirs.push(io.rmRF(exeDir));
+        if (rm_dirs.length > 0) await Promise.all(rm_dirs);
 
         let extractDir, contentDir;
         if (forceBuild) url = undefined;
@@ -6851,18 +6856,31 @@ async function install(sha, url, useCache, forceBuild)  {
           await chmod(exeOrigin, 0o755);
         }
 
-        if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir });
+        if (wasBuilt) {
+          if (platform() !== 'win32') await exec('make', [], { cwd: pkgDir });
+          else await exec('make.bat', [], { cwd: contentDir, shell: true });
+        }
 
-        await io.mkdirP(exeDir);
-        core.info(`Populate "${exeDir}"`);
+        if (platform() !== 'win32') {
+          await io.mkdirP(exeDir);
+          core.info(`Populate "${exeDir}" with needed files`);
+          try {
+            await Promise.all([
+              [join(contentDir, exe), exePath],
+              [join(contentDir, 'cmd'), join(exeDir, 'cmd')],
+              [join(contentDir, 'thirdparty'), join(exeDir, 'thirdparty')],
+              [join(contentDir, 'vlib'), join(exeDir, 'vlib')]
+            ].map(([src, dst]) => io.mv(src, dst)));
+          } catch (err) {
+            await io.rmRF(exeDir);
+            throw err
+          }
+        } else {
+          core.info(`Populate "${exeDir}" with all files`);
+          await io.mv(contentDir, exeDir);
+        }
+
         try {
-          await Promise.all([
-            [join(contentDir, exe), exePath],
-            [join(contentDir, 'cmd'), join(exeDir, 'cmd')],
-            [join(contentDir, 'thirdparty'), join(exeDir, 'thirdparty')],
-            [join(contentDir, 'vlib'), join(exeDir, 'vlib')]
-          ].map(([src, dst]) => io.mv(src, dst)));
-
           if (useCache) {
             cacheDir = await tc.cacheDir(exeDir, 'v', version);
             core.info(`Cached "${cacheDir}"`);
@@ -6901,7 +6919,7 @@ async function dependencies(exePath)  {
     return
   }
   if (/dependencies\s*:/.test(manifest) && !/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
-    await exec.exec(exePath, ['install']);
+    await exec(exePath, ['install']);
   } else {
     core.info('No dependencies found');
   }
