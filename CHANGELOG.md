@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/prantlf/setup-v-action/compare/v1.4.7...v1.4.8) (2023-09-16)
+
+
+### Bug Fixes
+
+* Remove emergency logging ([d335abf](https://github.com/prantlf/setup-v-action/commit/d335abfd7def4daf9214a8080066221f67e2d210))
+
 ## [1.4.7](https://github.com/prantlf/setup-v-action/compare/v1.4.6...v1.4.7) (2023-09-16)
 
 
