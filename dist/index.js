@@ -6657,8 +6657,9 @@ const { exec } = exec$2;
 const io = io$3;
 const httpm = lib;
 const tc = toolCache;
-const { access, chmod, copyFile, readFile, symlink } = require$$0$1.promises;
+const { access, chmod, copyFile, readdir, readFile, symlink } = require$$0$1.promises;
 const MersenneTwister = mersenneTwister;
+const { spawn } = require$$2$2;
 
 const twister = new MersenneTwister(Math.random() * Number.MAX_SAFE_INTEGER);
 function getRandomValues(dest) {
@@ -6857,8 +6858,9 @@ async function install(sha, url, useCache, forceBuild)  {
         }
 
         if (wasBuilt) {
+          core.info(JSON.stringify(await readdir(contentDir), null, 2));
           if (platform() !== 'win32') await exec('make', [], { cwd: pkgDir });
-          else await exec('make.bat', [], { cwd: contentDir, shell: true });
+          else await exec2('make.bat', { cwd: contentDir, shell: true });
         }
 
         if (platform() !== 'win32') {
@@ -6877,7 +6879,9 @@ async function install(sha, url, useCache, forceBuild)  {
           }
         } else {
           core.info(`Populate "${exeDir}" with all files`);
+          core.info(JSON.stringify(await readdir(contentDir), null, 2));
           await io.mv(contentDir, exeDir);
+          core.info(JSON.stringify(await readdir(exeDir), null, 2));
         }
 
         try {
@@ -6923,6 +6927,16 @@ async function dependencies(exePath)  {
   } else {
     core.info('No dependencies found');
   }
+}
+
+function exec2(command, args, options) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(command, args, options)
+      .on('error', reject)
+      .on('exit', code => code ? reject(new Error(`"${command}" exited with ${code}`)) : resolve());
+    child.stdout.on('data', data => process.stdout.write(data.toString()));
+    child.stderr.on('data', data => process.stderr.write(data.toString()));
+  })
 }
 
 async function run() {
