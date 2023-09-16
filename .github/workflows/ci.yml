@@ -39,13 +39,6 @@ jobs:
         use-cache: false
         force-build: true
         install-dependencies: false
-    - name: Publish
-      uses: cycjimmy/semantic-release-action@v3
-      with:
-        branches: master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   macos:
     runs-on: macos-latest
