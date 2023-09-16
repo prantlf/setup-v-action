@@ -1,3 +1,11 @@
+## [1.4.6](https://github.com/prantlf/setup-v-action/compare/v1.4.5...v1.4.6) (2023-09-16)
+
+
+### Bug Fixes
+
+* Call make.bat on windows ([fca2c43](https://github.com/prantlf/setup-v-action/commit/fca2c43d7cf1242d671c34d2bca722caf2f273ad))
+* Move the whole downloaded v directory on windows ([2a79071](https://github.com/prantlf/setup-v-action/commit/2a7907156a433ca7c08b17601715d87765e574f1))
+
 ## [1.4.5](https://github.com/prantlf/setup-v-action/compare/v1.4.4...v1.4.5) (2023-06-14)
 
 
