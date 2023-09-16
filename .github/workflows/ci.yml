@@ -12,7 +12,8 @@ on:
   pull_request:
 
 jobs:
-  test-or-release:
+
+  linux:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Sources
@@ -41,7 +42,88 @@ jobs:
     - name: Publish
       uses: cycjimmy/semantic-release-action@v3
       with:
-        semantic_version: 19
+        branches: master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v3
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: |
+          - args: [--frozen-lockfile, --no-verify-store-integrity]
+    # - name: Test Mock
+    #   run: npm test
+    - name: Test Binary
+      uses: ./
+    - name: Test Sources
+      uses: ./
+      with:
+        use-cache: false
+        force-build: true
+        install-dependencies: false
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v3
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: |
+          - args: [--frozen-lockfile, --no-verify-store-integrity]
+    # - name: Test Mock
+    #   run: npm test
+    - name: Test Binary
+      uses: ./
+    - name: Test Sources
+      uses: ./
+      with:
+        use-cache: false
+        force-build: true
+        install-dependencies: false
+
+  release:
+    needs:
+      - linux
+      - macos
+      - windows
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v3
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: |
+          - args: [--frozen-lockfile, --no-verify-store-integrity]
+    - name: Publish
+      uses: cycjimmy/semantic-release-action@v3
+      with:
         branches: master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
