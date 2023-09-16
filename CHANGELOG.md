@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/prantlf/setup-v-action/compare/v1.4.6...v1.4.7) (2023-09-16)
+
+
+### Bug Fixes
+
+* Execute make.bat on windows using spawn ([a22fc94](https://github.com/prantlf/setup-v-action/commit/a22fc94c13d66da1925134de83353092bd3aa7f8))
+
 ## [1.4.6](https://github.com/prantlf/setup-v-action/compare/v1.4.5...v1.4.6) (2023-09-16)
 
 
