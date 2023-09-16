@@ -171,8 +171,13 @@ async function install(sha, url, useCache, forceBuild)  {
       let archive
 
       try {
-        if (await exists(pkgDir)) await io.rmRF(pkgDir)
-        if (await exists(exeDir)) await io.rmRF(exeDir)
+        const [exist_pkg, exist_exe] = await Promise.all([
+          exists(pkgDir), exists(exeDir)
+        ])
+        const rm_dirs = []
+        if (exist_pkg) rm_dirs.push(io.rmRF(pkgDir))
+        if (exist_exe) rm_dirs.push(io.rmRF(exeDir))
+        if (rm_dirs.length > 0) await Promise.all(rm_dirs)
 
         let extractDir, contentDir
         if (forceBuild) url = undefined
@@ -208,16 +213,26 @@ async function install(sha, url, useCache, forceBuild)  {
 
         if (wasBuilt) await exec.exec('make', [], { cwd: pkgDir })
 
-        await io.mkdirP(exeDir)
-        core.info(`Populate "${exeDir}"`)
-        try {
-          await Promise.all([
-            [join(contentDir, exe), exePath],
-            [join(contentDir, 'cmd'), join(exeDir, 'cmd')],
-            [join(contentDir, 'thirdparty'), join(exeDir, 'thirdparty')],
-            [join(contentDir, 'vlib'), join(exeDir, 'vlib')]
-          ].map(([src, dst]) => io.mv(src, dst)))
+        if (platform() !== 'win32') {
+          await io.mkdirP(exeDir)
+          core.info(`Populate "${exeDir}" with needed files`)
+          try {
+            await Promise.all([
+              [join(contentDir, exe), exePath],
+              [join(contentDir, 'cmd'), join(exeDir, 'cmd')],
+              [join(contentDir, 'thirdparty'), join(exeDir, 'thirdparty')],
+              [join(contentDir, 'vlib'), join(exeDir, 'vlib')]
+            ].map(([src, dst]) => io.mv(src, dst)))
+          } catch (err) {
+            await io.rmRF(exeDir)
+            throw err
+          }
+        } else {
+          core.info(`Populate "${exeDir}" with all files`)
+          await io.mv(contentDir, exeDir)
+        }
 
+        try {
           if (useCache) {
             cacheDir = await tc.cacheDir(exeDir, 'v', version)
             core.info(`Cached "${cacheDir}"`)

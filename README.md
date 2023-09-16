@@ -1,4 +1,4 @@
-# Setup V Build
+# Setup V (Vlang) Build
 
 [![Latest version](https://img.shields.io/npm/v/setup-v-action) ![Dependency status](https://img.shields.io/librariesio/release/npm/setup-v-action)](https://www.npmjs.com/package/setup-v-action)
 
@@ -29,12 +29,14 @@ jobs:
         v-version: ["latest", "weekly", "master"]
 
     steps:
+    - uses: actions/checkout@v3
     - uses: prantlf/setup-v-action@v1
       with:
         version: ${{ matrix.v-version }}
-    - uses: actions/checkout@v3
     - run: v test .
 ```
+
+If you want to install module dependencies from `v.mod` automatically, run this action after checking out the sources.
 
 ## Inputs
 

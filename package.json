@@ -1,7 +1,7 @@
 {
   "name": "setup-v-action",
   "version": "1.4.5",
-  "description": "GitHub action for setting up a V build environment by downloading and unpacking the V compiler or building it from sources.",
+  "description": "GitHub action for setting up a V (Vlang) build environment by downloading and unpacking the V compiler or building it from sources.",
   "author": "Ferdinand Prantl <prantlf@gmail.com> (http://prantl.tk)",
   "license": "MIT",
   "licenses": [
@@ -30,7 +30,7 @@
     "node": ">= 16"
   },
   "scripts": {
-    "prepare": "rollup -c",
+    "preprepare": "rollup -c",
     "lint": "denolint",
     "check": "node test/index",
     "test": "denolint && node test/index"
