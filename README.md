@@ -80,7 +80,7 @@ Set to `false` to prevent module dependencies from `v.mod` from being installed 
 
 ### token
 
-Type: `Boolean`<br>
+Type: `String`<br>
 Default: `${{ github.token }}`
 
 Authorization token to inspect releases and commits in the `vlang/v` repository. Either a GitHub personal access token or the GitHub workflow token. If not provided, the environment variable `GITHUB_TOKEN` will be used as a fallback. And if even that is not set, the GitHub workflow token from the action-execution context will be used as default.
