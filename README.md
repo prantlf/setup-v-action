@@ -2,7 +2,7 @@
 
 [![Latest version](https://img.shields.io/npm/v/setup-v-action) ![Dependency status](https://img.shields.io/librariesio/release/npm/setup-v-action)](https://www.npmjs.com/package/setup-v-action)
 
-GitHub action for setting up a V build environment by downloading and unpacking the V compiler or building it from sources. The minimum supported version of Node.js is 16.
+GitHub action for setting up a V build environment by downloading and unpacking the V compiler or building it from sources.
 
 * Simple syntax with defaults according to the best performance and practices.
 * Convenient version specification - `master`, `weekly`, `latest`, `X.Y.Z`, `<commit hash>`.
