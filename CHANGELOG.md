@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/prantlf/setup-v-action/compare/v1.4.8...v2.0.0) (2023-10-19)
+
+
+### chore
+
+* Bump Node.js version from 16 to 20 ([b102c1e](https://github.com/prantlf/setup-v-action/commit/b102c1ef05bb72c8959efd84f482b2a4284d7af3))
+
+
+### BREAKING CHANGES
+
+* Although I do not know what could break, because this action
+runs with its own Node.js version, such change in the build environment might
+break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
+17. However, there are no known problems or migration steps necessary.
+
 ## [1.4.8](https://github.com/prantlf/setup-v-action/compare/v1.4.7...v1.4.8) (2023-09-16)
 
 
