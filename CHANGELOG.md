@@ -1,11 +1,10 @@
-## [2.0.1](https://github.com/prantlf/setup-v-action/compare/v2.0.0...v2.0.1) (2023-10-19)
+# Changes
 
+## [2.0.1](https://github.com/prantlf/setup-v-action/compare/v2.0.0...v2.0.1) (2023-10-19)
 
 ### Bug Fixes
 
 * Upgrade dependencies ([7c75831](https://github.com/prantlf/setup-v-action/commit/7c758317da80b56b3a9cf8600da0c747c265b3aa))
-
-# Changes
 
 ## [2.0.0](https://github.com/prantlf/setup-v-action/compare/v1.4.8...v2.0.0) (2023-10-19)
 
