@@ -16,7 +16,7 @@ GitHub action for setting up a V build environment by downloading and unpacking 
 Install V from the most recent weekly release:
 
 ```yml
-- uses: prantlf/setup-v-action@v1
+- uses: prantlf/setup-v-action@v2
 ```
 
 Test against multiple versions of V using the matrix strategy:
@@ -29,8 +29,8 @@ jobs:
         v-version: ["latest", "weekly", "master"]
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: prantlf/setup-v-action@v1
+    - uses: actions/checkout@v4
+    - uses: prantlf/setup-v-action@v2
       with:
         version: ${{ matrix.v-version }}
     - run: v test .

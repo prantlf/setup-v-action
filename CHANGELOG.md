@@ -1,10 +1,10 @@
-# [2.0.0](https://github.com/prantlf/setup-v-action/compare/v1.4.8...v2.0.0) (2023-10-19)
+# Changes
 
+## [2.0.0](https://github.com/prantlf/setup-v-action/compare/v1.4.8...v2.0.0) (2023-10-19)
 
-### chore
+### Chores
 
 * Bump Node.js version from 16 to 20 ([b102c1e](https://github.com/prantlf/setup-v-action/commit/b102c1ef05bb72c8959efd84f482b2a4284d7af3))
-
 
 ### BREAKING CHANGES
 
@@ -15,20 +15,17 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.4.8](https://github.com/prantlf/setup-v-action/compare/v1.4.7...v1.4.8) (2023-09-16)
 
-
 ### Bug Fixes
 
 * Remove emergency logging ([d335abf](https://github.com/prantlf/setup-v-action/commit/d335abfd7def4daf9214a8080066221f67e2d210))
 
 ## [1.4.7](https://github.com/prantlf/setup-v-action/compare/v1.4.6...v1.4.7) (2023-09-16)
 
-
 ### Bug Fixes
 
 * Execute make.bat on windows using spawn ([a22fc94](https://github.com/prantlf/setup-v-action/commit/a22fc94c13d66da1925134de83353092bd3aa7f8))
 
 ## [1.4.6](https://github.com/prantlf/setup-v-action/compare/v1.4.5...v1.4.6) (2023-09-16)
-
 
 ### Bug Fixes
 
@@ -37,13 +34,11 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.4.5](https://github.com/prantlf/setup-v-action/compare/v1.4.4...v1.4.5) (2023-06-14)
 
-
 ### Bug Fixes
 
 * Fix dependency check ([b6c2e18](https://github.com/prantlf/setup-v-action/commit/b6c2e18484159ee76322ecc0a3b858d0af643a2c))
 
 ## [1.4.4](https://github.com/prantlf/setup-v-action/compare/v1.4.3...v1.4.4) (2023-06-14)
-
 
 ### Bug Fixes
 
@@ -51,13 +46,11 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.4.3](https://github.com/prantlf/setup-v-action/compare/v1.4.2...v1.4.3) (2023-06-14)
 
-
 ### Bug Fixes
 
 * Retry network requests if they fail ([71a508d](https://github.com/prantlf/setup-v-action/commit/71a508de215d5833eec5378f8e280f80e8b1f5ef))
 
 ## [1.4.2](https://github.com/prantlf/setup-v-action/compare/v1.4.1...v1.4.2) (2023-06-14)
-
 
 ### Bug Fixes
 
@@ -66,13 +59,11 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.4.1](https://github.com/prantlf/setup-v-action/compare/v1.4.0...v1.4.1) (2023-06-13)
 
-
 ### Bug Fixes
 
 * Fix default values of boolean flags ([f8ba659](https://github.com/prantlf/setup-v-action/commit/f8ba6592228d3590a738958e513b66fbf5057fab))
 
 # [1.4.0](https://github.com/prantlf/setup-v-action/compare/v1.3.0...v1.4.0) (2023-06-13)
-
 
 ### Features
 
@@ -81,13 +72,11 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 # [1.3.0](https://github.com/prantlf/setup-v-action/compare/v1.2.3...v1.3.0) (2023-06-12)
 
-
 ### Features
 
 * Build V from sources ([8bb9ac3](https://github.com/prantlf/setup-v-action/commit/8bb9ac34a14ec7a61b3318b9549fd47ba2984a66))
 
 ## [1.2.3](https://github.com/prantlf/setup-v-action/compare/v1.2.2...v1.2.3) (2023-06-12)
-
 
 ### Bug Fixes
 
@@ -95,13 +84,11 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.2.2](https://github.com/prantlf/setup-v-action/compare/v1.2.1...v1.2.2) (2023-06-12)
 
-
 ### Bug Fixes
 
 * Ensure files needed by the compiler ([34d5b11](https://github.com/prantlf/setup-v-action/commit/34d5b114b899ccc19068ed903b842d38fd668648))
 
 ## [1.2.1](https://github.com/prantlf/setup-v-action/compare/v1.2.0...v1.2.1) (2023-06-12)
-
 
 ### Bug Fixes
 
@@ -109,13 +96,11 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 # [1.2.0](https://github.com/prantlf/setup-v-action/compare/v1.1.2...v1.2.0) (2023-06-12)
 
-
 ### Features
 
 * Add more logging ([2b1b717](https://github.com/prantlf/setup-v-action/commit/2b1b7178c8f3766d4009f6ac87f2bbc145a180c0))
 
 ## [1.1.2](https://github.com/prantlf/setup-v-action/compare/v1.1.1...v1.1.2) (2023-06-12)
-
 
 ### Bug Fixes
 
@@ -123,18 +108,15 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.1.1](https://github.com/prantlf/setup-v-action/compare/v1.1.0...v1.1.1) (2023-06-12)
 
-
 ### Bug Fixes
 
 * Disable outputs temporarily ([4482ea7](https://github.com/prantlf/setup-v-action/commit/4482ea743b5e5d87fcecb72ed115913493b9e96a))
 
 # [1.1.0](https://github.com/prantlf/setup-v-action/compare/v1.0.1...v1.1.0) (2023-06-12)
 
-
 ### Bug Fixes
 
 * Fix a typo in action manifest ([31a2398](https://github.com/prantlf/setup-v-action/commit/31a2398dcf8eec13717ada1ee50e44d1ce30281d))
-
 
 ### Features
 
@@ -142,11 +124,10 @@ break something unexpectedly. For example, Node.js prefers IPV6 to IPV4a since
 
 ## [1.0.1](https://github.com/prantlf/setup-v-action/compare/v1.0.0...v1.0.1) (2023-06-12)
 
-
 ### Bug Fixes
 
 * Rename the action to be unique ([4af5e85](https://github.com/prantlf/setup-v-action/commit/4af5e85a17e536be075ef322eca2278ee1ec5b11))
 
-# 0.0.1 (2023-06-12)
+## 0.0.1 (2023-06-12)
 
 Initial release
