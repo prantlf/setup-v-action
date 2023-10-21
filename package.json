@@ -27,7 +27,7 @@
     "action.yml"
   ],
   "engines": {
-    "node": ">= 16"
+    "node": ">= 18"
   },
   "scripts": {
     "preprepare": "rollup -c",
