@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/prantlf/setup-v-action/compare/v2.0.1...v2.0.2) (2023-10-21)
+
+
+### Bug Fixes
+
+* Support both tags X.Y.Z and vX.Y.Z ([9455628](https://github.com/prantlf/setup-v-action/commit/9455628ad89537a2af6b631ec61065b68920cfaf))
+
 # Changes
 
 ## [2.0.1](https://github.com/prantlf/setup-v-action/compare/v2.0.0...v2.0.1) (2023-10-19)
