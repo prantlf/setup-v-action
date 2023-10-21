@@ -52,7 +52,7 @@ One of the following values is supported:
 * `master` - built from the most recent commit to the `master` branch
 * `weekly` - downloaded from the most recent weekly release (default)
 * `latest` - downloaded from the most recent (semantic) version release
-* `X.Y.Z` - downloaded from a specific (semantic) version release
+* `vX.Y.Z` or `X.Y.Z` - downloaded from a specific (semantic) version release
 * `<commit hash>` - built from a specific commit
 
 The default - `weekly` should work the best by using the most recent development version. V is still in rapid development and the `latest` might be too limiting. Once V becomes mature, the default will change and th elist of available values probably as well.

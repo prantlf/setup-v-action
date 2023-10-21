@@ -3,7 +3,7 @@ description: 'Setup a V (Vlang) environment by downloading and unpacking or buil
 author: prantlf
 
 branding:
-  icon: check-square
+  icon: power
   color: blue
 
 inputs:

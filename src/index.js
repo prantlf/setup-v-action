@@ -114,7 +114,7 @@ async function getCommit(sha, token) {
   return { name: 'commit', sha, date }
 }
 
-const semantic = /^\d+\.\d+\.\d+$/
+const semantic = /^v?\d+\.\d+\.\d+$/
 const versionGetters = {
   master: token => getMaster(token),
   weekly: token => getRelease(token, 'weekly', /^weekly\.\d+\.\d+$/),
@@ -153,7 +153,7 @@ async function install(sha, url, useCache, forceBuild)  {
   let exe = 'v'
   if (platform() === 'win32') exe += '.exe'
   const exePath = join(exeDir, exe)
-  core.debug(`V compilet at "${exePath}"`)
+  core.debug(`V compiled at "${exePath}"`)
 
   let usedCache = true
   let wasBuilt = false
