@@ -1,7 +1,7 @@
 'use strict';
 
-var require$$0 = require('os');
 var require$$1$4 = require('path');
+var require$$0 = require('os');
 var require$$0$1 = require('fs');
 var require$$2$1 = require('http');
 var require$$3 = require('https');
@@ -29149,7 +29149,6 @@ if (typeof commonjsGlobal.crypto.getRandomValues !== 'function') {
   commonjsGlobal.crypto.getRandomValues = getRandomValues;
 }
 
-const { platform } = require$$0;
 const { basename, join, resolve } = require$$1$4;
 const core = requireCore();
 const { exec } = exec$2;
@@ -29159,6 +29158,8 @@ const tc = toolCache;
 const { access, chmod, copyFile, readFile, symlink } = require$$0$1.promises;
 const MersenneTwister = mersenneTwister;
 const { spawn } = require$$2$3;
+
+const { platform } = process;
 
 const twister = new MersenneTwister(Math.random() * Number.MAX_SAFE_INTEGER);
 function getRandomValues(dest) {
@@ -29185,11 +29186,17 @@ async function request(token, path) {
     'X-GitHub-Api-Version': '2022-11-28'
 	});
   if (res.message.statusCode !== 200) {
-    const err = new Error(`${res.message.statusCode} ${res.message.statusMessage}`);
+    const err = new Error(`GET ${url} failed: ${res.message.statusCode} ${res.message.statusMessage}`);
     err.response = res;
     throw err
   }
   return JSON.parse(await res.readBody())
+}
+
+function delay() {
+  const delay = (5 + 5 * Math.random()) * 1000;
+  core.info(`Wait ${delay} ms before trying again`);
+  return new Promise(resolve => setTimeout(resolve, delay))
 }
 
 async function retry(action) {
@@ -29200,14 +29207,11 @@ async function retry(action) {
       if (++attempt === 3) throw err
       core.warning(err);
     }
-
-    const seconds = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
-    core.info(`Wait ${seconds} seconds before trying again`);
-    await new Promise(resolve => setTimeout(resolve, seconds * 1000));
+    await delay();
   }
 }
 
-async function safeRequest(token, path) {
+async function requestSafely(token, path) {
   if (mock) {
     const file = join(__dirname, `../test/mock/${path}.json`);
     core.info(`Load ${file}`);
@@ -29217,7 +29221,7 @@ async function safeRequest(token, path) {
 }
 
 async function getMaster(token) {
-  const { commit } = await safeRequest(token, 'branches/master');
+  const { commit } = await requestSafely(token, 'branches/master');
   const { sha, commit: details } = commit;
   const { date } = details.author;
   return { name: 'master', sha, date }
@@ -29230,10 +29234,9 @@ const platformSuffixes = {
 };
 
 async function getRelease(token, type, check, number) {
-  const os = platform();
-  const suffix = platformSuffixes[os];
+  const suffix = platformSuffixes[platform];
   const archive = `v_${suffix}.zip`;
-  const releases = await safeRequest(token, 'releases');
+  const releases = await requestSafely(token, 'releases');
   core.debug(`${releases.length} releases found`);
   for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
     core.debug(`Check tag ${name}`);
@@ -29253,12 +29256,12 @@ async function getRelease(token, type, check, number) {
 }
 
 async function getCommit(sha, token) {
-  const { commit } = await safeRequest(token, `commits/${sha}`);
+  const { commit } = await requestSafely(token, `commits/${sha}`);
   const { date } = commit;
   return { name: 'commit', sha, date }
 }
 
-const semantic = /^\d+\.\d+\.\d+$/;
+const semantic = /^v?\d+\.\d+\.\d+$/;
 const versionGetters = {
   master: token => getMaster(token),
   weekly: token => getRelease(token, 'weekly', /^weekly\.\d+\.\d+$/),
@@ -29273,7 +29276,7 @@ function resolveVersion(token, version) {
 }
 
 async function getVersion(exePath) {
-  if (mock && platform() !== 'win32') {
+  if (mock && platform !== 'win32') {
     const path = join(__dirname, '../package.json');
     core.info(`Inspect ${path}`);
     const { version } = JSON.parse(await readFile(path));
@@ -29295,9 +29298,9 @@ async function install(sha, url, useCache, forceBuild)  {
   const ssha = sha.substring(0, 7);
   const exeDir = join(workspace, `../v-${ssha}`);
   let exe = 'v';
-  if (platform() === 'win32') exe += '.exe';
+  if (platform === 'win32') exe += '.exe';
   const exePath = join(exeDir, exe);
-  core.debug(`V compilet at "${exePath}"`);
+  core.debug(`V compiled at "${exePath}"`);
 
   let usedCache = true;
   let wasBuilt = false;
@@ -29350,18 +29353,18 @@ async function install(sha, url, useCache, forceBuild)  {
         }
 
         await tc.extractZip(archive, extractDir);
-        if (mock && platform() !== 'win32') {
+        if (mock && platform !== 'win32') {
           const exeOrigin = `${extractDir}/v/v`;
           core.info(`Make "${exeOrigin}" executable`);
           await chmod(exeOrigin, 0o755);
         }
 
         if (wasBuilt) {
-          if (platform() !== 'win32') await exec('make', [], { cwd: pkgDir });
+          if (platform !== 'win32') await exec('make', [], { cwd: pkgDir });
           else await exec2('make.bat', { cwd: contentDir, shell: true });
         }
 
-        if (platform() !== 'win32') {
+        if (platform !== 'win32') {
           await io.mkdirP(exeDir);
           core.info(`Populate "${exeDir}" with needed files`);
           try {
