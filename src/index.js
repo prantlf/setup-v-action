@@ -5,7 +5,6 @@ if (typeof global.crypto.getRandomValues !== 'function') {
   global.crypto.getRandomValues = getRandomValues
 }
 
-const { platform } = require('os')
 const { basename, join, resolve } = require('path')
 const core = require('@actions/core')
 const { exec } = require("@actions/exec")
@@ -15,6 +14,8 @@ const tc = require('@actions/tool-cache')
 const { access, chmod, copyFile, readFile, symlink } = require('fs').promises
 const MersenneTwister = require('mersenne-twister')
 const { spawn } = require('child_process')
+
+const { platform } = process
 
 const twister = new MersenneTwister(Math.random() * Number.MAX_SAFE_INTEGER)
 function getRandomValues(dest) {
@@ -89,8 +90,7 @@ const platformSuffixes = {
 }
 
 async function getRelease(token, type, check, number) {
-  const os = platform()
-  const suffix = platformSuffixes[os]
+  const suffix = platformSuffixes[platform]
   const archive = `v_${suffix}.zip`
   const releases = await requestSafely(token, 'releases')
   core.debug(`${releases.length} releases found`)
@@ -132,7 +132,7 @@ function resolveVersion(token, version) {
 }
 
 async function getVersion(exePath) {
-  if (mock && platform() !== 'win32') {
+  if (mock && platform !== 'win32') {
     const path = join(__dirname, '../package.json')
     core.info(`Inspect ${path}`)
     const { version } = JSON.parse(await readFile(path))
@@ -154,7 +154,7 @@ async function install(sha, url, useCache, forceBuild)  {
   const ssha = sha.substring(0, 7)
   const exeDir = join(workspace, `../v-${ssha}`)
   let exe = 'v'
-  if (platform() === 'win32') exe += '.exe'
+  if (platform === 'win32') exe += '.exe'
   const exePath = join(exeDir, exe)
   core.debug(`V compiled at "${exePath}"`)
 
@@ -209,18 +209,18 @@ async function install(sha, url, useCache, forceBuild)  {
         }
 
         await tc.extractZip(archive, extractDir)
-        if (mock && platform() !== 'win32') {
+        if (mock && platform !== 'win32') {
           const exeOrigin = `${extractDir}/v/v`
           core.info(`Make "${exeOrigin}" executable`)
           await chmod(exeOrigin, 0o755)
         }
 
         if (wasBuilt) {
-          if (platform() !== 'win32') await exec('make', [], { cwd: pkgDir })
+          if (platform !== 'win32') await exec('make', [], { cwd: pkgDir })
           else await exec2('make.bat', { cwd: contentDir, shell: true })
         }
 
-        if (platform() !== 'win32') {
+        if (platform !== 'win32') {
           await io.mkdirP(exeDir)
           core.info(`Populate "${exeDir}" with needed files`)
           try {

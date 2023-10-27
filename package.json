@@ -30,7 +30,7 @@
     "node": ">= 18"
   },
   "scripts": {
-    "preprepare": "rollup -c",
+    "build": "rollup -c",
     "lint": "denolint",
     "check": "node test/index",
     "test": "denolint && node test/index"
