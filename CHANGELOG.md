@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/prantlf/setup-v-action/compare/v2.0.4...v2.0.5) (2023-10-27)
+
+
+### Bug Fixes
+
+* Update built files ([f35f70d](https://github.com/prantlf/setup-v-action/commit/f35f70d9363653a4f6802e61c77cc9e0f54f2fff))
+
 ## [2.0.4](https://github.com/prantlf/setup-v-action/compare/v2.0.3...v2.0.4) (2023-10-27)
 
 
