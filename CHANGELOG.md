@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/prantlf/setup-v-action/compare/v2.0.2...v2.0.3) (2023-10-27)
+
+
+### Bug Fixes
+
+* Wait 5-10s between failing network requet attempts ([3eb4749](https://github.com/prantlf/setup-v-action/commit/3eb47490cd2f658e68fbc4ad27fb702db2c5009d))
+
 ## [2.0.2](https://github.com/prantlf/setup-v-action/compare/v2.0.1...v2.0.2) (2023-10-21)
 
 
