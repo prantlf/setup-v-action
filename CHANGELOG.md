@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/prantlf/setup-v-action/compare/v2.0.3...v2.0.4) (2023-10-27)
+
+
+### Bug Fixes
+
+* Add URL to the failed request error message ([3b31417](https://github.com/prantlf/setup-v-action/commit/3b3141703fcf81fb8dd07ed5470a76d0f7a1a043))
+
 ## [2.0.3](https://github.com/prantlf/setup-v-action/compare/v2.0.2...v2.0.3) (2023-10-27)
 
 
