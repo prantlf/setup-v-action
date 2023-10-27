@@ -48,6 +48,12 @@ async function request(token, path) {
   return JSON.parse(await res.readBody())
 }
 
+function delay() {
+  const delay = (5 + 5 * Math.random()) * 1000
+  core.info(`Wait ${delay} ms before trying again`)
+  return new Promise(resolve => setTimeout(resolve, delay))
+}
+
 async function retry(action) {
   for (let attempt = 0;;) {
     try {
@@ -56,14 +62,11 @@ async function retry(action) {
       if (++attempt === 3) throw err
       core.warning(err)
     }
-
-    const seconds = Math.floor(Math.random() * (20 - 10 + 1)) + 10
-    core.info(`Wait ${seconds} seconds before trying again`)
-    await new Promise(resolve => setTimeout(resolve, seconds * 1000))
+    await delay()
   }
 }
 
-async function safeRequest(token, path) {
+async function requestSafely(token, path) {
   if (mock) {
     const file = join(__dirname, `../test/mock/${path}.json`)
     core.info(`Load ${file}`)
@@ -73,7 +76,7 @@ async function safeRequest(token, path) {
 }
 
 async function getMaster(token) {
-  const { commit } = await safeRequest(token, 'branches/master')
+  const { commit } = await requestSafely(token, 'branches/master')
   const { sha, commit: details } = commit
   const { date } = details.author
   return { name: 'master', sha, date }
@@ -89,7 +92,7 @@ async function getRelease(token, type, check, number) {
   const os = platform()
   const suffix = platformSuffixes[os]
   const archive = `v_${suffix}.zip`
-  const releases = await safeRequest(token, 'releases')
+  const releases = await requestSafely(token, 'releases')
   core.debug(`${releases.length} releases found`)
   for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
     core.debug(`Check tag ${name}`)
@@ -109,7 +112,7 @@ async function getRelease(token, type, check, number) {
 }
 
 async function getCommit(sha, token) {
-  const { commit } = await safeRequest(token, `commits/${sha}`)
+  const { commit } = await requestSafely(token, `commits/${sha}`)
   const { date } = commit
   return { name: 'commit', sha, date }
 }
