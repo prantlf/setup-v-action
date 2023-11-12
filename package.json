@@ -62,9 +62,9 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "builtins": "^5.0.1",
-    "denolint": "^2.0.12",
+    "denolint": "^2.0.14",
     "mersenne-twister": "^1.1.0",
-    "rollup": "^4.1.4"
+    "rollup": "^4.5.0"
   },
   "keywords": [
     "github-actions",
