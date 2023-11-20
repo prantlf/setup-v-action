@@ -15,7 +15,7 @@ const { access, chmod, copyFile, readFile, symlink } = require('fs').promises
 const MersenneTwister = require('mersenne-twister')
 const { spawn } = require('child_process')
 
-const { platform } = process
+const { arch, platform } = process
 
 const twister = new MersenneTwister(Math.random() * Number.MAX_SAFE_INTEGER)
 function getRandomValues(dest) {
@@ -89,23 +89,29 @@ const platformSuffixes = {
   win32: 'windows'
 }
 
+const archSuffixes = {
+  arm64: 'arm64',
+  x64: 'x86_64'
+}
+
 async function getRelease(token, type, check, number) {
-  const suffix = platformSuffixes[platform]
-  const archive = `v_${suffix}.zip`
+  const platformSuffix = platformSuffixes[platform]
+  const archivePlat = `v_${platformSuffix}.zip`
+  const archSuffix = archSuffixes[arch]
+  const archivePlatArch = `v_${platformSuffix}_${archSuffix}.zip`
   const releases = await requestSafely(token, 'releases')
   core.debug(`${releases.length} releases found`)
   for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
     core.debug(`Check tag ${name}`)
     if (number ? name === number : check.test(name)) {
-      let url
       for (const { name, browser_download_url } of assets) {
         core.debug(`Check asset ${name}`)
-        if (name === archive) {
-          url = browser_download_url
-          break
+        if (name === archivePlat || name == archivePlatArch) {
+          return { name, sha, date, url: browser_download_url }
         }
       }
-      return { name, sha, date, url }
+      core.debug(`Neither ${archivePlat} nor ${archivePlatArch} type found for ${number ? number : type}`)
+      return
     }
   }
   core.debug(`No ${number ? number : type} found`)
