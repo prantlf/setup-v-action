@@ -1,3 +1,11 @@
+## [2.0.6](https://github.com/prantlf/setup-v-action/compare/v2.0.5...v2.0.6) (2023-12-03)
+
+
+### Bug Fixes
+
+* Support different architecture suffixes introduced for macos ([2c88798](https://github.com/prantlf/setup-v-action/commit/2c8879836142a29d7f5262dec88c5ab10bbeba59))
+* Update built files ([655d052](https://github.com/prantlf/setup-v-action/commit/655d05279e9b0d2baa0ecefa443b9b8db270639a))
+
 ## [2.0.5](https://github.com/prantlf/setup-v-action/compare/v2.0.4...v2.0.5) (2023-10-27)
 
 
