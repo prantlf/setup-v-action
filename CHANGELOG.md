@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/prantlf/setup-v-action/compare/v2.0.6...v2.1.0) (2023-12-11)
+
+
+### Features
+
+* Install dependencies with verbose logging in debug mode ([a72d8d1](https://github.com/prantlf/setup-v-action/commit/a72d8d1a2dff28617414ed2572365cf7578f219d))
+
 ## [2.0.6](https://github.com/prantlf/setup-v-action/compare/v2.0.5...v2.0.6) (2023-12-03)
 
 
