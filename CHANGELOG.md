@@ -1,3 +1,11 @@
+## [2.3.1](https://github.com/prantlf/setup-v-action/compare/v2.3.0...v2.3.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* Fix assignment to constant variable ([be6cc58](https://github.com/prantlf/setup-v-action/commit/be6cc58b6ee0650691536864b7a3cd243d4e00e6))
+* Update built files ([4f292e6](https://github.com/prantlf/setup-v-action/commit/4f292e6e829a16f9f3325af89e9f035548f7a285))
+
 # [2.3.0](https://github.com/prantlf/setup-v-action/compare/v2.2.1...v2.3.0) (2023-12-11)
 
 
