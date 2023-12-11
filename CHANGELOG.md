@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/prantlf/setup-v-action/compare/v2.1.1...v2.2.0) (2023-12-11)
+
+
+### Bug Fixes
+
+* Update built files ([46f7a86](https://github.com/prantlf/setup-v-action/commit/46f7a86ba4e0576aee4179d82f1cb4213e30c8b3))
+
+
+### Features
+
+* Allow installing dependencies to a local directory ([17f43f7](https://github.com/prantlf/setup-v-action/commit/17f43f76e232406a7da24fd8b37cca258ccfdae0))
+
 ## [2.1.1](https://github.com/prantlf/setup-v-action/compare/v2.1.0...v2.1.1) (2023-12-11)
 
 
