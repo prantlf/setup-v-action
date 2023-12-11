@@ -291,7 +291,7 @@ async function dependencies(exePath, globalDeps, modulesDir)  {
     }
     const options = {}
     if (!globalDeps) {
-      const modules = modulesDir || 'modules'
+      let modules = modulesDir || 'modules'
       if (!modulesDir && await exists('src')) modules = join('src', modules)
       options.env = { ...process.env, VMODULES: modules }
     }
