@@ -85,6 +85,13 @@ Default: `true`
 
 Set to `false` to install module dependencies from `v.mod` to `./modules` instead of to `~/.vmodules`.
 
+### modules-dir
+
+Type: `String`<br>
+Default: `src/modules` or `modules`
+
+Set the directory for the locally installed dependencies. It is `src/modules` if `src` exists, otherwise `modules`.
+
 ### token
 
 Type: `String`<br>

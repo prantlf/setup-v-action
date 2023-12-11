@@ -30,6 +30,10 @@ inputs:
     description: >-
       Set to `false` to install module dependencies from `v.mod` to `./modules` instead of to `~/.vmodules`.
     default: 'true'
+  modules-dir:
+    description: >-
+      Set the directory for the locally installed dependencies. It is `src/modules` if `src` exists, otherwise `modules`.
+    default: ''
   token:
     description: >-
       Authorization token to inspect releases and commits in the `vlang/v` repository.

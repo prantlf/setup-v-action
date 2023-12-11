@@ -272,7 +272,7 @@ async function install(sha, url, useCache, forceBuild)  {
   return { exeDir, exePath, usedCache, wasBuilt }
 }
 
-async function dependencies(exePath, globalDeps)  {
+async function dependencies(exePath, globalDeps, modulesDir)  {
   let manifest
   try {
     const vmod = join(workspace, 'v.mod')
@@ -291,8 +291,8 @@ async function dependencies(exePath, globalDeps)  {
     }
     const options = {}
     if (!globalDeps) {
-      const modules = 'modules'
-      if (await exists('src')) modules = join('src', modules)
+      const modules = modulesDir || 'modules'
+      if (!modulesDir && await exists('src')) modules = join('src', modules)
       options.env = { ...process.env, VMODULES: modules }
     }
     await exec(exePath, params, options)
@@ -317,7 +317,8 @@ async function run() {
   const forceBuild = core.getBooleanInput('force-build')
   const installDeps = core.getBooleanInput('install-dependencies')
   const globalDeps = core.getBooleanInput('global-dependencies')
-  core.info(`Setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? globalDeps ? ', global' : ', local' : ', no'} dependencies`)
+  const modulesDir = core.getInput('modules-dir')
+  core.info(`Setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? globalDeps ? ', global' : ', local' : ', no'} dependencies${ modulesDir ? 'in "' + modulesDir + '"' : ''}`)
   const token = core.getInput('token') || envToken
   if (!token) throw new Error('missing token')
 
@@ -342,7 +343,7 @@ async function run() {
   core.setOutput('used-cache', usedCache)
   core.setOutput('was-built', wasBuilt)
 
-  if (installDeps) await dependencies(exePath, globalDeps)
+  if (installDeps) await dependencies(exePath, globalDeps, modulesDir)
 }
 
 run().catch(err => core.setFailed(err))
