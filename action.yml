@@ -26,6 +26,10 @@ inputs:
     description: >-
       Set to `false` to prevent module dependencies from `v.mod` from being installed automatically.
     default: 'true'
+  global-dependencies:
+    description: >-
+      Set to `false` to install module dependencies from `v.mod` to `./modules` instead of to `~/.vmodules`.
+    default: 'true'
   token:
     description: >-
       Authorization token to inspect releases and commits in the `vlang/v` repository.

@@ -12,6 +12,7 @@ const env = {
   'INPUT_USE-CACHE': 'true',
   'INPUT_FORCE-BUILD': 'false',
   'INPUT_INSTALL-DEPENDENCIES': 'true',
+  'INPUT_GLOBAL-DEPENDENCIES': 'true',
   INPUT_TOKEN: 'token',
   MOCK: '1'
 }

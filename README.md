@@ -78,6 +78,13 @@ Default: `true`
 
 Set to `false` to prevent module dependencies from `v.mod` from being installed automatically. The default is `true`.
 
+### global-dependencies
+
+Type: `Boolean`<br>
+Default: `true`
+
+Set to `false` to install module dependencies from `v.mod` to `./modules` instead of to `~/.vmodules`.
+
 ### token
 
 Type: `String`<br>
