@@ -289,9 +289,13 @@ async function dependencies(exePath, globalDeps)  {
       core.debug(`Current working directory: "${process.cwd()}`)
       params.unshift('-v')
     }
-    await exec(exePath, params, globalDeps ? {} : {
-      env: { ...process.env, VMODULES: 'modules' }
-    })
+    const options = {}
+    if (!globalDeps) {
+      const modules = 'modules'
+      if (await exists('src')) modules = join('src', modules)
+      options.env = { ...process.env, VMODULES: modules }
+    }
+    await exec(exePath, params, options)
   } else {
     core.info('No dependencies found')
   }
