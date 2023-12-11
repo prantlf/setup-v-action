@@ -284,7 +284,9 @@ async function dependencies(exePath)  {
     return
   }
   if (/dependencies\s*:/.test(manifest) && !/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
-    await exec(exePath, ['install'])
+    const params = ['install']
+    if (core.isDebug()) params.unshift('-v')
+    await exec(exePath, params)
   } else {
     core.info('No dependencies found')
   }
