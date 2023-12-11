@@ -1,3 +1,16 @@
+# [2.3.0](https://github.com/prantlf/setup-v-action/compare/v2.2.1...v2.3.0) (2023-12-11)
+
+
+### Bug Fixes
+
+* Update built files ([7025a97](https://github.com/prantlf/setup-v-action/commit/7025a9722ce5e384579e38602afbf77187100b5f))
+
+
+### Features
+
+* Allow setting the directory for the local modules ([4f9f940](https://github.com/prantlf/setup-v-action/commit/4f9f9402bf20085ba9926b23fb809194b40ba789))
+* Prefer src/modules for local modules if src exists ([e07870e](https://github.com/prantlf/setup-v-action/commit/e07870e50c4be5264393d23139353561fa080b9c))
+
 ## [2.2.1](https://github.com/prantlf/setup-v-action/compare/v2.2.0...v2.2.1) (2023-12-11)
 
 
