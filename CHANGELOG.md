@@ -1,3 +1,11 @@
+## [2.2.1](https://github.com/prantlf/setup-v-action/compare/v2.2.0...v2.2.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* Pass the full process env to v install ([17779db](https://github.com/prantlf/setup-v-action/commit/17779dbde8d13252096666fa63d9d3925627d71f))
+* Update built files ([bdde553](https://github.com/prantlf/setup-v-action/commit/bdde553c8c6ebfaf8bc34220d96e4df5c8d09398))
+
 # [2.2.0](https://github.com/prantlf/setup-v-action/compare/v2.1.1...v2.2.0) (2023-12-11)
 
 
