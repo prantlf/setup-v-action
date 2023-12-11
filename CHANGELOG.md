@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/prantlf/setup-v-action/compare/v2.1.0...v2.1.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* Update built files ([16005bc](https://github.com/prantlf/setup-v-action/commit/16005bcc53ad972624ebec6fbd3c739b238d9871))
+
 # [2.1.0](https://github.com/prantlf/setup-v-action/compare/v2.0.6...v2.1.0) (2023-12-11)
 
 
