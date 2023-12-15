@@ -1,3 +1,11 @@
+## [2.3.2](https://github.com/prantlf/setup-v-action/compare/v2.3.1...v2.3.2) (2023-12-15)
+
+
+### Bug Fixes
+
+* Ensure v.mod in the v directory ([e7b6cf1](https://github.com/prantlf/setup-v-action/commit/e7b6cf1ee7d30b773a677d41e2ddd73d182af9e5))
+* Update built files ([e5c901f](https://github.com/prantlf/setup-v-action/commit/e5c901fec510883951eeda557456d30915bf6efe))
+
 ## [2.3.1](https://github.com/prantlf/setup-v-action/compare/v2.3.0...v2.3.1) (2023-12-11)
 
 
