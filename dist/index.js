@@ -29376,6 +29376,7 @@ async function install(sha, url, useCache, forceBuild)  {
           try {
             await Promise.all([
               [join(contentDir, exe), exePath],
+              [join(contentDir, 'v.mod'), join(exeDir, 'v.mod')],
               [join(contentDir, 'cmd'), join(exeDir, 'cmd')],
               [join(contentDir, 'thirdparty'), join(exeDir, 'thirdparty')],
               [join(contentDir, 'vlib'), join(exeDir, 'vlib')]
