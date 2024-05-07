@@ -135,7 +135,7 @@ A boolean value indicating if the V compiler was built from sources.
 
 ## License
 
-Copyright (C) 2023 Ferdinand Prantl
+Copyright (C) 2023-2024 Ferdinand Prantl
 
 Licensed under the [MIT License].
 
