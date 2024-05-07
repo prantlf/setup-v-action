@@ -1,3 +1,11 @@
+## [2.3.3](https://github.com/prantlf/setup-v-action/compare/v2.3.2...v2.3.3) (2024-05-07)
+
+### Bug Fixes
+
+* Upgrade dependencies ([9cad2ad](https://github.com/prantlf/setup-v-action/commit/9cad2adc9eb4fdfa1a4850238b7949e342823978))
+* Compute commit hash if taarget_commitish is a branch ([826030d](https://github.com/prantlf/setup-v-action/commit/826030dd77060c3c8ff01175731c32c7d10a754f))
+* Update built files ([bd1c246](https://github.com/prantlf/setup-v-action/commit/bd1c246516775bd6692b252e1c2eac4140476a83))
+
 ## [2.3.2](https://github.com/prantlf/setup-v-action/compare/v2.3.1...v2.3.2) (2023-12-15)
 
 
