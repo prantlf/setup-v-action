@@ -24096,7 +24096,7 @@ class HttpClient {
         if (this._keepAlive && useProxy) {
             agent = this._proxyAgent;
         }
-        if (this._keepAlive && !useProxy) {
+        if (!useProxy) {
             agent = this._agent;
         }
         // if agent is already assigned use that agent.
@@ -24128,15 +24128,11 @@ class HttpClient {
             agent = tunnelAgent(agentOptions);
             this._proxyAgent = agent;
         }
-        // if reusing agent across request and tunneling agent isn't assigned create a new agent
-        if (this._keepAlive && !agent) {
+        // if tunneling agent isn't assigned create a new agent
+        if (!agent) {
             const options = { keepAlive: this._keepAlive, maxSockets };
             agent = usingSsl ? new https.Agent(options) : new http.Agent(options);
             this._agent = agent;
-        }
-        // if not using private agent and tunnel agent isn't setup then use global agent
-        if (!agent) {
-            agent = usingSsl ? https.globalAgent : http.globalAgent;
         }
         if (usingSsl && this._ignoreSslError) {
             // we don't want to set NODE_TLS_REJECT_UNAUTHORIZED=0 since that will affect request for entire process
@@ -29220,11 +29216,12 @@ async function requestSafely(token, path) {
   return retry(() => request(token, path))
 }
 
-async function getMaster(token) {
-  const { commit } = await requestSafely(token, 'branches/master');
+async function getBranch(name, token) {
+  const { commit } = await requestSafely(token, `branches/${name}`);
   const { sha, commit: details } = commit;
   const { date } = details.author;
-  return { name: 'master', sha, date }
+  core.debug(`branch ${name} resolved to ${sha} from ${date}`);
+  return { name, sha, date }
 }
 
 const platformSuffixes = {
@@ -29245,12 +29242,16 @@ async function getRelease(token, type, check, number) {
   const archivePlatArch = `v_${platformSuffix}_${archSuffix}.zip`;
   const releases = await requestSafely(token, 'releases');
   core.debug(`${releases.length} releases found`);
-  for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
+  for (let { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
     core.debug(`Check tag ${name}`);
     if (number ? name === number : check.test(name)) {
       for (const { name, browser_download_url } of assets) {
         core.debug(`Check asset ${name}`);
         if (name === archivePlat || name == archivePlatArch) {
+          if (sha.length < 40) {
+            ({ sha, date } = await getBranch(sha, token));
+          }
+          core.debug(`release points to ${name} with sha ${sha} from ${date} at ${browser_download_url}`);
           return { name, sha, date, url: browser_download_url }
         }
       }
@@ -29264,12 +29265,13 @@ async function getRelease(token, type, check, number) {
 async function getCommit(sha, token) {
   const { commit } = await requestSafely(token, `commits/${sha}`);
   const { date } = commit;
+  core.debug(`commit is ${sha} from ${date}`);
   return { name: 'commit', sha, date }
 }
 
 const semantic = /^v?\d+\.\d+\.\d+$/;
 const versionGetters = {
-  master: token => getMaster(token),
+  master: token => getBranch('master', token),
   weekly: token => getRelease(token, 'weekly', /^weekly\.\d+\.\d+$/),
   latest: token => getRelease(token, 'release', semantic)
 };
@@ -29297,7 +29299,9 @@ async function getVersion(exePath) {
       }
     }
   });
-  return out.toString().trim()
+  const version = out.toString().trim();
+  core.debug(`version is "${version}"`);
+  return version
 }
 
 async function install(sha, url, useCache, forceBuild)  {
@@ -29306,22 +29310,23 @@ async function install(sha, url, useCache, forceBuild)  {
   let exe = 'v';
   if (platform === 'win32') exe += '.exe';
   const exePath = join(exeDir, exe);
-  core.debug(`V compiled at "${exePath}"`);
+  core.debug(`V compiled at ${exePath}`);
 
   let usedCache = true;
   let wasBuilt = false;
 
   if (useCache && await exists(exePath)) {
-    core.info(`"${exePath}" found on disk`);
+    core.info(`${exePath} found on disk`);
   } else {
     const version = `0.0.0-${ssha}`;
     let cacheDir = useCache && tc.find('v', version);
 
     if (cacheDir) {
-      core.info(`"${cacheDir}" found in cache`);
+      core.info(`${cacheDir} found in cache`);
     } else {
       usedCache = false;
       const pkgDir = join(workspace, `../v-${sha}`);
+      core.debug(`package directory is ${pkgDir}`);
       let archive;
 
       try {
@@ -29345,34 +29350,40 @@ async function install(sha, url, useCache, forceBuild)  {
           contentDir = pkgDir;
         }
 
-        core.info(`Download "${url}"`);
+        core.info(`Download ${url}`);
         if (mock) {
           const dir = join(__dirname, '../test/tmp');
           const name = basename(url);
           await io.mkdirP(dir);
           const source = join(__dirname, `../test/mock/assets/${name}`);
-          core.info(`Copy "${source}"`);
+          core.info(`Copy ${source}`);
           archive = join(dir, name);
           await copyFile(source, archive);
         } else {
           archive = await retry(() => tc.downloadTool(url));
         }
 
+        core.debug(`extract ${archive} to ${extractDir}`);
         await tc.extractZip(archive, extractDir);
         if (mock && platform !== 'win32') {
           const exeOrigin = `${extractDir}/v/v`;
-          core.info(`Make "${exeOrigin}" executable`);
+          core.info(`Make ${exeOrigin} executable`);
           await chmod(exeOrigin, 0o755);
         }
 
         if (wasBuilt) {
-          if (platform !== 'win32') await exec('make', [], { cwd: pkgDir });
-          else await exec2('make.bat', { cwd: contentDir, shell: true });
+          if (platform !== 'win32') {
+            core.debug(`execute make in ${pkgDir}`);
+            await exec('make', [], { cwd: pkgDir });
+          } else {
+            core.debug(`execute make.bat in ${contentDir}`);
+            await exec2('make.bat', { cwd: contentDir, shell: true });
+          }
         }
 
         if (platform !== 'win32') {
           await io.mkdirP(exeDir);
-          core.info(`Populate "${exeDir}" with needed files`);
+          core.info(`Populate ${exeDir} with needed files from ${contentDir}`);
           try {
             await Promise.all([
               [join(contentDir, exe), exePath],
@@ -29386,20 +29397,23 @@ async function install(sha, url, useCache, forceBuild)  {
             throw err
           }
         } else {
-          core.info(`Populate "${exeDir}" with all files`);
+          core.info(`Populate ${exeDir} with all files from ${contentDir}`);
           await io.mv(contentDir, exeDir);
         }
 
         try {
           if (useCache) {
+            core.debug(`cache ${exeDir} with v ${version}`);
             cacheDir = await tc.cacheDir(exeDir, 'v', version);
-            core.info(`Cached "${cacheDir}"`);
+            core.info(`Cached ${cacheDir}`);
           }
         } catch (err) {
+          core.debug(`remove ${exeDir}`);
           await io.rmRF(exeDir);
           throw err
         }
       } finally {
+        core.debug(`remove ${pkgDir}${archive ? ' and ' + archive : ''}`);
         await Promise.all([
           io.rmRF(pkgDir),
           archive && io.rmRF(archive)
@@ -29408,8 +29422,11 @@ async function install(sha, url, useCache, forceBuild)  {
     }
 
     if (!(await exists(exePath))) {
-      core.info(`Link "${exeDir}"`);
-      if (await exists(exeDir)) await io.rmRF(exeDir);
+      if (await exists(exeDir)) {
+        core.debug(`remove ${exeDir}`);
+        await io.rmRF(exeDir);
+      }
+      core.info(`Link ${exeDir}`);
       await symlink(cacheDir, exeDir, 'junction');
     }
   }
@@ -29421,7 +29438,7 @@ async function dependencies(exePath, globalDeps, modulesDir)  {
   let manifest;
   try {
     const vmod = join(workspace, 'v.mod');
-    core.info(`Checking "${vmod}`);
+    core.info(`Check ${vmod}`);
     manifest = await readFile(vmod, 'utf8');
   } catch (err) {
     if (err.code !== 'ENOENT') throw err
@@ -29431,7 +29448,7 @@ async function dependencies(exePath, globalDeps, modulesDir)  {
   if (/dependencies\s*:/.test(manifest) && !/dependencies\s*:\s*\[\s*\]/.test(manifest)) {
     const params = ['install'];
     if (core.isDebug()) {
-      core.debug(`Current working directory: "${process.cwd()}`);
+      core.debug(`Current working directory: ${process.cwd()}`);
       params.unshift('-v');
     }
     const options = {};
@@ -29450,7 +29467,7 @@ function exec2(command, args, options) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, options)
       .on('error', reject)
-      .on('exit', code => code ? reject(new Error(`"${command}" exited with ${code}`)) : resolve());
+      .on('exit', code => code ? reject(new Error(`${command} exited with ${code}`)) : resolve());
     child.stdout.on('data', data => process.stdout.write(data.toString()));
     child.stderr.on('data', data => process.stderr.write(data.toString()));
   })
@@ -29478,7 +29495,7 @@ async function run() {
 
   const { exeDir, exePath, usedCache, wasBuilt } = await install(sha, url, useCache, forceBuild);
 
-  core.info(`Add "${exeDir}" to PATH`);
+  core.info(`Add ${exeDir} to PATH`);
   core.addPath(exeDir);
 
   const actualVersion = await getVersion(exePath);
