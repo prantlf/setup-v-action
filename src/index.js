@@ -76,11 +76,11 @@ async function requestSafely(token, path) {
   return retry(() => request(token, path))
 }
 
-async function getMaster(token) {
-  const { commit } = await requestSafely(token, 'branches/master')
+async function getBranch(name, token) {
+  const { commit } = await requestSafely(token, `branches/${name}`)
   const { sha, commit: details } = commit
   const { date } = details.author
-  return { name: 'master', sha, date }
+  return { name, sha, date }
 }
 
 const platformSuffixes = {
@@ -101,12 +101,16 @@ async function getRelease(token, type, check, number) {
   const archivePlatArch = `v_${platformSuffix}_${archSuffix}.zip`
   const releases = await requestSafely(token, 'releases')
   core.debug(`${releases.length} releases found`)
-  for (const { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
+  for (let { tag_name: name, target_commitish: sha, created_at: date, assets } of releases) {
     core.debug(`Check tag ${name}`)
     if (number ? name === number : check.test(name)) {
       for (const { name, browser_download_url } of assets) {
         core.debug(`Check asset ${name}`)
         if (name === archivePlat || name == archivePlatArch) {
+          if (sha.length < 40) {
+            ({ sha, date } = await getBranch(sha, token))
+          }
+          core.debug(`release points to ${name} with sha ${sha} from ${date} at ${browser_download_url}`)
           return { name, sha, date, url: browser_download_url }
         }
       }
@@ -125,7 +129,7 @@ async function getCommit(sha, token) {
 
 const semantic = /^v?\d+\.\d+\.\d+$/
 const versionGetters = {
-  master: token => getMaster(token),
+  master: token => getBranch('master', token),
   weekly: token => getRelease(token, 'weekly', /^weekly\.\d+\.\d+$/),
   latest: token => getRelease(token, 'release', semantic)
 }
