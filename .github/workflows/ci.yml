@@ -16,56 +16,42 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Sources
-      uses: actions/checkout@v4
-    - name: Install Node
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
-    - name: Install PNPM
-      uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v2
       with:
         version: latest
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity]
-    # - name: Build
-    #   run: npm run build
-    # - name: Test Mock
-    #   run: npm test
-    - name: Test Binary
-      uses: ./
-    - name: Test Sources
-      uses: ./
+    # - run: npm run build
+    # - run: npm test
+    - uses: ./
+    - uses: ./
       with:
         use-cache: false
         force-build: true
         install-dependencies: false
 
   macos:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
-    - name: Checkout Sources
-      uses: actions/checkout@v4
-    - name: Install Node
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
-    - name: Install PNPM
-      uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v2
       with:
         version: latest
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity]
-    # - name: Build
-    #   run: npm run build
-    # - name: Test Mock
-    #   run: npm test
-    - name: Test Binary
-      uses: ./
-    - name: Test Sources
-      uses: ./
+    # - run: npm run build
+    # - run: npm test
+    - uses: ./
+    - uses: ./
       with:
         use-cache: false
         force-build: true
@@ -74,27 +60,20 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-    - name: Checkout Sources
-      uses: actions/checkout@v4
-    - name: Install Node
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
-    - name: Install PNPM
-      uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v2
       with:
         version: latest
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity]
-    # - name: Build
-    #   run: npm run build
-    # - name: Test Mock
-    #   run: npm test
-    - name: Test Binary
-      uses: ./
-    - name: Test Sources
-      uses: ./
+    # - run: npm run build
+    # - run: npm test
+    - uses: ./
+    - uses: ./
       with:
         use-cache: false
         force-build: true
@@ -108,25 +87,17 @@ jobs:
       - windows
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Sources
-      uses: actions/checkout@v4
-    - name: Install Node
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
-    - name: Install PNPM
-      uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v2
       with:
         version: latest
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity]
-    # - name: Build
-    #   run: npm run build
-    - name: Publish
-      uses: cycjimmy/semantic-release-action@v4
-      with:
-        branches: master
+    - uses: prantlf/publish-release-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
