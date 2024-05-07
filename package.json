@@ -44,8 +44,6 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
     "builtins": "^5.1.0",
     "denolint": "^2.0.14",
     "mersenne-twister": "^1.1.0",
