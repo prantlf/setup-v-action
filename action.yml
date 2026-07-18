@@ -17,19 +17,19 @@ inputs:
     description: >-
       Set to `false` to ignore the cache and always perform the full installation,
       either by downloading and unpacking a binary, or by downloading sources and building.
-    default: 'true'
+    default: true
   force-build:
     description: >-
       Set to `true` to always build V from sources, even if the binary archive is available.
-    default: 'false'
+    default: false
   install-dependencies:
     description: >-
       Set to `false` to prevent module dependencies from `v.mod` from being installed automatically.
-    default: 'true'
+    default: true
   global-dependencies:
     description: >-
       Set to `false` to install module dependencies from `v.mod` to `./modules` instead of to `~/.vmodules`.
-    default: 'true'
+    default: true
   modules-dir:
     description: >-
       Set the directory for the locally installed dependencies. It is `src/modules` if `src` exists, otherwise `modules`.
