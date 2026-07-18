@@ -1,5 +1,20 @@
 # Changes
 
+## [3.0.0](https://github.com/prantlf/setup-v-action/compare/v2.3.3...v3.0.0) (2026-07-18)
+
+### Features
+
+* Upgrade to Node.js 24 ([d187c7a](https://github.com/prantlf/setup-v-action/commit/d187c7a489181113adccc5df613fbf0af31b323b))
+
+### Bug Fixes
+
+* Use native YAML booleans ([b619eb6](https://github.com/prantlf/setup-v-action/commit/b619eb606d4c33a6d2f0da9b79620cef814be5f7))
+
+### BREAKING CHANGES
+
+The minimum supported version of Node.js is 24
+and the module format is ESM.
+
 ## [2.3.3](https://github.com/prantlf/setup-v-action/compare/v2.3.2...v2.3.3) (2024-05-07)
 
 ### Bug Fixes
