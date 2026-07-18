@@ -5,15 +5,17 @@ if (typeof global.crypto.getRandomValues !== 'function') {
   global.crypto.getRandomValues = getRandomValues
 }
 
-const { basename, join, resolve } = require('path')
-const core = require('@actions/core')
-const { exec } = require("@actions/exec")
-const io = require('@actions/io')
-const httpm = require('@actions/http-client')
-const tc = require('@actions/tool-cache')
-const { access, chmod, copyFile, readFile, symlink } = require('fs').promises
-const MersenneTwister = require('mersenne-twister')
-const { spawn } = require('child_process')
+import { basename, join, resolve } from 'node:path'
+import * as core from '@actions/core'
+import { exec } from '@actions/exec'
+import * as io from '@actions/io'
+import * as httpm from '@actions/http-client'
+import * as tc from '@actions/tool-cache'
+import { access, chmod, copyFile, readFile, symlink } from 'node:fs/promises'
+import MersenneTwister from 'mersenne-twister'
+import { spawn } from 'node:child_process'
+
+const __dirname = import.meta.dirname;
 
 const { arch, platform } = process
 
@@ -92,6 +94,7 @@ const platformSuffixes = {
 
 const archSuffixes = {
   arm64: 'arm64',
+  riscv64: 'riscv64',
   x64: 'x86_64'
 }
 
@@ -107,7 +110,7 @@ async function getRelease(token, type, check, number) {
     if (number ? name === number : check.test(name)) {
       for (const { name, browser_download_url } of assets) {
         core.debug(`Check asset ${name}`)
-        if (name === archivePlat || name == archivePlatArch) {
+        if (name === archivePlat || name === archivePlatArch) {
           if (sha.length < 40) {
             ({ sha, date } = await getBranch(sha, token))
           }
@@ -273,7 +276,7 @@ async function install(sha, url, useCache, forceBuild)  {
           throw err
         }
       } finally {
-        core.debug(`remove ${pkgDir}${archive ? ' and ' + archive : ''}`)
+        core.debug(`remove ${pkgDir}${archive ? ` and ${archive}` : ''}`)
         await Promise.all([
           io.rmRF(pkgDir),
           archive && io.rmRF(archive)
@@ -340,7 +343,7 @@ async function run() {
   const installDeps = core.getBooleanInput('install-dependencies')
   const globalDeps = core.getBooleanInput('global-dependencies')
   const modulesDir = core.getInput('modules-dir')
-  core.info(`Setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? globalDeps ? ', global' : ', local' : ', no'} dependencies${ modulesDir ? 'in "' + modulesDir + '"' : ''}`)
+  core.info(`Setup V ${version}${useCache ? '' : ', no cache'}${forceBuild ? ', forced build' : ''}${installDeps ? globalDeps ? ', global' : ', local' : ', no'} dependencies${ modulesDir ? `in "${modulesDir}"` : ''}`)
   const token = core.getInput('token') || envToken
   if (!token) throw new Error('missing token')
 

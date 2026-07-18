@@ -1,3 +1,5 @@
+# Changes
+
 ## [2.3.3](https://github.com/prantlf/setup-v-action/compare/v2.3.2...v2.3.3) (2024-05-07)
 
 ### Bug Fixes
@@ -8,14 +10,12 @@
 
 ## [2.3.2](https://github.com/prantlf/setup-v-action/compare/v2.3.1...v2.3.2) (2023-12-15)
 
-
 ### Bug Fixes
 
 * Ensure v.mod in the v directory ([e7b6cf1](https://github.com/prantlf/setup-v-action/commit/e7b6cf1ee7d30b773a677d41e2ddd73d182af9e5))
 * Update built files ([e5c901f](https://github.com/prantlf/setup-v-action/commit/e5c901fec510883951eeda557456d30915bf6efe))
 
 ## [2.3.1](https://github.com/prantlf/setup-v-action/compare/v2.3.0...v2.3.1) (2023-12-11)
-
 
 ### Bug Fixes
 
@@ -24,11 +24,9 @@
 
 # [2.3.0](https://github.com/prantlf/setup-v-action/compare/v2.2.1...v2.3.0) (2023-12-11)
 
-
 ### Bug Fixes
 
 * Update built files ([7025a97](https://github.com/prantlf/setup-v-action/commit/7025a9722ce5e384579e38602afbf77187100b5f))
-
 
 ### Features
 
@@ -37,7 +35,6 @@
 
 ## [2.2.1](https://github.com/prantlf/setup-v-action/compare/v2.2.0...v2.2.1) (2023-12-11)
 
-
 ### Bug Fixes
 
 * Pass the full process env to v install ([17779db](https://github.com/prantlf/setup-v-action/commit/17779dbde8d13252096666fa63d9d3925627d71f))
@@ -45,11 +42,9 @@
 
 # [2.2.0](https://github.com/prantlf/setup-v-action/compare/v2.1.1...v2.2.0) (2023-12-11)
 
-
 ### Bug Fixes
 
 * Update built files ([46f7a86](https://github.com/prantlf/setup-v-action/commit/46f7a86ba4e0576aee4179d82f1cb4213e30c8b3))
-
 
 ### Features
 
@@ -57,20 +52,17 @@
 
 ## [2.1.1](https://github.com/prantlf/setup-v-action/compare/v2.1.0...v2.1.1) (2023-12-11)
 
-
 ### Bug Fixes
 
 * Update built files ([16005bc](https://github.com/prantlf/setup-v-action/commit/16005bcc53ad972624ebec6fbd3c739b238d9871))
 
 # [2.1.0](https://github.com/prantlf/setup-v-action/compare/v2.0.6...v2.1.0) (2023-12-11)
 
-
 ### Features
 
 * Install dependencies with verbose logging in debug mode ([a72d8d1](https://github.com/prantlf/setup-v-action/commit/a72d8d1a2dff28617414ed2572365cf7578f219d))
 
 ## [2.0.6](https://github.com/prantlf/setup-v-action/compare/v2.0.5...v2.0.6) (2023-12-03)
-
 
 ### Bug Fixes
 
@@ -79,13 +71,11 @@
 
 ## [2.0.5](https://github.com/prantlf/setup-v-action/compare/v2.0.4...v2.0.5) (2023-10-27)
 
-
 ### Bug Fixes
 
 * Update built files ([f35f70d](https://github.com/prantlf/setup-v-action/commit/f35f70d9363653a4f6802e61c77cc9e0f54f2fff))
 
 ## [2.0.4](https://github.com/prantlf/setup-v-action/compare/v2.0.3...v2.0.4) (2023-10-27)
-
 
 ### Bug Fixes
 
@@ -93,19 +83,15 @@
 
 ## [2.0.3](https://github.com/prantlf/setup-v-action/compare/v2.0.2...v2.0.3) (2023-10-27)
 
-
 ### Bug Fixes
 
 * Wait 5-10s between failing network requet attempts ([3eb4749](https://github.com/prantlf/setup-v-action/commit/3eb47490cd2f658e68fbc4ad27fb702db2c5009d))
 
 ## [2.0.2](https://github.com/prantlf/setup-v-action/compare/v2.0.1...v2.0.2) (2023-10-21)
 
-
 ### Bug Fixes
 
 * Support both tags X.Y.Z and vX.Y.Z ([9455628](https://github.com/prantlf/setup-v-action/commit/9455628ad89537a2af6b631ec61065b68920cfaf))
-
-# Changes
 
 ## [2.0.1](https://github.com/prantlf/setup-v-action/compare/v2.0.0...v2.0.1) (2023-10-19)
 

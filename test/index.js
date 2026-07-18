@@ -1,6 +1,8 @@
-const { join } = require('path')
-const { spawn } = require('child_process')
-const { access, rm } = require('fs').promises
+import { join } from 'node:path'
+import { spawn } from 'node:child_process'
+import { access, rm } from 'node:fs/promises'
+
+const __dirname = import.meta.dirname;
 
 const env = {
   ...process.env,
@@ -56,7 +58,7 @@ async function run() {
   await rm(exeName)
   await test('install missing executable from cache')
 
-  await rm(exeDir, { recursive: true }),
+  await rm(exeDir, { recursive: true })
   await test('install missing directory from cache')
 
   console.log('done')
