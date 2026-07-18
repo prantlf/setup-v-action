@@ -76,11 +76,11 @@ jobs:
     - run: npm run build
     # - run: npm test
     - uses: ./
-    - uses: ./
-      with:
-        use-cache: false
-        force-build: true
-        install-dependencies: false
+    # - uses: ./
+    #   with:
+    #     use-cache: false
+    #     force-build: true
+    #     install-dependencies: false
 
   release:
     if: ${{ github.ref_name == 'master' }}
