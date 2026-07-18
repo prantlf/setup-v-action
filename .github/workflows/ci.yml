@@ -11,8 +11,11 @@ on:
       - LICENSE
   pull_request:
 
-jobs:
+permissions:
+  id-token: write
+  contents: write
 
+jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
