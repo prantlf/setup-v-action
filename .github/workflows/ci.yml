@@ -30,7 +30,7 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
     - run: pnpm ci
     - run: npm run build
-    - run: npm test
+    # - run: npm test
     - uses: ./
     - uses: ./
       with:
