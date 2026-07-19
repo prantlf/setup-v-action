@@ -13,10 +13,10 @@ GitHub action for setting up a V build environment by downloading and unpacking 
 
 ## Usage
 
-Install V from the most recent weekly release:
+Install V from the latest release:
 
 ```yml
-- uses: prantlf/setup-v-action@v3
+- uses: prantlf/setup-v-action@v4
 ```
 
 Test against multiple versions of V using the matrix strategy:
@@ -30,7 +30,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v7
-    - uses: prantlf/setup-v-action@v3
+    - uses: prantlf/setup-v-action@v4
       with:
         version: ${{ matrix.v-version }}
     - run: v test .
@@ -45,7 +45,7 @@ The following parameters can be specified using the `with` object:
 ### version
 
 Type: `String`<br>
-Default: `weekly`
+Default: `latest`
 
 One of the following values is supported:
 
@@ -55,7 +55,7 @@ One of the following values is supported:
 * `vX.Y.Z` or `X.Y.Z` - downloaded from a specific (semantic) version release
 * `<commit hash>` - built from a specific commit
 
-The default - `weekly` should work the best by using the most recent development version. V is still in rapid development and the `latest` might be too limiting. Once V becomes mature, the default will change and th elist of available values probably as well.
+The initial default - `weekly` was changed to `latest`. V stopped releasing the regular weekly releases after 0.5. The versioned releases became more recent tha the development releases.
 
 ### use-cache
 
@@ -107,7 +107,7 @@ The following parameters can be accessed by the `github` context:
 
 Type: `String`<br>
 
-The actually installed version of V, as returned by `v -V`, for example: `V 0.3.4 692624b`.
+The actually installed version of V, as returned by `v -V`, for example: `V 0.3.4 046dd54`.
 
 ### bin-path
 

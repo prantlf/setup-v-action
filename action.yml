@@ -12,7 +12,7 @@ inputs:
       Specify the version of V to use. It can be `latest` (the latest published semantic version),
       `weekly` (the latest weekly release), `master` (the latest commit in the `master` branch),
       a semantic version number (tag name) or a commit hash.
-    default: weekly
+    default: latest
   use-cache:
     description: >-
       Set to `false` to ignore the cache and always perform the full installation,

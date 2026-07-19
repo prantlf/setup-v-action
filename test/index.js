@@ -10,7 +10,7 @@ const env = {
   GITHUB_WORKSPACE: join(__dirname, 'wksp/repo'),
   RUNNER_TEMP: join(__dirname, 'tmp'),
   RUNNER_TOOL_CACHE: join(__dirname, 'cache'),
-  INPUT_VERSION: 'weekly',
+  INPUT_VERSION: 'latest',
   'INPUT_USE-CACHE': 'true',
   'INPUT_FORCE-BUILD': 'false',
   'INPUT_INSTALL-DEPENDENCIES': 'true',
@@ -20,7 +20,7 @@ const env = {
   MOCK: '1'
 }
 
-const exeDir = join(__dirname, '/wksp/v-692624b')
+const exeDir = join(__dirname, '/wksp/v-046dd54') // weekly: 692624b
 const exeName = join(exeDir, 'v')
 const cwd = join(__dirname, '..')
 
