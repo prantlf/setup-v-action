@@ -1,5 +1,18 @@
 # Changes
 
+## [4.0.0](https://github.com/prantlf/setup-v-action/compare/v3.0.0...v4.0.0) (2026-07-19)
+
+### Features
+
+* Switch the default version from weekly to latest ([32d422a](https://github.com/prantlf/setup-v-action/commit/32d422a3d4d9c364fb8f4bf5be712f143b91ccbe))
+
+### BREAKING CHANGES
+
+The default V version is latest from now on. If you
+need to install the most recent weekly version set the version property
+to `weekly`. At least for 0.5 releases, they're more recent that the
+weekly versions, whcih stopped being released.
+
 ## [3.0.0](https://github.com/prantlf/setup-v-action/compare/v2.3.3...v3.0.0) (2026-07-18)
 
 ### Features
