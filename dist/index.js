@@ -33933,7 +33933,7 @@ function resolveVersion(token, version) {
   const getVersion = versionGetters[version];
   if (getVersion) return getVersion(token)
   if (semantic.test(version)) return getRelease(token, 'release', semantic, version)
-  return getCommit(token, version)
+  return getCommit(version, token)
 }
 
 async function getVersion(exePath) {
@@ -34019,7 +34019,7 @@ async function install(sha, url, useCache, forceBuild)  {
         debug(`extract ${archive} to ${extractDir}`);
         await extractZip(archive, extractDir);
         if (mock && platform !== 'win32') {
-          const exeOrigin = `${extractDir}/v/v`;
+          const exeOrigin = join(contentDir, 'v');
           info(`Make ${exeOrigin} executable`);
           await chmod$1(exeOrigin, 0o755);
         }
