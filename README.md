@@ -107,7 +107,7 @@ The following parameters can be accessed by the `github` context:
 
 Type: `String`<br>
 
-The actually installed version of V, as returned by `v -V`, for example: `V 0.3.4 046dd54`.
+The actually installed version of V, as returned by `v version`, for example: `V 0.3.4 046dd54`.
 
 ### bin-path
 

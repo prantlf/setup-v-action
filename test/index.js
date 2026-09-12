@@ -20,13 +20,16 @@ const env = {
   MOCK: '1'
 }
 
-const exeDir = join(__dirname, '/wksp/v-046dd54') // weekly: 692624b
-const exeName = join(exeDir, 'v')
+const releaseExeDir = join(__dirname, '/wksp/v-046dd54') // weekly: 692624b
+const releaseExeName = join(releaseExeDir, 'v')
+const commit = '83e30a8104a3ef1dc966d6eeffb580ef5b90c6fc'
+const commitExeDir = join(__dirname, `/wksp/v-${commit.substring(0, 7)}`)
+const commitExeName = join(commitExeDir, 'v')
 const cwd = join(__dirname, '..')
 
 function exec(command, args) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, { shell: true, cwd, env  })
+    const child = spawn(command, args, { cwd, env })
       .on('error', reject)
       .on('exit', code => code ? reject(new Error(`'${command}' exited with ${code}`)) : resolve())
     child.stdout.on('data', data => process.stdout.write(data.toString()))
@@ -34,7 +37,7 @@ function exec(command, args) {
   })
 }
 
-async function test(name) {
+async function test(name, exeName = releaseExeName) {
   console.log(`----------------------------------------
 ${name}
 ----------------------------------------`)
@@ -55,11 +58,15 @@ async function run() {
   await test('install from archive')
   await test('skip already installed')
 
-  await rm(exeName)
+  await rm(releaseExeName)
   await test('install missing executable from cache')
 
-  await rm(exeDir, { recursive: true })
+  await rm(releaseExeDir, { recursive: true })
   await test('install missing directory from cache')
+
+  env.INPUT_VERSION = commit
+  await test('install from a commit', commitExeName)
+  await access(join(commitExeDir, 'Makefile'))
 
   console.log('done')
 }

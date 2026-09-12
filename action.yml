@@ -43,7 +43,7 @@ inputs:
 outputs:
   version:
     description: >-
-      The actually installed version of V, as returned by `v -V`.
+      The actually installed version of V, as returned by `v version`.
   bin-path:
     description: >-
       The complete path to the directory with the V compiler.
