@@ -42,13 +42,13 @@
     "@actions/http-client": "^4.0.1",
     "@actions/io": "^3.0.2",
     "@actions/tool-cache": "^4.0.0",
-    "@biomejs/biome": "^2.5.4",
+    "@biomejs/biome": "^2.5.13",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "builtins": "^5.1.0",
+    "builtins": "^6.1.0",
     "mersenne-twister": "^1.1.0",
-    "rollup": "^4.62.2"
+    "rollup": "^4.63.2"
   },
   "keywords": [
     "github-actions",
