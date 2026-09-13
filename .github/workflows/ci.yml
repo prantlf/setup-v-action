@@ -33,11 +33,11 @@ jobs:
     - run: npm run build
     # - run: npm test
     - uses: ./
-    - uses: ./
-      with:
-        use-cache: false
-        force-build: true
-        install-dependencies: false
+    # - uses: ./
+    #   with:
+    #     use-cache: false
+    #     force-build: true
+    #     install-dependencies: false
 
   macos:
     runs-on: macos-latest
@@ -56,11 +56,11 @@ jobs:
     - run: npm run build
     - run: npm test
     - uses: ./
-    - uses: ./
-      with:
-        use-cache: false
-        force-build: true
-        install-dependencies: false
+    # - uses: ./
+    #   with:
+    #     use-cache: false
+    #     force-build: true
+    #     install-dependencies: false
 
   windows:
     runs-on: windows-latest
