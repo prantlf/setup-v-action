@@ -104,6 +104,6 @@ jobs:
         cache: 'pnpm'
         registry-url: 'https://registry.npmjs.org'
     - run: pnpm ci
-    - uses: prantlf/publish-release-action@v1
+    - uses: prantlf/publish-release-action@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
