@@ -33917,7 +33917,7 @@ async function getRelease(token, type, check, number) {
 
 async function getCommit(sha, token) {
   const { commit } = await requestSafely(token, `commits/${sha}`);
-  const { date } = commit;
+  const { date } = commit.author;
   debug(`commit is ${sha} from ${date}`);
   return { name: 'commit', sha, date }
 }
@@ -33933,7 +33933,7 @@ function resolveVersion(token, version) {
   const getVersion = versionGetters[version];
   if (getVersion) return getVersion(token)
   if (semantic.test(version)) return getRelease(token, 'release', semantic, version)
-  return getCommit(token, version)
+  return getCommit(version, token)
 }
 
 async function getVersion(exePath) {
@@ -33945,7 +33945,7 @@ async function getVersion(exePath) {
   }
 
   let out;
-  await exec(exePath, ['-V'], {
+  await exec(exePath, ['version'], {
     listeners: {
       stdout: data => {
         out = out ? Buffer.concat([out, data]) : data;
@@ -34018,23 +34018,38 @@ async function install(sha, url, useCache, forceBuild)  {
 
         debug(`extract ${archive} to ${extractDir}`);
         await extractZip(archive, extractDir);
+
+        if (wasBuilt) {
+          info(`Move ${contentDir} to ${exeDir} before building`);
+          try {
+            await mv(contentDir, exeDir);
+            contentDir = exeDir;
+          } catch (err) {
+            await rmRF(exeDir);
+            throw err
+          }
+        }
+
         if (mock && platform !== 'win32') {
-          const exeOrigin = `${extractDir}/v/v`;
+          const exeOrigin = join(contentDir, 'v');
           info(`Make ${exeOrigin} executable`);
           await chmod$1(exeOrigin, 0o755);
         }
 
         if (wasBuilt) {
-          if (platform !== 'win32') {
-            debug(`execute make in ${pkgDir}`);
-            await exec('make', [], { cwd: pkgDir });
-          } else {
-            debug(`execute make.bat in ${contentDir}`);
-            await exec2('make.bat', { cwd: contentDir, shell: true });
+          try {
+            if (platform !== 'win32') {
+              debug(`execute make in ${contentDir}`);
+              await exec('make', [], { cwd: contentDir });
+            } else {
+              debug(`execute make.bat in ${contentDir}`);
+              await exec2('make.bat', { cwd: contentDir, shell: true });
+            }
+          } catch (err) {
+            await rmRF(exeDir);
+            throw err
           }
-        }
-
-        if (platform !== 'win32') {
+        } else if (platform !== 'win32') {
           await mkdirP(exeDir);
           info(`Populate ${exeDir} with needed files from ${contentDir}`);
           try {
