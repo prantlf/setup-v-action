@@ -3,7 +3,7 @@ name: Test or Release
 on:
   push:
     branches:
-      - master
+      - '**'
     tags-ignore:
       - '**'
     paths-ignore:
